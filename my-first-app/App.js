@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 import ListItem from './src/components/Listitem/Listitem';
+import UserInput from './src/components/UserInput/UserInput';
+import PlaceOutput from './src/components/PlaceOutput/PlaceOutput';
 
 export default class App extends React.Component {
 
@@ -28,26 +30,17 @@ export default class App extends React.Component {
 
   render() {
       // output the user's input
-      const placesOutput = this.state.places.map((place,i) => (
-          <ListItem key={i} placeName={place}/>
-      ));
+      // const placesOutput = this.state.places.map((place,i) => (
+      //     <ListItem key={i} placeName={place}/>
+      // ));
 
     return (
       <View style={styles.container}>
           {/*文本输入框*/}
-        <View style={styles.inputContainer}>
-        <TextInput
-            style={styles.placeInput}
-            placeholder='Your Name'
-            value={this.state.placeName}
-            onChangeText={this.placeNameChangedHandler}/>
-          <Button style={styles.placeButton}
-                  title="Add"
-                  onPress={this.placeSubmitHandler}/>
-        </View>
-          <View style={styles.listContainer}>
-              {placesOutput}
-          </View>
+        <UserInput placeName={this.state.placeName}
+                   changed={this.placeNameChangedHandler}
+                   submitted={this.placeSubmitHandler}/>
+         <PlaceOutput places={this.state.places}/>
       </View>
     );
   }
