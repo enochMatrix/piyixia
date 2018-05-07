@@ -1,0 +1,133 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+MERGED from [com.facebook.react:react-native:0.55.3] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/react-native-0.55.3.aar/0826f7d270943580268deb7c35c79b49/AndroidManifest.xml:2:1-15:12
+MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/348c50b3e101c7ddd0a01af28052ea51/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:support-v4:23.0.1] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/659d42ec66646ff00dc3116e9de0883e/AndroidManifest.xml:17:1-24:12
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/42a0d96aa3ae567baaf7c8f03207b779/AndroidManifest.xml:10:1-18:12
+MERGED from [com.facebook.fresco:fresco:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/7f2eb9725d28ed42d2aae59ecbccac22/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/9e78ead383d95456f9fd939b45f19fbf/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/79b095987e36f8c40931983d9ae6bd0a/AndroidManifest.xml:1:1-4:12
+MERGED from [org.webkit:android-jsc:r174650] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/2f598ab65f873e133859804083e0c9de/AndroidManifest.xml:1:1-3:12
+MERGED from [com.facebook.fresco:drawee:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/fcf72163cf3ce0fe982c5a0d56e555bc/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/73438c7933545646323de1faeff57967/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/9517b025290dfae14aea5d6e05485e5a/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:fbcore:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/a1624abac23b4828a5132787fabf7ae9/AndroidManifest.xml:2:1-9:12
+INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+	package
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:2:5-22
+		INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+		INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+		INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:4:22-64
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:5:5-77
+MERGED from [com.facebook.react:react-native:0.55.3] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/react-native-0.55.3.aar/0826f7d270943580268deb7c35c79b49/AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.55.3] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/react-native-0.55.3.aar/0826f7d270943580268deb7c35c79b49/AndroidManifest.xml:11:5-78
+	android:name
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:5:22-75
+application
+ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:7:5-24:19
+MERGED from [com.facebook.react:react-native:0.55.3] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/react-native-0.55.3.aar/0826f7d270943580268deb7c35c79b49/AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.55.3] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/react-native-0.55.3.aar/0826f7d270943580268deb7c35c79b49/AndroidManifest.xml:13:5-20
+MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/348c50b3e101c7ddd0a01af28052ea51/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/348c50b3e101c7ddd0a01af28052ea51/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/659d42ec66646ff00dc3116e9de0883e/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/659d42ec66646ff00dc3116e9de0883e/AndroidManifest.xml:22:5-20
+MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/79b095987e36f8c40931983d9ae6bd0a/AndroidManifest.xml:3:3-17
+MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/79b095987e36f8c40931983d9ae6bd0a/AndroidManifest.xml:3:3-17
+MERGED from [org.webkit:android-jsc:r174650] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/2f598ab65f873e133859804083e0c9de/AndroidManifest.xml:2:3-17
+MERGED from [org.webkit:android-jsc:r174650] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/2f598ab65f873e133859804083e0c9de/AndroidManifest.xml:2:3-17
+	android:label
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:9:7-39
+	android:icon
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:10:7-41
+	android:allowBackup
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:11:7-34
+	android:theme
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:12:7-38
+	android:name
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:8:7-38
+activity#com.app.MainActivity
+ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:13:7-22:18
+	android:label
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:15:9-41
+	android:windowSoftInputMode
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:17:9-51
+	android:configChanges
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:16:9-79
+	android:name
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:14:9-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:18:9-21:25
+action#android.intent.action.MAIN
+ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:19:13-65
+	android:name
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:19:21-62
+category#android.intent.category.LAUNCHER
+ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:20:13-73
+	android:name
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:20:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:23:7-84
+	android:name
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:23:17-81
+uses-sdk
+INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml
+MERGED from [com.facebook.react:react-native:0.55.3] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/react-native-0.55.3.aar/0826f7d270943580268deb7c35c79b49/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.55.3] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/react-native-0.55.3.aar/0826f7d270943580268deb7c35c79b49/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/348c50b3e101c7ddd0a01af28052ea51/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/348c50b3e101c7ddd0a01af28052ea51/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/659d42ec66646ff00dc3116e9de0883e/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/659d42ec66646ff00dc3116e9de0883e/AndroidManifest.xml:20:5-43
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/42a0d96aa3ae567baaf7c8f03207b779/AndroidManifest.xml:14:5-16:41
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/42a0d96aa3ae567baaf7c8f03207b779/AndroidManifest.xml:14:5-16:41
+MERGED from [com.facebook.fresco:fresco:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/7f2eb9725d28ed42d2aae59ecbccac22/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/7f2eb9725d28ed42d2aae59ecbccac22/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/9e78ead383d95456f9fd939b45f19fbf/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/9e78ead383d95456f9fd939b45f19fbf/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/79b095987e36f8c40931983d9ae6bd0a/AndroidManifest.xml:2:3-70
+MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/79b095987e36f8c40931983d9ae6bd0a/AndroidManifest.xml:2:3-70
+MERGED from [com.facebook.fresco:drawee:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/fcf72163cf3ce0fe982c5a0d56e555bc/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/fcf72163cf3ce0fe982c5a0d56e555bc/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/73438c7933545646323de1faeff57967/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/73438c7933545646323de1faeff57967/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/9517b025290dfae14aea5d6e05485e5a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/9517b025290dfae14aea5d6e05485e5a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/a1624abac23b4828a5132787fabf7ae9/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.3.0] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/a1624abac23b4828a5132787fabf7ae9/AndroidManifest.xml:5:5-7:41
+INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from /Users/majingyi/app/android/app/src/main/AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
