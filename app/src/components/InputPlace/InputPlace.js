@@ -1,10 +1,24 @@
-import React from 'react';
+import React,{Component} from 'react';
 import {View,TextInput,StyleSheet,Button} from 'react-native';
 
-const inputPlace = (props) => {
-
-    return(
-
+class inputPlace extends Component{
+    state ={
+        placeName:'',
+        places:[]
+    };
+    placeNameChangedHandler=event=>{
+        this.setState({placeName:event})//设置状态
+        // alert(event)
+    };
+    placeSubmitHandler=()=>{
+        if(this.state.placeName.trim()===""){
+            return
+        }
+        //trim:remove whitespace from both side
+        this.props.onPlaceAdded(this.state.placeName);
+    };
+    render(){
+        return(
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.placeInput}
@@ -12,15 +26,17 @@ const inputPlace = (props) => {
                     //inline  style
                     placeholder="majingyi"
                     // value={this.state.placeName}
-                    onChangeText={props.ChangeText} //the same as React.
+                    onChangeText={this.placeNameChangedHandler} //the same as React.
                 />
                 <Button title="Add"
                         style={styles.placeButton}
-                        onPress={props.Press}/>
+                        onPress={this.placeSubmitHandler}/>
 
-            </View>)
+            </View>
 
-            };
+        )
+    }
+    };
 const styles = StyleSheet.create({
     inputContainer:{
         // flex:1,

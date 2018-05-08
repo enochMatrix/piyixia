@@ -1,4 +1,4 @@
-#Sat May 05 13:20:51 EDT 2018
-base.0=/Users/majingyi/app/android/app/build/intermediates/transforms/dexMerger/debug/0
+#Mon May 07 16:27:15 EDT 2018
+base.0=/Users/majingyi/Desktop/Matrix/app/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

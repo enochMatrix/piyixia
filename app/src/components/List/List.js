@@ -14,8 +14,9 @@ const list=(props)=> {
             data={props.places}
             renderItem={(info)=>(
                 <ListItem
-                          placeName={info.item.value}
-                          onItemPressed={()=>props.onItemDeleted(info.item.key)}/>
+                          placeName={info.item.name}
+                          placeImage={info.item.image}
+                          onItemPressed={()=>props.onItemSelected(info.item.key)}/>
 
             )}/>
             //no longer use map method on render

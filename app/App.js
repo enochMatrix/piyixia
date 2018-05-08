@@ -1,49 +1,77 @@
 import React,{Component} from 'react';
 import { StyleSheet, Text, View,TextInput,Button } from 'react-native';
-import ListItem from './src/components/ListItem/ListItem';
 import InputPlace from './src/components/InputPlace/InputPlace';
 import List from './src/components/List/List';
+// import placeImage from './src/asset/-93864268+539405686.jpg';
+import PlaceDetail from './src/components/placeDetail/placeDetail';
 
 export default class App extends Component {
-    state ={
-        placeName:'',
-        places:[]
-    };
-    placeNameChangedHandler=event=>{
-        this.setState({placeName:event})//设置状态
-        // alert(event)
-
+    state={
+        places:[],
+        selectedPlace:null
     };
 
-    placeSubmitHandler=()=>{
-        if(this.state.placeName.trim()===""){
-            return
+
+   placeAddedHandler=placeName=>{
+    this.setState(pre=>{
+        return{
+            places:pre.places.concat({
+                key:Math.random(),
+                name:placeName,
+                image:{
+                    uri:"https://res.cloudinary.com/simpleview/image/upload/c_limit,f_auto,h_1200,q_75,w_1200/v1/clients/lasvegas/strip_b86ddbea-3add-4995-b449-ac85d700b027.jpg"
+                }})
         }
-        //trim:remove whitespace from both side
+        }
+    )};
+    placeDeletedHandler=()=>{
         this.setState(preState=>{
             return{
-                places:preState.places.concat(preState.placeName)
-                //concat: join arrays
+                places:preState.places.filter((place)=>
+                {return place.key!==preState.selectedPlace.key}) ,
+                //filter==true ,keep the value
+                selectedPlace:null
             }
         })
-    };
+    }
+
+    modelClosedHandler=()=>(
+        this.setState({
+            selectedPlace:null
+
+        })
+    )
+
+    placeSelectedHander=key=>{
+        this.setState(preState=>{
+            return {
+                selectedPlace:preState.places.find(place=>{
+                    return place.key===key;
+                })
+            }
+        })
+    }
+
+
+
+
 
   render() {
-        const placesOutput=this.state.places.map(
-            (place,i)=>(
-                <ListItem key={i}
-                placeName={place}/>
-            )
-        );//output the array out;
+
 
     return (
       <View style={styles.container}>
 
-          <InputPlace ChangeText={this.placeNameChangedHandler}
-                      Press={this.placeSubmitHandler}/>
+
+          <InputPlace onPlaceAdded={this.placeAddedHandler}/>
 
 
-          <List placesOutput={placesOutput}/>
+          <List places={this.state.places}
+                onItemSelected={this.placeSelectedHander}/>
+
+          <PlaceDetail selectedPlace={this.state.selectedPlace}
+                       onItemDeleted={this.placeDeletedHandler}
+                       onModelClosed={this.modelClosedHandler}/>
 
       </View>
     );

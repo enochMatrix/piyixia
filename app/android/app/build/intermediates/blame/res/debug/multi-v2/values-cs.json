@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/majingyi/app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-cs/values-cs.xml",
+            "outputFile": "/Users/majingyi/Desktop/Matrix/app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-cs/values-cs.xml",
             "map": [
                 {
                     "source": "/Users/majingyi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/348c50b3e101c7ddd0a01af28052ea51/res/values-cs/values-cs.xml",
