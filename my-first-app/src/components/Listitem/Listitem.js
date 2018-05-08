@@ -5,7 +5,7 @@ const listItem = (props) => (
     // enable touchable function
     <TouchableOpacity onPress={props.onItemPressed}>
     <View style={styles.listItem}>
-        <Image style={styles.placeImage} source={props.placeImage} resizeMode="cover"/>
+        <Image style={styles .placeImage} source={props.placeImage} resizeMode="cover"/>
         <Text>{props.placeName}</Text>
     </View>
     </TouchableOpacity>

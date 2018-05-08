@@ -3,28 +3,62 @@ import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 import ListItem from './src/components/Listitem/Listitem';
 import UserInput from './src/components/UserInput/UserInput';
 import PlaceOutput from './src/components/PlaceOutput/PlaceOutput';
+import placeImage from './src/assets/cats.jpg'; // local image
+import PlaceDetail from './src/components/PlaceDetail/PlaceDetail';
 
 export default class App extends React.Component {
 
     state = {
-        placeName: '',
-        places: []
+        places: [],
+        selectPlace: null
     };
 
 // 输入处理函数
-    placeNameChangedHandler = val => {
-      this.setState({placeName: val})
-    };
 
-    placeSubmitHandler = () => {
-        if(this.state.placeName.trim() ==="") {  // trim remove whitespace from both sides of string
-            return;
-        }
+    placeAddedHandler = (placeName) => {
         // concat all the inputs by user in a array, ['','','',...]
         this.setState(prevState => {
             return {
-                places: prevState.places.concat(prevState.placeName)
+                places: prevState.places.concat({
+                    key: Math.random(),
+                    name: placeName,
+                    image: {
+                        // fetch image from online
+                        uri: "https://www.elastic.co/assets/bltada7771f270d08f6/enhanced-buzz-1492-1379411828-15.jpg"
+                    }
+                })
             }
+        })
+    };
+
+    placeSelectedHandler = key => {
+        // this.setState(prevState => {
+        //     return {
+        //         places: prevState.places.filter( place => {
+        //             return place.key !== key;
+        //         })
+        //     }
+        // })
+        this.setState(prevState => {
+            return {
+                selectPlace: prevState.places.find(place => place.key === key)
+            }
+        })
+    };
+    placeDeletedHandler = () => {
+        this.setState(prevState => {
+            return {
+                places: prevState.places.filter( place => {
+                    return place.key !== prevState.selectPlace.key
+                }),
+                selectPlace: null
+            }
+        })
+    };
+
+    modalClosedHandler = () => {
+        this.setState({
+            selectPlace: null
         })
     };
 
@@ -37,10 +71,14 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
           {/*文本输入框*/}
-        <UserInput placeName={this.state.placeName}
-                   changed={this.placeNameChangedHandler}
-                   submitted={this.placeSubmitHandler}/>
-         <PlaceOutput places={this.state.places}/>
+
+          <PlaceDetail selectedPlace={this.state.selectPlace}
+                       onItemDeleted={this.placeDeletedHandler}
+                       onModalClosed={this.modalClosedHandler}/>
+          <UserInput onPlaceAdded={this.placeAddedHandler}/>
+          <PlaceOutput
+             places={this.state.places}
+             onItemSelected={this.placeSelectedHandler}/>
       </View>
     );
   }
