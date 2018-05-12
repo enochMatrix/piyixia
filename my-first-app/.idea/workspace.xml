@@ -1,12 +1,682 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="665833a4-b348-425b-ae9c-a661dce3d69d" name="Default" comment="05-07 12:42PM">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PlaceOutput/PlaceOutput.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/UserInput/UserInput.js" afterDir="false" />
+    <list default="true" id="665833a4-b348-425b-ae9c-a661dce3d69d" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/store/actions/actionTypes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/actions/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/actions/places.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/reducers/places.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/.gradle/4.4/javaCompile/jarAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/.gradle/4.4/taskHistory/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/.idea/libraries/Gradle__com_facebook_fresco_imagepipeline_base_1_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/.idea/libraries/Gradle__com_squareup_okio_okio_1_13_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/generated/source/r/debug/com/facebook/imagepipeline/R.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/generated/source/r/debug/com/facebook/imagepipelinebase/R.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/generated/source/r/debug/org/webkit/android_jsc/R.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/blame/res/debug/multi-v2/values-bn-rBD.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/blame/res/debug/multi-v2/values-en-rIN.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/blame/res/debug/multi-v2/values-iw.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/blame/res/debug/multi-v2/values-kk-rKZ.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/blame/res/debug/multi-v2/values-pl.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/blame/res/debug/multi-v2/values-ta-rIN.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/blame/res/debug/multi-v2/values-te-rIN.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/blame/res/debug/multi-v2/values-xlarge-v4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/classes/debug/com/app/BuildConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/classes/debug/com/app/MainApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/classes/debug/com/app/R$dimen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/classes/debug/com/facebook/fbcore/R.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/classes/debug/com/facebook/imagepipeline/R.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/classes/debug/com/facebook/react/R$id.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/Z6_M3p_QPzgKB66kA9TRJl0dykY=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/ct+I2jPMH4kslZeI4FEGtJvcJ78=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/debug-mergeJavaRes/zip-cache/hr3z7D5L6gsF2CBfp7u_VlbNANI=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/DRWMARQgPY8tMXX_nCy7Mtgtbdc=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/Z6_M3p_QPzgKB66kA9TRJl0dykY=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/ct+I2jPMH4kslZeI4FEGtJvcJ78=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/debug-mergeJniLibs/zip-cache/hr3z7D5L6gsF2CBfp7u_VlbNANI=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-af/values-af.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ca/values-ca.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-da/values-da.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-is-rIS/values-is-rIS.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-kk-rKZ/values-kk-rKZ.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-mn-rMN/values-mn-rMN.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-port/values-port.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sr/values-sr.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw/values-sw.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-tr/values-tr.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-uz-rUZ/values-uz-rUZ.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v11/values-v11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v22/values-v22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rHK/values-zh-rHK.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/mergeDebugShaders/merger.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/incremental/packageDebug/tmp/debug/file-input-save-data.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/anim_abc_slide_in_bottom.xml.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/anim_catalyst_push_up_in.xml.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-hdpi_abc_btn_check_to_on_mtrl_015.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-hdpi_abc_ic_clear_mtrl_alpha.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-hdpi_abc_ic_menu_share_mtrl_alpha.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi_abc_ic_menu_cut_mtrl_alpha.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi_abc_spinner_mtrl_am_alpha.9.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxxhdpi_abc_ic_menu_copy_mtrl_am_alpha.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_abc_ab_share_pack_mtrl_alpha.9.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_abc_ic_menu_share_mtrl_alpha.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_abc_ic_voice_search_api_mtrl_alpha.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-mdpi_abc_list_focused_holo.9.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_abc_btn_rating_star_on_mtrl_alpha.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_abc_ic_menu_cut_mtrl_alpha.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_abc_list_selector_disabled_holo_light.9.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_abc_textfield_activated_mtrl_alpha.9.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_abc_textfield_search_activated_mtrl_alpha.9.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi_abc_btn_radio_to_on_mtrl_015.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi_abc_ic_commit_search_api_mtrl_alpha.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi_abc_list_divider_mtrl_alpha.9.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi_abc_popup_background_mtrl_mult.9.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi_abc_textfield_default_mtrl_alpha.9.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_abc_btn_check_to_on_mtrl_000.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable_abc_btn_default_mtrl_shape.xml.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable_abc_cab_background_top_material.xml.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable_abc_dialog_material_background_light.xml.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable_abc_item_background_holo_light.xml.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable_abc_list_selector_background_transition_holo_dark.xml.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/drawable_abc_list_selector_background_transition_holo_light.xml.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/layout_abc_action_menu_layout.xml.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/layout_abc_expanded_menu_layout.xml.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/layout_abc_screen_simple_overlay_action_mode.xml.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/layout_redbox_item_title.xml.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/layout_select_dialog_singlechoice_material.xml.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/values-h720dp-v13_values-h720dp-v13.arsc.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/values-lo-rLA_values-lo-rLA.arsc.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/values-lv_values-lv.arsc.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/values-ne-rNP_values-ne-rNP.arsc.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/values-nl_values-nl.arsc.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/values-ru_values-ru.arsc.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/values-uk_values-uk.arsc.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/values-v11_values-v11.arsc.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/res/merged/debug/values-w500dp-v13_values-w500dp-v13.arsc.flat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/splits-support/debug/apk-list/apk-list.gson" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/dexBuilder/debug/10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/dexBuilder/debug/28.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/dexBuilder/debug/29.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/dexBuilder/debug/30.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/dexBuilder/debug/35.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/dexBuilder/debug/36.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/dexBuilder/debug/6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/dexBuilder/debug/63.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/dexBuilder/debug/66/com/app/MainActivity.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/dexBuilder/debug/66/com/app/R$bool.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/dexBuilder/debug/66/com/facebook/drawee/R$attr.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/dexBuilder/debug/66/com/facebook/drawee/R.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/armeabi-v7a/libfolly_json.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/armeabi-v7a/libglog_init.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/x86/libfolly_json.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/x86/libimagepipeline.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/intermediates/transforms/mergeJniLibs/debug/0/lib/x86/libprivatedata.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/local.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/keystores/BUCK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/android/local.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/app-tvOS/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/app.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTActionSheet.build/Debug-iphonesimulator/RCTActionSheet.build/RCTActionSheet-project-headers.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTAnimation.build/Debug-iphonesimulator/RCTAnimation.build/Objects-normal/x86_64/RCTDivisionAnimatedNode.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTAnimation.build/Debug-iphonesimulator/RCTAnimation.build/Objects-normal/x86_64/RCTDivisionAnimatedNode.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTAnimation.build/Debug-iphonesimulator/RCTAnimation.build/Objects-normal/x86_64/RCTEventAnimation.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTAnimation.build/Debug-iphonesimulator/RCTAnimation.build/Objects-normal/x86_64/RCTEventAnimation.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTAnimation.build/Debug-iphonesimulator/RCTAnimation.build/Objects-normal/x86_64/RCTNativeAnimatedModule.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTAnimation.build/Debug-iphonesimulator/RCTAnimation.build/Objects-normal/x86_64/RCTPropsAnimatedNode.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTAnimation.build/Debug-iphonesimulator/RCTAnimation.build/Objects-normal/x86_64/RCTSpringAnimation.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTAnimation.build/Debug-iphonesimulator/RCTAnimation.build/Objects-normal/x86_64/RCTSpringAnimation.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTBlob.build/Debug-iphonesimulator/RCTBlob.build/RCTBlob-own-target-headers.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTGeolocation.build/Debug-iphonesimulator/RCTGeolocation.build/RCTGeolocation-all-target-headers.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTGeolocation.build/Debug-iphonesimulator/RCTGeolocation.build/RCTGeolocation-own-target-headers.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTGeolocation.build/Debug-iphonesimulator/RCTGeolocation.build/StaticAnalyzer/RCTGeolocation/RCTGeolocation/normal/x86_64/RCTLocationObserver.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTImage.build/Debug-iphonesimulator/RCTImage.build/Objects-normal/x86_64/RCTImageShadowView.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTImage.build/Debug-iphonesimulator/RCTImage.build/Objects-normal/x86_64/RCTImageShadowView.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTImage.build/Debug-iphonesimulator/RCTImage.build/Objects-normal/x86_64/RCTResizeMode.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTImage.build/Debug-iphonesimulator/RCTImage.build/StaticAnalyzer/RCTImage/RCTImage/normal/x86_64/RCTGIFImageDecoder.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTImage.build/Debug-iphonesimulator/RCTImage.build/StaticAnalyzer/RCTImage/RCTImage/normal/x86_64/RCTImageBlurUtils.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTImage.build/Debug-iphonesimulator/RCTImage.build/StaticAnalyzer/RCTImage/RCTImage/normal/x86_64/RCTImageCache.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTImage.build/Debug-iphonesimulator/RCTImage.build/StaticAnalyzer/RCTImage/RCTImage/normal/x86_64/RCTImageStoreManager.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTImage.build/Debug-iphonesimulator/RCTImage.build/StaticAnalyzer/RCTImage/RCTImage/normal/x86_64/RCTImageStoreManager.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTImage.build/Debug-iphonesimulator/RCTImage.build/StaticAnalyzer/RCTImage/RCTImage/normal/x86_64/RCTImageUtils.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTImage.build/Debug-iphonesimulator/RCTImage.build/StaticAnalyzer/RCTImage/RCTImage/normal/x86_64/RCTImageUtils.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTImage.build/Debug-iphonesimulator/RCTImage.build/StaticAnalyzer/RCTImage/RCTImage/normal/x86_64/RCTImageView.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTImage.build/Debug-iphonesimulator/RCTImage.build/StaticAnalyzer/RCTImage/RCTImage/normal/x86_64/RCTImageView.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTImage.build/Debug-iphonesimulator/RCTImage.build/StaticAnalyzer/RCTImage/RCTImage/normal/x86_64/RCTResizeMode.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTLinking.build/Debug-iphonesimulator/RCTLinking.build/Objects-normal/x86_64/RCTLinking.LinkFileList" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTLinking.build/Debug-iphonesimulator/RCTLinking.build/RCTLinking-all-non-framework-target-headers.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTLinking.build/Debug-iphonesimulator/RCTLinking.build/RCTLinking-project-headers.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTNetwork.build/Debug-iphonesimulator/RCTNetwork.build/Objects-normal/x86_64/RCTHTTPRequestHandler.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTNetwork.build/Debug-iphonesimulator/RCTNetwork.build/Objects-normal/x86_64/RCTHTTPRequestHandler.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTNetwork.build/Debug-iphonesimulator/RCTNetwork.build/RCTNetwork.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTNetwork.build/Debug-iphonesimulator/RCTNetwork.build/StaticAnalyzer/RCTNetwork/RCTNetwork/normal/x86_64/RCTNetworkTask.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTSettings.build/Debug-iphonesimulator/RCTSettings.build/Objects-normal/x86_64/RCTSettings.LinkFileList" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTSettings.build/Debug-iphonesimulator/RCTSettings.build/RCTSettings-generated-files.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTSettings.build/Debug-iphonesimulator/RCTSettings.build/RCTSettings.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/Objects-normal/x86_64/NSTextStorage+FontScaling.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/Objects-normal/x86_64/RCTBaseTextInputView.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/Objects-normal/x86_64/RCTBaseTextInputView.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/Objects-normal/x86_64/RCTBaseTextInputViewManager.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/Objects-normal/x86_64/RCTMultilineTextInputView.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/Objects-normal/x86_64/RCTRawTextViewManager.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/Objects-normal/x86_64/RCTRawTextViewManager.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/Objects-normal/x86_64/RCTTextAttributes.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/Objects-normal/x86_64/RCTTextShadowView.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/Objects-normal/x86_64/RCTTextView.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/Objects-normal/x86_64/RCTTextView.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/Objects-normal/x86_64/RCTUITextView.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/Objects-normal/x86_64/RCTVirtualTextShadowView.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/Objects-normal/x86_64/RCTVirtualTextViewManager.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/StaticAnalyzer/RCTText/RCTText/normal/x86_64/NSTextStorage+FontScaling.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/StaticAnalyzer/RCTText/RCTText/normal/x86_64/RCTBackedTextInputDelegateAdapter.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/StaticAnalyzer/RCTText/RCTText/normal/x86_64/RCTBaseTextInputView.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/StaticAnalyzer/RCTText/RCTText/normal/x86_64/RCTMultilineTextInputView.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/StaticAnalyzer/RCTText/RCTText/normal/x86_64/RCTRawTextShadowView.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/StaticAnalyzer/RCTText/RCTText/normal/x86_64/RCTRawTextViewManager.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/StaticAnalyzer/RCTText/RCTText/normal/x86_64/RCTTextAttributes.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/StaticAnalyzer/RCTText/RCTText/normal/x86_64/RCTUITextView.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTText.build/Debug-iphonesimulator/RCTText.build/StaticAnalyzer/RCTText/RCTText/normal/x86_64/RCTVirtualTextShadowView.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTVibration.build/Debug-iphonesimulator/RCTVibration.build/Objects-normal/x86_64/RCTVibration.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTVibration.build/Debug-iphonesimulator/RCTVibration.build/RCTVibration-all-non-framework-target-headers.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTWebSocket.build/Debug-iphonesimulator/RCTWebSocket.build/Objects-normal/x86_64/RCTSRWebSocket.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTWebSocket.build/Debug-iphonesimulator/RCTWebSocket.build/Objects-normal/x86_64/RCTWebSocketModule.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTWebSocket.build/Debug-iphonesimulator/fishhook.build/Objects-normal/x86_64/fishhook.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/RCTWebSocket.build/Debug-iphonesimulator/fishhook.build/Objects-normal/x86_64/fishhook.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTAccessibilityManager.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTAccessibilityManager.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTActivityIndicatorView.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTAlertManager.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTComponentData.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTComponentData.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTCxxBridge.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTCxxMethod.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTDevSettings.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTFPSGraph.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTFPSGraph.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTFollyConvert.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTI18nManager.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTI18nManager.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTJSStackFrame.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTKeyboardObserver.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTMaskedView.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTModalHostView.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTModalManager.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTNavigator.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTNavigatorManager.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTPackagerConnection.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTPerfMonitor.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTPerfMonitor.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTProfileTrampoline-arm.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTProfileTrampoline-arm.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTProfileTrampoline-arm.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTProfileTrampoline-i386.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTProgressViewManager.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTRedBoxExtraDataViewController.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTScrollView.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTScrollView.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTShadowView+Internal.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTShadowView.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTSlider.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTSurfaceRootView.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTSurfaceStage.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTSurfaceStage.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTSurfaceView.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTSwitchManager.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTTabBar.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTTiming.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Objects-normal/x86_64/RCTTouchHandler.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/React-generated-files.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/Script-142C4F7F1B582EA6001F0B58.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/JSCTracing.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/JSCTracing.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/PrivateDataBase.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTBundleURLProvider.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTClipboard.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTClipboard.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTCxxBridge.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTCxxUtils.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTFPSGraph.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTFont.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTI18nManager.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTI18nManager.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTImageSource.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTInspectorDevServerHelper.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTJSCErrorHandling.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTMaskedView.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTModalHostViewController.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTModalManager.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTModuleMethod.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTMultipartDataTask.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTMultipartStreamReader.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTNavItemManager.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTNavigatorManager.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTObjcExecutor.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTPerfMonitor.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTScrollView.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTSegmentedControl.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTSegmentedControlManager.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTShadowView+Internal.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTSliderManager.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTSurfaceSizeMeasureMode.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTSurfaceSizeMeasureMode.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTSwitchManager.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTUIManagerObserverCoordinator.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTUtils.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTVersion.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/React.build/StaticAnalyzer/React/React/normal/x86_64/RCTViewManager.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/Objects-normal/x86_64/Instance.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/Objects-normal/x86_64/Instance.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/Objects-normal/x86_64/JSCExecutor.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/Objects-normal/x86_64/JSCMemory.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/Objects-normal/x86_64/JSCNativeModules.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/Objects-normal/x86_64/JSCNativeModules.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/Objects-normal/x86_64/JSCUtils.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/Objects-normal/x86_64/JSCUtils.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/Objects-normal/x86_64/JSIndexedRAMBundle.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/Objects-normal/x86_64/JSIndexedRAMBundle.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/Objects-normal/x86_64/NativeToJsBridge.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/Objects-normal/x86_64/RAMBundleRegistry.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/Objects-normal/x86_64/RAMBundleRegistry.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/StaticAnalyzer/React/cxxreact/normal/x86_64/CxxNativeModule.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/StaticAnalyzer/React/cxxreact/normal/x86_64/Instance.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/StaticAnalyzer/React/cxxreact/normal/x86_64/Instance.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/StaticAnalyzer/React/cxxreact/normal/x86_64/JSCLegacyTracing.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/StaticAnalyzer/React/cxxreact/normal/x86_64/JSCMemory.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/StaticAnalyzer/React/cxxreact/normal/x86_64/JSCNativeModules.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/StaticAnalyzer/React/cxxreact/normal/x86_64/JSCPerfStats.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/StaticAnalyzer/React/cxxreact/normal/x86_64/JSCSamplingProfiler.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/StaticAnalyzer/React/cxxreact/normal/x86_64/JSCSamplingProfiler.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/StaticAnalyzer/React/cxxreact/normal/x86_64/JSCUtils.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/StaticAnalyzer/React/cxxreact/normal/x86_64/Platform.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/cxxreact.build/cxxreact.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/double-conversion.build/Objects-normal/x86_64/cached-powers.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/double-conversion.build/Objects-normal/x86_64/double-conversion.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/jschelpers.build/Objects-normal/x86_64/JSCWrapper.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/jschelpers.build/Objects-normal/x86_64/Unicode.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/jschelpers.build/Objects-normal/x86_64/Value.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/jschelpers.build/Objects-normal/x86_64/Value.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/jschelpers.build/Objects-normal/x86_64/Value.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/jschelpers.build/Objects-normal/x86_64/jschelpers.LinkFileList" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/jsinspector.build/jsinspector-project-headers.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/privatedata.build/Objects-normal/x86_64/privatedata.LinkFileList" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/privatedata.build/privatedata-generated-files.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/third-party.build/Objects-normal/x86_64/Conv.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/third-party.build/Objects-normal/x86_64/Unicode.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/third-party.build/Objects-normal/x86_64/json.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/third-party.build/Objects-normal/x86_64/symbolize.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/third-party.build/third-party.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/yoga.build/Objects-normal/x86_64/Utils.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/yoga.build/Objects-normal/x86_64/YGNode.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/yoga.build/Objects-normal/x86_64/YGNodePrint.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/yoga.build/Objects-normal/x86_64/Yoga.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/yoga.build/StaticAnalyzer/React/yoga/normal/x86_64/Utils.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/yoga.build/StaticAnalyzer/React/yoga/normal/x86_64/YGNode.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/yoga.build/StaticAnalyzer/React/yoga/normal/x86_64/YGStyle.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/React.build/Debug-iphonesimulator/yoga.build/yoga-project-headers.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/app.build/Debug-iphonesimulator/app.build/LaunchScreen-PartialInfo.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/app.build/Debug-iphonesimulator/appTests.build/appTests.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Intermediates.noindex/app.build/Debug-iphonesimulator/appTests.build/dgph" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/app.app/Base.lproj/LaunchScreen.nib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/app.app/Frameworks/IDEBundleInjection.framework/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/app.app/Frameworks/IDEBundleInjection.framework/_CodeSignature/CodeResources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/app.app/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/RCTAnimation/RCTModuloAnimatedNode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/RCTText/RCTBaseTextInputView.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/RCTText/RCTBaseTextInputViewManager.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/RCTText/RCTTextSelection.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/RCTText/RCTTextViewManager.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAlertManager.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeMethod.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTClipboard.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDevMenu.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDevSettings.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTErrorCustomizer.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTEventDispatcher.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLayoutAnimation.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTModalHostViewController.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTMultipartStreamReader.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTNavItem.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTNavigatorManager.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTProfile.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTSegmentedControlManager.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTSlider.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTSourceCode.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTouchEvent.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTView.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTWebViewManager.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/cxxreact/Instance.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/cxxreact/JSCExecutor.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/cxxreact/JSCSamplingProfiler.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/cxxreact/JSCUtils.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/cxxreact/ModuleRegistry.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/cxxreact/Platform.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/jschelpers/JSCWrapper.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/libprivatedata.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Build/Products/Debug-iphonesimulator/libthird-party.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/05/is_base_and_derived.hpp-2L1D6XQ7YNO05" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/07/XCTestObserver.h-1LYEPLKI8K907" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/0A/AVAssetImageGenerator.h-2FJ42AAL3HH0A" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/0A/JSCLegacyTracing.cpp-2LUGKSC8AOH0A" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/0A/YGLayout.h-360EIZR7PVA0A" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/0D/CFSet.h-Q0Z7ZC2E2B0D" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/0P/shaintrin.h-3AO1SOJ0LSN0P" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/11/CpuId.h-23XJ1428WR111" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/18/CFNetServices.h-2NP45ZBGBE818" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/1B/new-1UYDGX1R9LT1B" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/1E/NSNotificationQueue.h-1023QGYRCB21E" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/1F/NSUUID.h-2YP8R8855EM1F" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/1G/RCTDivisionAnimatedNode.m-1GYY6C3JIXI1G" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/1R/RCTBackedTextInputDelegateAdapter.h-VARQ5C7AV21R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/1R/io.h-2LAC186M56L1R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/1S/EAGLDrawable.h-SZLPOS1T9X1S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/1U/iostream-2PMYIWVVW551U" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/1Y/kern_return.h-391DW6UPI0O1Y" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/1Z/_pthread_types.h-WPYU2IVB421Z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/20/rtmintrin.h-2ZKOJ0JR0P520" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/22/UIPress.h-CS8WDYB3TU22" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/23/stddef.h-1ZMAZXN5O5Q23" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/29/NSLock.h-33NPZ5JY94G29" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/2D/RCTValueAnimatedNode.m-2WZF609NDMC2D" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/2N/function_template.hpp-25LB2G59XI62N" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/2W/end.hpp-2F7PPFQY9XI2W" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/2Z/CFBitVector.h-2NF4IMZ30BF2Z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/31/object.h-1UZJ8LKQZER31" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/37/_inttypes.h-3JFJOEFA6YA37" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/38/NSIndexPath.h-37NJOCNT2M738" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/3A/mach_time.h-RIJQ2LHMCG3A" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/3L/NSTextCheckingResult.h-1QCYG8H80ZK3L" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/4I/UINotificationFeedbackGenerator.h-11R82RQWGKR4I" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/4K/RCTModuloAnimatedNode.m-12L39O2ALO74K" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/4M/CLLocationManager+CLVisitExtensions.h-90OYJZ1Y444M" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/4M/NSStream.h-2K9TTRK9O914M" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/4N/common.hpp-Z8J9VP2U3T4N" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/4O/AVAudioUnitComponent.h-G0EI1BVJNO4O" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/4R/UIScrollView.h-2A9JVO8Z0BA4R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/4R/inet.h-3OL4XFDOJAL4R" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/4S/_guid_t.h-2AUJQCMPUB44S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/4S/host_priv.h-280T3X510HC4S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/56/RCTEventDispatcher.m-25SUE6LUC9S56" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/5D/NSLayoutConstraint.h-20MB785QEWB5D" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/5D/UITextField.h-3EQT3H9RH8O5D" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/5G/AVCompositionTrackSegment.h-N10OSO4L5O5G" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/5G/has_prefix_operator.hpp-SZDNQ1KPE5G" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/5K/__locale-QUWTLJ7LCA5K" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/5L/lzcntintrin.h-36EBOV8TW3U5L" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/5S/_ssize_t.h-XQRK4VIGB45S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/65/XCUIElementAttributes.h-6SUWV6IJPJ65" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/6J/CFNetDiagnostics.h-3ML3LIBCLTI6J" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/6J/has_binary_operator.hpp-1E4FMEI7RFH6J" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/6Q/AVAudioIONode.h-3Q6O93Z7AUN6Q" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/74/RCTSurfaceRootShadowView.m-1YIWI0579ZO74" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/7B/JSCMemory.h-KUSHV8KAUK7B" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/7C/RCTJavaScriptLoader.mm-DE9XNYMBTY7C" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/7G/integer_fwd.hpp-21SFLO3NDT57G" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/7L/RCTTabBar.h-3RSKTR782H67L" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/7S/socket.h-1S6UBF5MKS57S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/7T/XCUIScreenshotProviding.h-1WFF1741UPA7T" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/7V/iterator.hpp-12ITZWBNZR47V" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/7W/has_binary_operator.hpp-10HI84HAG727W" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/8A/CFStringTokenizer.h-3KZAPEWGS2V8A" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/8B/RCTMultiplicationAnimatedNode.h-2PZS45ZY2HQ8B" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/8B/result_of_iterate.hpp-2L9LVP7E5TW8B" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/8H/NSPort.h-1YP0VISXOVP8H" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/8S/UIDataDetectors.h-2GLHIVXK1GS8S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/8T/XCTAttachmentLifetime.h-3F2BUHVBM818T" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/8T/_pthread_t.h-W7LCIFISM78T" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/8V/AVAudioUnitTimePitch.h-1YX9609NELP8V" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/8X/UIToolbar.h-1TR1Z27R4SC8X" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/98/JSCWrapper.h-1MIQ0VWOFQR98" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/98/NSFilePresenter.h-WITKCD7X7U98" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/99/InspectorInterfaces.h-1P5EGDKT5G99" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/9G/CIContext.h-1DN4JGET3419G" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/9N/remove_cv.hpp-3BX6LD0GWSD9N" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/9U/_wctype.h-RMR4PGD49H9U" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/A0/vm_prot.h-2UECCB82ITLA0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/A6/AVAssetCache.h-11LY5NPPS12A6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/A6/CAValueFunction.h-1GXAXWLTQ18A6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/AA/AVAudioUnit.h-39NG1VICRHCAA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/AB/AVAssetTrackSegment.h-1FIVNXZOW0TAB" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/AB/RCTActionSheetManager.m-1GZUZCMWP5VAB" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/AC/CAGradientLayer.h-12FLA2BXX7VAC" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/AE/kdebug_signpost.h-H1VEV1TLJ8AE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/AL/OSAtomicQueue.h-3J2E2ZKXS04AL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/AS/XCUIElementTypes.h-2GJKSXC9YEPAS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/AT/UIGraphicsRendererSubclass.h-2Y427EIUIN9AT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/B0/AVAssetWriterInput.h-2Q0DA5D9QP2B0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/B2/RCTInspector.h-IIREBS6GZUB2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/B3/RCTFollyConvert.mm-1YGIEU03QCNB3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/B8/XCUIRemote.h-VWKUL5UC7DB8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/B9/vector_types.h-L12QFTSTFKB9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/BH/RCTInspectorPackagerConnection.h-2HIUII30UD5BH" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/BH/pkuintrin.h-DJXCJKQQPQBH" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/BI/NSProcessInfo.h-6JPY4T1Z33BI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/BI/bignum-dtoa.cc-3IKJEQXZ4D0BI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/BJ/YGLayout.cpp-7W1B4OX9T9BJ" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/BN/math.h-26GLRJXE2ARBN" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/BV/UIGraphicsImageRenderer.h-27KY5ILIN40BV" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/BY/UIBlurEffect.h-33SMJ1QPVIZBY" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/C0/EAGL.h-3CPAMCOLIGVC0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/C3/algorithm-BJYR51U6GWC3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/C4/RCTProfile.m-292TXGYXBEIC4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/C9/RCTScrollView.h-231M6XBJLAZC9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/CN/has_binary_operator.hpp-2D1WK4JOO1NCN" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/CO/UITextInteraction.h-MKPYSTZ5KMCO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/CS/NSNetServices.h-2VS33HCGFNICS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/CS/RCTFPSGraph.h-219RMQ06FKLCS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/CS/UTType.h-21UWVN4KOM1CS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/CT/UIRegion.h-28Q43J08EA3CT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/CU/RCTUIManagerObserverCoordinator.h-2RPKYG67GZ5CU" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/CW/Exception.h-22902U5LDA6CW" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/CW/promote.hpp-3G1CKBEMPJACW" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/CW/ref.hpp-1DT90YBEGQLCW" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/CX/clflushoptintrin.h-G8LNF7JMMCCX" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/D9/AUParameters.h-2H2KDIHNWHKD9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/D9/vBigNum.h-1QM9PPUBB9RD9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/DD/RCTUtils.m-28JPSUXV18LDD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/DM/AVVideoSettings.h-15PWPJLWRLZDM" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/DR/demangle.cc-U1NZ27M4LDDR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/DZ/_pthread_attr_t.h-2Q6BE87QG8WDZ" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/E1/initializer_list-2EYDJP6B21NE1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/E2/AVComposition.h-3AZBVVF1J30E2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/E7/JSBigString.h-3NY467OJMNLE7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/EE/vm_page_size.h-A0R3552CYAEE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/EF/RCTDisplayLink.h-1YJKU13EUZ6EF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/EG/tgmath.h-21D53KGRGYDEG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/EH/RCTScrollContentView.m-2PU8VSHJ2QVEH" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/EI/UIMotionEffect.h-78RV4BM5ZVEI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/EV/BitsDetail.h-G2AUCEE05FEV" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/EY/RCTTextDecorationLineType.h-3JBVWBBAKJEY" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/F1/RCTLayoutAnimationGroup.h-IP4JH7RBMJF1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/F1/is_union.hpp-NJNOHPAYR5F1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/F9/RCTAnimationType.h-32UC7IYIVXNF9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/FO/has_binary_operator.hpp-BLBZV33UBMFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/FQ/MTLCommandBuffer.h-3JBKN66BO2RFQ" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/FT/_suseconds_t.h-3KA5IY7WWVFT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/FV/_dev_t.h-UT7EIR41JQFV" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/FX/UIDynamicBehavior.h-2Y4MUSLWTRTFX" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/G1/NSURLRequest.h-1VUATFK29ODG1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/G2/string_view-TG85MX80GXG2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/G3/RCTBridgeModule.h-WJJWKAIVM0G3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/G7/RCTActivityIndicatorViewManager.h-V0AIX3G4YMG7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/GA/RCTDiffClampAnimatedNode.h-CWBE87S16UGA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/GA/sync_policy.h-36E4S2RRWWRGA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/GB/has_binary_operator.hpp-151DLJUCUVQGB" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/GF/RCTNavItemManager.h-2LZGBBQ80W8GF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/GF/RCTSurfaceSizeMeasureMode.mm-NYP5CK5URYGF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/GJ/AVAudioMixerNode.h-1BXWYXDC2DZGJ" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/GL/RCTFileRequestHandler.m-105KTEMWTDWGL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/GN/finder.hpp-JZ5KRUP90AGN" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/GO/xsavesintrin.h-1O6GRYB7IGPGO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/GT/case_conv.hpp-SGTEHY8Q8HGT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/GV/UIDocumentPickerViewController.h-VUHF7PYSR3GV" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/GY/JSCExecutor.h-3GQ8YOA4YVCGY" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/GZ/emmintrin.h-FP010V9MKNGZ" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/H8/types.h-23RDJJG9FKNH8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/HA/signal.h-21YAU6DL1LMHA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/HE/vector-16CESWN8GHVHE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/HI/AudioUnitProperties.h-WR9WQONE9DHI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/HJ/has_binary_operator.hpp-ZNWNRRE6LFHJ" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/HK/AVCapturePhotoOutput.h-1CUFMP2XQV6HK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/HP/AVContentKeySession.h-YGX2CET4MYHP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/HR/UITableViewCell.h-UF0X3TTFETHR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/HT/stddef.h-1SOH1XPHABIHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/HX/NativeModule.h-1CN1GZW5AJJHX" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/HY/UILabel.h-2GEN0XW4X32HY" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/I2/function_traits.hpp-1LGE7QX8PC9I2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/I4/Instance.h-2PTL9XADWDPI4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/I6/RCTBridge.m-1FHNAR9MW5KI6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/IC/wchar.h-3R1SJDUU07AIC" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/ID/String-inl.h-SVS1Y5OTRAID" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/IE/_mcontext.h-1BZ6ET90PN6IE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/IG/UIActivity.h-1K4CJMQ8GTNIG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/IH/RCTDeviceInfo.h-1NO4JYLGA2DIH" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/IV/CLLocationManager.h-K7COYK3MNWIV" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/IV/RCTPickerManager.m-4YRZJSE0M2IV" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/IW/AVError.h-6476YWLGWOIW" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/IX/UIVisualEffectView.h-17MDW7SOS1ZIX" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/J3/AUAudioUnit.h-10PJAOT0MKKJ3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/J4/RCTActivityIndicatorView.m-C3YJZWWFJSJ4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/J9/NSCharacterSet.h-N6Z1ZQWRWCJ9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/JF/_pthread_rwlock_t.h-2P8E3IHJ1LXJF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/JG/RCTTabBar.m-2EZEA705NYNJG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/JI/dirent.h-1JRVKNO4KI1JI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/JK/readpassphrase.h-3O4LF3VYY2RJK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/JO/extern.h-33XVSF03YZPJO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/JU/interoperable.hpp-3P6TC251LM6JU" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/JV/UIBarItem.h-R6IHP35NARJV" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/K1/RCTExceptionsManager.h-2Z14P4E5YE8K1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/K5/NSFileCoordinator.h-33IT811HJSTK5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/KD/UITextInput.h-T33BC8LHXRKD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/KE/YGNode.cpp-6LDNI8DPHZKE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/KJ/processor.h-8C0VSGCT4VKJ" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/KN/is_default_constructible.hpp-2Z09UX6EYQWKN" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/KO/RCTHTTPRequestHandler.h-2P7NBIU73KGKO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/KW/NSValueTransformer.h-II90D0PTM9KW" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/L0/NSParagraphStyle.h-1K4EX9N3SM1L0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/L1/implementation_help.hpp-3GGGO1M9NK7L1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/L5/once.h-2WVSW9QY3UXL5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/LA/AVAudioConverter.h-8NWSWC3OFALA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/LD/CMTime.h-1RCQZDHH2R4LD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/LW/CTTextTab.h-3KLI2XXK8FALW" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/M4/_OSByteOrder.h-2NTUJK2UUREM4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/M9/UIImageView.h-3GO4B42DAF0M9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/MA/RCTResizeMode.m-2W8E2VQEUB5MA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/MB/UIImage.h-1WIFYMW9CFLMB" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/MF/CTFontTraits.h-3EMDSXCAM1VMF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/MG/RCTJSCHelpers.mm-1MS1Q17FZW9MG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/MH/RCTUITextField.m-OU5FC14VQNMH" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/MK/CGGradient.h-2PRLFDEY0FWMK" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/ML/Value.h-1AAWSTQMFVML" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/MM/CTFontDescriptor.h-2R8QAJXD6X1MM" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/MM/UIViewController.h-3INZOYC9TJWMM" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/MP/clock.h-3EHOZHN9NMZMP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/MR/RCTWebView.h-2N50WH83Y89MR" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/MU/JSStringRef.h-12PSWQTVTSNMU" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/MU/RCTImageStoreManager.m-FOA0MXBMWJMU" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/MU/_size_t.h-3RC8C02LJ7ZMU" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/NI/_xlocale.h-TEJ3Q68OKZNI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/NP/RCTImageCache.h-1EN00CZ44JANP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/NS/RCTInputAccessoryView.m-AOELVR4DCRNS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/NV/UIPushBehavior.h-3HDBR7G1RKSNV" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/O2/UITabBarController.h-2SQ4H46BR1FO2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/OG/XCTWaiter.h-QLVPZ92J3XOG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/OI/processor_set.h-3GCG65JKC6SOI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/OO/UIDynamicItemBehavior.h-26DSDJULW5MOO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/OO/log.h-2GUIU1K4J8UOO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/OZ/RCTHTTPRequestHandler.mm-2404FX33U3LOZ" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/P0/AVPlayerItemMediaDataCollector.h-2VR9PNCPBMSP0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/P6/AVQueuedSampleBufferRendering.h-2B9RGYFQ49MP6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/PA/NSKeyedArchiver.h-W4FOQWAODCPA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/PA/mig_errors.h-AQ1T6X96A6PA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/PF/NSTextContainer.h-3VICICU65LVPF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/PH/NSLinguisticTagger.h-3SCX3RGDW3NPH" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/PL/ctype.h-27KR33CQIDQPL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/PO/_uid_t.h-3HUO9TJLG6IPO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/PV/_u_short.h-4LKPJLP64GPV" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/Q1/CTTelephonyNetworkInfo.h-3ISCJ68L8XTQ1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/Q6/double-conversion.cc-3GOORK0N8HQQ6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/QC/RCTPerfMonitor.m-C1AOHAOLC2QC" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/QC/result_of_iterate.hpp-3CCTMUWX067QC" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/QG/AVAudioProcessingSettings.h-1RFB1WMLZWQQG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/QG/conditional.hpp-3A1G3JO09ZLQG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/QL/RCTSegmentedControlManager.m-2N072LRAHXYQL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/QO/UIActionSheet.h-21YVEJV7S31QO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/QT/RCTSafeAreaViewManager.m-257C33ZL13LQT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/RD/xattr_flags.h-2438DFB7NDERD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/RI/_sigset_t.h-S2IFNULU1JRI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/RN/value_wknd.hpp-W8X7TVACQVRN" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/RO/MTLRenderCommandEncoder.h-2RHHIA3CD7PRO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/RO/UIApplicationShortcutItem.h-1ND2KNS6H87RO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/RP/fxsrintrin.h-2AHYU2RQNLZRP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/RT/result_of_iterate.hpp-2Z9DY7B9942RT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/RV/RCTLog.mm-23UORN8E3E0RV" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/RX/AudioComponent.h-35LRE96XUDZRX" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/S0/XCTKVOExpectation.h-XIYVOOGRGOS0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/S2/RCTAccessibilityManager.h-3PW4PRZFZFZS2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/S5/JsArgumentHelpers.h-2Y9AIFCM6TQS5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/S8/NSDecimal.h-1WTLIOW46BFS8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/ios/build/Index/DataStore/v5/records/SA/CFFileSecurity.h-BMS9812Z36SA" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-ar.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-ar.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-bg.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-bg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-en-rGB.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-en-rGB.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-es.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-es.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-h720dp-v13.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-h720dp-v13.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-hdpi-v4.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-hdpi-v4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-hu.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-hu.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-in.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-in.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-ja.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-ja.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-lv.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-lv.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-sk.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-sk.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-v22.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-v22.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-vi.json" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/blame/res/debug/multi-v2/values-vi.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/incremental/debug-mergeJavaRes/merge-state" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/pO5fNMq_eboZS2AtGQZrLK4GLj4=" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/values-af_values-af.arsc.flat" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/values-af_values-af.arsc.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/values-en-rAU_values-en-rAU.arsc.flat" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/values-en-rAU_values-en-rAU.arsc.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/values-land_values-land.arsc.flat" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/values-land_values-land.arsc.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/values-mk-rMK_values-mk-rMK.arsc.flat" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/values-mk-rMK_values-mk-rMK.arsc.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/values-ro_values-ro.arsc.flat" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/values-ro_values-ro.arsc.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/values-sk_values-sk.arsc.flat" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/values-sk_values-sk.arsc.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/values-w360dp-v13_values-w360dp-v13.arsc.flat" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/values-w360dp-v13_values-w360dp-v13.arsc.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/values_values.arsc.flat" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/values_values.arsc.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/xml_preferences.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/res/merged/debug/xml_preferences.xml.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/10.jar" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/10.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/15.jar" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/15.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/16.jar" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/16.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/50.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/62.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/66/android/support/v7/appcompat/R$dimen.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/66/android/support/v7/appcompat/R$layout.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/66/com/facebook/drawee/backends/pipeline/R$id.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/66/com/facebook/fbui/textlayoutbuilder/R.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/66/com/facebook/react/R$attr.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/66/com/facebook/react/R$color.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/66/com/facebook/react/R$dimen.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/66/com/facebook/soloader/R.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/66/com/myfirstapp/MainApplication$1.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/66/com/myfirstapp/R$attr.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/66/com/myfirstapp/R$drawable.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/66/com/myfirstapp/R$style.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/dexBuilder/debug/66/org/webkit/android_jsc/R.dex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build/intermediates/transforms/mergeJavaRes/debug/0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build/intermediates/transforms/mergeJavaRes/debug/0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,11 +693,47 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="23" column="14" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+            <state relative-caret-position="-208">
+              <caret line="37" column="78" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="78" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="places.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/store/reducers/places.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="780">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/store/actions/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="26">
+              <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="actionTypes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/store/actions/actionTypes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78">
+              <caret line="3" column="47" lean-forward="true" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="places.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/store/actions/places.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="20" column="2" lean-forward="true" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -35,8 +741,8 @@
       <file leaf-file-name="PlaceOutput.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/PlaceOutput/PlaceOutput.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="52">
+              <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -44,28 +750,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserInput.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserInput.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/UserInput/UserInput.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="30" column="46" lean-forward="true" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-312">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.json">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="Listitem.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Listitem/Listitem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+            <state relative-caret-position="442">
+              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlaceDetail.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/PlaceDetail/PlaceDetail.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-203">
+              <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -93,10 +803,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/components/UserInput/UserInput.js" />
         <option value="$PROJECT_DIR$/src/components/Listitem/Listitem.js" />
         <option value="$PROJECT_DIR$/src/components/PlaceOutput/PlaceOutput.js" />
-        <option value="$PROJECT_DIR$/src/components/UserInput/UserInput.js" />
+        <option value="$PROJECT_DIR$/src/components/PlaceDetail/PlaceDetail.js" />
+        <option value="$PROJECT_DIR$/src/store/reducers/root.js" />
+        <option value="$PROJECT_DIR$/src/store/actions/actionTypes.js" />
         <option value="$PROJECT_DIR$/App.js" />
+        <option value="$PROJECT_DIR$/src/store/actions/places.js" />
+        <option value="$PROJECT_DIR$/src/store/actions/index.js" />
+        <option value="$PROJECT_DIR$/src/store/reducers/places.js" />
       </list>
     </option>
   </component>
@@ -124,6 +840,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -154,6 +871,13 @@
               <item name="my-first-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="PlaceDetail" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="my-first-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my-first-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="PlaceOutput" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -163,11 +887,30 @@
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="UserInput" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="my-first-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my-first-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="my-first-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my-first-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="my-first-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my-first-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="reducers" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -215,11 +958,37 @@
       <workItem from="1525564125534" duration="1850000" />
       <workItem from="1525617317320" duration="1828000" />
       <workItem from="1525619168061" duration="12625000" />
+      <workItem from="1525717531856" duration="9446000" />
+      <workItem from="1525751758459" duration="3379000" />
+      <workItem from="1525799162301" duration="3729000" />
+      <workItem from="1526065978752" duration="5501000" />
     </task>
+    <task id="LOCAL-00001" summary="05-07 12:42PM">
+      <created>1525712959362</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1525712959362</updated>
+    </task>
+    <task id="LOCAL-00002" summary="05-07 6pm&#10;learnt Touch event, Press event, ScrollView, FlatList, adding image">
+      <created>1525730300147</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1525730300147</updated>
+    </task>
+    <task id="LOCAL-00003" summary="05-08&#10;Add modal to app&#10;achieved animation for closing component">
+      <created>1525802362620</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1525802362620</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25019000" />
+    <option name="totallyTimeSpent" value="51418000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -232,48 +1001,38 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18175809" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24719101" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
-      <window_info anchor="bottom" id="Messages" sideWeight="0.49966952" visible="true" weight="0.32905984" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="7" sideWeight="0.50033045" side_tool="true" visible="true" weight="0.32905984" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50363517" side_tool="true" weight="0.18376069" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49966952" weight="0.3019943" />
       <window_info id="npm" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.17663817" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49636483" visible="true" weight="0.18376069" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24719101" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49966952" weight="0.32905984" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32905984" />
-      <window_info id="Favorites" order="2" side_tool="true" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24719101" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -293,7 +1052,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="05-07 12:42PM" />
-    <option name="LAST_COMMIT_MESSAGE" value="05-07 12:42PM" />
+    <MESSAGE value="05-07 6pm&#10;learnt Touch event, Press event, ScrollView, FlatList, adding image" />
+    <MESSAGE value="05-08&#10;Add modal to app&#10;achieved animation for closing component" />
+    <option name="LAST_COMMIT_MESSAGE" value="05-08&#10;Add modal to app&#10;achieved animation for closing component" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -301,36 +1062,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="988">
-          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Listitem/Listitem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="936">
-          <caret line="38" column="18" lean-forward="true" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Listitem/Listitem.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -705,23 +1436,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Listitem/Listitem.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="23" column="14" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+        <state relative-caret-position="442">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -730,8 +1448,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/PlaceOutput/PlaceOutput.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="52">
+          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/reducers/root.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/PlaceDetail/PlaceDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-203">
+          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -740,11 +1471,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/UserInput/UserInput.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="30" column="46" lean-forward="true" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+        <state relative-caret-position="-312">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-208">
+          <caret line="37" column="78" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="78" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/reducers/places.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/actions/actionTypes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="3" column="47" lean-forward="true" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/actions/places.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="20" column="2" lean-forward="true" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/actions/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="1" column="32" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
         </state>
       </provider>
     </entry>

@@ -32,19 +32,14 @@ export default class App extends React.Component {
     };
 
     placeSelectedHandler = key => {
-        // this.setState(prevState => {
-        //     return {
-        //         places: prevState.places.filter( place => {
-        //             return place.key !== key;
-        //         })
-        //     }
-        // })
+
         this.setState(prevState => {
             return {
                 selectPlace: prevState.places.find(place => place.key === key)
             }
         })
     };
+
     placeDeletedHandler = () => {
         this.setState(prevState => {
             return {
