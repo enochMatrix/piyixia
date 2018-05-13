@@ -1,11 +1,11 @@
 dependencies: \
-  /Users/majingyi/app/node_modules/react-native/ReactCommon/yoga/yoga/Yoga.cpp \
-  /Users/majingyi/app/node_modules/react-native/ReactCommon/yoga/yoga/Yoga.h \
-  /Users/majingyi/app/node_modules/react-native/ReactCommon/yoga/yoga/YGEnums.h \
-  /Users/majingyi/app/node_modules/react-native/ReactCommon/yoga/yoga/YGMacros.h \
-  /Users/majingyi/app/node_modules/react-native/ReactCommon/yoga/yoga/Utils.h \
-  /Users/majingyi/app/node_modules/react-native/ReactCommon/yoga/yoga/YGNode.h \
-  /Users/majingyi/app/node_modules/react-native/ReactCommon/yoga/yoga/YGLayout.h \
-  /Users/majingyi/app/node_modules/react-native/ReactCommon/yoga/yoga/Yoga-internal.h \
-  /Users/majingyi/app/node_modules/react-native/ReactCommon/yoga/yoga/YGStyle.h \
-  /Users/majingyi/app/node_modules/react-native/ReactCommon/yoga/yoga/YGNodePrint.h
+  /Users/majingyi/Desktop/Matrix/app/node_modules/react-native/ReactCommon/yoga/yoga/Yoga.cpp \
+  /Users/majingyi/Desktop/Matrix/app/node_modules/react-native/ReactCommon/yoga/yoga/Yoga.h \
+  /Users/majingyi/Desktop/Matrix/app/node_modules/react-native/ReactCommon/yoga/yoga/YGEnums.h \
+  /Users/majingyi/Desktop/Matrix/app/node_modules/react-native/ReactCommon/yoga/yoga/YGMacros.h \
+  /Users/majingyi/Desktop/Matrix/app/node_modules/react-native/ReactCommon/yoga/yoga/Utils.h \
+  /Users/majingyi/Desktop/Matrix/app/node_modules/react-native/ReactCommon/yoga/yoga/YGNode.h \
+  /Users/majingyi/Desktop/Matrix/app/node_modules/react-native/ReactCommon/yoga/yoga/YGLayout.h \
+  /Users/majingyi/Desktop/Matrix/app/node_modules/react-native/ReactCommon/yoga/yoga/Yoga-internal.h \
+  /Users/majingyi/Desktop/Matrix/app/node_modules/react-native/ReactCommon/yoga/yoga/YGStyle.h \
+  /Users/majingyi/Desktop/Matrix/app/node_modules/react-native/ReactCommon/yoga/yoga/YGNodePrint.h

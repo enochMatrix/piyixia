@@ -17,14 +17,14 @@ const placeDetail =props=>{
 
     return(
             <Modal
-                onRequestClose={props.onModelClosed}
+                onRequestClose={props.onModalClosed}
                 visible={props.selectedPlace !==null}
                 animationType="slide">
                 <View style={styles.imageText}>
                     {imageText}
                         <View>
                             <Button title="Delete" color="red" onPress={props.onItemDeleted}/>
-                            <Button title="Close" color="blue" onPress={props.onModelClosed}/>
+                            <Button title="Close" color="blue" onPress={props.onModalClosed}/>
                         </View>
                 </View>
             </Modal>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         margin: 22
     },
     image:{
-        height:200,
+        height:300,
         width:'100%'
     },
     placeName:{

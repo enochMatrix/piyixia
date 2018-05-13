@@ -5,8 +5,6 @@ import ListItem from '../ListItem/ListItem';
 const list=(props)=> {
 
 
-
-
     return (
 
             <FlatList
@@ -23,7 +21,7 @@ const list=(props)=> {
 
 
     );
-}
+};
 
 
 const styles = StyleSheet.create({

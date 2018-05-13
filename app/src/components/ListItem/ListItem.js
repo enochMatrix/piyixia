@@ -1,15 +1,15 @@
 import React from 'react';
 import {View,Text,StyleSheet,TouchableHighlight,Image} from 'react-native';
+
 const listItem =(props)=>(
-    <TouchableHighlight onPress={props.onItemPressed}>
+    <TouchableOpacity onPress={props.onItemPressed}>
     <View style={styles.listItem} >
-        <Image   resizeMode="cover" source={props.placeImage}
-                style={styles.placeImage}/>
+        <Image  source={props.placeImage} style={styles.placeImage} resizeMode="cover"/>
         <Text>
             {props.placeName}
         </Text>
     </View>
-    </TouchableHighlight>//view not have property of onPress, wrap it with TouchableHighlight
+    </TouchableOpacity>//view not have property of onPress, wrap it with TouchableHighlight
 );
 
 const styles= StyleSheet.create({
@@ -24,8 +24,9 @@ const styles= StyleSheet.create({
     },
     placeImage:{
         marginRight:8,
-        height:90,
-        width:90
+        height:100,
+        width:100,
+
     }
 
 

@@ -4,7 +4,7 @@ import {View,TextInput,StyleSheet,Button} from 'react-native';
 class inputPlace extends Component{
     state ={
         placeName:'',
-        places:[]
+        places: null
     };
     placeNameChangedHandler=event=>{
         this.setState({placeName:event})//设置状态
@@ -36,7 +36,8 @@ class inputPlace extends Component{
 
         )
     }
-    };
+    }
+
 const styles = StyleSheet.create({
     inputContainer:{
         // flex:1,
