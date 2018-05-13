@@ -1,9 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
-import ListItem from './src/components/Listitem/Listitem';
+import { StyleSheet, View} from 'react-native';
 import UserInput from './src/components/UserInput/UserInput';
 import PlaceOutput from './src/components/PlaceOutput/PlaceOutput';
-import placeImage from './src/assets/cats.jpg'; // local image
 import PlaceDetail from './src/components/PlaceDetail/PlaceDetail';
 import {connect} from 'react-redux';
 import {addPlace, deselectPlace, deletePlace, selectPlace} from './src/store/actions/index';
@@ -32,6 +30,7 @@ class App extends React.Component {
         //     }
         // })
         this.props.onAddPlace(placeName);
+        console.log('Place Added!');
     };
 
     placeSelectedHandler = key => {
