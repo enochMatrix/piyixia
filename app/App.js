@@ -30,6 +30,7 @@ class App extends React.Component {
         //     }
         // })
         this.props.onAddPlace(placeName);
+        console.log("place Added");
     };
 
     placeSelectedHandler = key => {
