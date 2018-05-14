@@ -4,6 +4,7 @@ ADDED from /Users/majingyi/Desktop/Matrix/app/android/app/src/main/AndroidManife
 INJECTED from /Users/majingyi/Desktop/Matrix/app/android/app/src/main/AndroidManifest.xml:1:1-26:12
 INJECTED from /Users/majingyi/Desktop/Matrix/app/android/app/src/main/AndroidManifest.xml:1:1-26:12
 INJECTED from /Users/majingyi/Desktop/Matrix/app/android/app/src/main/AndroidManifest.xml:1:1-26:12
+MERGED from [:react-native-vector-icons] /Users/majingyi/Desktop/Matrix/app/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.55.3] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/react-native-0.55.3.aar/a79d3f83cd8cf5a9687b184507d9e2d9/AndroidManifest.xml:2:1-15:12
 MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/348c50b3e101c7ddd0a01af28052ea51/AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:support-v4:23.0.1] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/support-v4-23.0.1.aar/659d42ec66646ff00dc3116e9de0883e/AndroidManifest.xml:17:1-24:12
@@ -93,6 +94,8 @@ uses-sdk
 INJECTED from /Users/majingyi/Desktop/Matrix/app/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/majingyi/Desktop/Matrix/app/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/majingyi/Desktop/Matrix/app/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-vector-icons] /Users/majingyi/Desktop/Matrix/app/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /Users/majingyi/Desktop/Matrix/app/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.55.3] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/react-native-0.55.3.aar/a79d3f83cd8cf5a9687b184507d9e2d9/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.55.3] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/react-native-0.55.3.aar/a79d3f83cd8cf5a9687b184507d9e2d9/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/majingyi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/348c50b3e101c7ddd0a01af28052ea51/AndroidManifest.xml:20:5-43
