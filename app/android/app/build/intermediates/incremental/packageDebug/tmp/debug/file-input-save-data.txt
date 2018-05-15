@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon May 14 12:30:28 EDT 2018
+#Tue May 15 12:52:54 EDT 2018
 17.baseType=DIRECTORY
 4.path=lib/x86/libicu_common.so
 25.base=/Users/majingyi/Desktop/Matrix/app/android/app/build/intermediates/transforms/mergeJniLibs/debug/0

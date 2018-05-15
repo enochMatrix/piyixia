@@ -23,22 +23,11 @@ const reducer = (state = initialState,action) => {
             return {
                 ...state,
                 places: state.places.filter( place => {
-                    return place.key !== state.selectPlace.key
+                    return place.key !== action.placeKey
                 }),
                 selectPlace: null
             };
 
-        case SELETE_PLACE:
-            return {
-                ...state,
-                selectPlace: state.places.find(place => place.key === action.placeKey)
-            };
-
-        case DESELETE_PLACE:
-            return {
-                ...state,
-                selectPlace: null
-            };
         default:
             return state;
 

@@ -4,15 +4,8 @@
             "outputFile": "/Users/majingyi/Desktop/Matrix/app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "/Users/majingyi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/348c50b3e101c7ddd0a01af28052ea51/res/values-h720dp/values-h720dp.xml",
+                    "source": "/Users/majingyi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/b5bad7e5ead7320a61ec1be209e4be40/res/values-h720dp-v13/values-h720dp-v13.xml",
                     "from": {
-                        "startLines": "4",
-                        "startColumns": "4",
-                        "startOffsets": "283",
-                        "endColumns": "66",
-                        "endOffsets": "345"
-                    },
-                    "to": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",

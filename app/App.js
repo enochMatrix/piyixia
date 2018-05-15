@@ -1,133 +1,40 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import InputPlace from './src/components/InputPlace/InputPlace';
-import List from './src/components/List/List';
-import PlaceDetail from './src/components/placeDetail/placeDetail';
-import {connect} from 'react-redux';
-import {addPlace, deselectPlace, deletePlace, selectPlace} from './src/store/actions/index';
+import {Navigation} from 'react-native-navigation';
+import AuthScreen from './src/screens/Auth/Auth';
+import SharePlaceScreen from './src/screens/sharePlace/sharePlace';
+import FindPlaceScreen from './src/screens/findPlace/findPlace';
+import PlaceDetailScreen from './src/screens/placeDetail/placeDetail';
+import SideDrawer from './src/screens/SideDrawer/SideDrawe';
+import {Provider} from 'react-redux';
+import configureStore from './src/store/configureStore';
 
-class App extends React.Component {
-    // put in reduex store....
-    // state = {
-    //     places: [],
-    //     selectPlace: null
-    // };
+const store = configureStore();
 
-// 输入处理函数
+//Rrhister Screens
 
-    placeAddedHandler = (placeName) => {
-        // concat all the inputs by user in a array, ['','','',...]
-        // this.setState(prevState => {
-        //     return {
-        //         places: prevState.places.concat({
-        //             key: Math.random(),
-        //             name: placeName,
-        //             image: {
-        //                 // fetch image from online
-        //                 uri: "https://www.elastic.co/assets/bltada7771f270d08f6/enhanced-buzz-1492-1379411828-15.jpg"
-        //             }
-        //         })
-        //     }
-        // })
-        this.props.onAddPlace(placeName);
-        console.log("place Added");
-    };
+Navigation.registerComponent("awesome-places.AuthScreen",()=>AuthScreen, store, Provider
+);
+Navigation.registerComponent("awesome-places.SharePlaceScreen",()=>SharePlaceScreen,
+    store,
+    Provider );
+Navigation.registerComponent("awesome-places.FindPlaceScreen",()=>FindPlaceScreen,
+    store,
+    Provider );
+Navigation.registerComponent("awesome-places.PlaceDetailScreen",()=>PlaceDetailScreen,
+    store,
+    Provider);
+Navigation.registerComponent("awesome-places.SideDrawerScreen",()=>SideDrawer);
+//register the sideDrawerScreen
+//we should have this to show this when we put mouse on left of screen
+//but in android system we cannot do this, so we should add a button to triggle the sideDrawer
+//the navigatorButtons i have put it in the startMainTabs
+//navigatorButtons is a child of tab
 
-    placeSelectedHandler = key => {
-
-        // this.setState(prevState => {
-        //     return {
-        //         selectPlace: prevState.places.find(place => place.key === key)
-        //     }
-        // })
-        this.props.onSelectPlace(key);
-    };
-
-    placeDeletedHandler = () => {
-        // this.setState(prevState => {
-        //     return {
-        //         places: prevState.places.filter( place => {
-        //             return place.key !== prevState.selectPlace.key
-        //         }),
-        //         selectPlace: null
-        //     }
-        // })
-        this.props.onDeletePlace();
-    };
-
-    modalClosedHandler = () => {
-        // this.setState({
-        //     selectPlace: null
-        // })
-        this.props.onDeSelectPlace();
-    };
-
-    render() {
-        // output the user's input
-        // const placesOutput = this.state.places.map((place,i) => (
-        //     <ListItem key={i} placeName={place}/>
-        // ));
-
-        return (
-            <View style={styles.container}>
-                {/*文本输入框*/}
-
-                <PlaceDetail selectedPlace={this.props.selectPlace}
-                             onItemDeleted={this.placeDeletedHandler}
-                             onModalClosed={this.modalClosedHandler}/>
-                <InputPlace onPlaceAdded={this.placeAddedHandler}/>
-                <List
-                    places={this.props.places}
-                    onItemSelected={this.placeSelectedHandler}/>
-            </View>
-        );
+Navigation.startSingleScreenApp(
+    {
+        screen:{
+            screen:"awesome-places.AuthScreen",
+            title:"Login"
+        }
     }
-}
+);
 
-// inline 样式
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 26,
-        backgroundColor: '#fff',
-        // flexDirection: "row",
-        alignItems: 'flex-start',         //cross axis beginning
-        justifyContent: 'flex-start',// main axis beginning
-    },
-    inputContainer: {
-        //flex:1,
-        width: "100%",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center"
-    },
-    placeInput: {
-        width: "70%"
-        //   flex:7
-    },
-    placeButton: {
-        width: "30%"
-        //   flex:3
-    },
-    listContainer: {
-        width: "100%"
-    }
-});
-
-const mapStateToProps = state => {
-    return {
-        places: state.places.places,
-        selectPlace: state.places.selectPlace
-    };
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onAddPlace: (name) => dispatch(addPlace(name)),
-        onSelectPlace: (key) => dispatch(selectPlace(key)),
-        onDeletePlace: () => dispatch(deletePlace()),
-        onDeSelectPlace: () => dispatch(deselectPlace()),
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);

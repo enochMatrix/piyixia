@@ -4,16 +4,8 @@
             "outputFile": "/Users/majingyi/Desktop/Matrix/app/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "/Users/majingyi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/348c50b3e101c7ddd0a01af28052ea51/res/values-hdpi/values-hdpi.xml",
+                    "source": "/Users/majingyi/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/b5bad7e5ead7320a61ec1be209e4be40/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "from": {
-                        "startLines": "4",
-                        "startColumns": "4",
-                        "startOffsets": "286",
-                        "endLines": "8",
-                        "endColumns": "13",
-                        "endOffsets": "558"
-                    },
-                    "to": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",
