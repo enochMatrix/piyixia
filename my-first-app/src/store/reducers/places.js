@@ -23,7 +23,7 @@ const reducer = (state = initialState,action) => {
             return {
                 ...state,
                 places: state.places.filter( place => {
-                    return place.key !== state.selectPlace.key
+                    return place.key !== action.placeKey
                 }),
             };
     }

@@ -6,7 +6,7 @@ INJECTED from E:\GitHub\Matrix task 1\my-first-app\android\app\src\main\AndroidM
 INJECTED from E:\GitHub\Matrix task 1\my-first-app\android\app\src\main\AndroidManifest.xml:1:1-26:12
 MERGED from [:react-native-navigation] E:\GitHub\Matrix task 1\my-first-app\node_modules\react-native-navigation\android\app\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-20:12
 MERGED from [:react-native-vector-icons] E:\GitHub\Matrix task 1\my-first-app\node_modules\react-native-vector-icons\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-11:12
-MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\react-native-0.55.3.aar\0f23a3447a842c9928076352bc6d1b7c\AndroidManifest.xml:2:1-15:12
+MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\react-native-0.55.3.aar\71bcbbc4887033e0a8e677c76e757e73\AndroidManifest.xml:2:1-15:12
 MERGED from [com.balysv.materialmenu:material-menu-toolbar:1.5.4] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\material-menu-toolbar-1.5.4.aar\451a382be8313074b50e5dee4b8eeb57\AndroidManifest.xml:2:1-14:12
 MERGED from [com.aurelhubert:ahbottomnavigation:2.0.6] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\ahbottomnavigation-2.0.6.aar\f8a37841f3f42e41536fd4315d1d4772\AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.support:design:25.3.1] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\design-25.3.1.aar\3eabb418690ad07cded21ce27d1c73fa\AndroidManifest.xml:17:1-31:12
@@ -54,16 +54,16 @@ ADDED from E:\GitHub\Matrix task 1\my-first-app\android\app\src\main\AndroidMani
 		ADDED from E:\GitHub\Matrix task 1\my-first-app\android\app\src\main\AndroidManifest.xml:4:22-64
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from E:\GitHub\Matrix task 1\my-first-app\android\app\src\main\AndroidManifest.xml:5:5-77
-MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\react-native-0.55.3.aar\0f23a3447a842c9928076352bc6d1b7c\AndroidManifest.xml:11:5-78
-MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\react-native-0.55.3.aar\0f23a3447a842c9928076352bc6d1b7c\AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\react-native-0.55.3.aar\71bcbbc4887033e0a8e677c76e757e73\AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\react-native-0.55.3.aar\71bcbbc4887033e0a8e677c76e757e73\AndroidManifest.xml:11:5-78
 	android:name
 		ADDED from E:\GitHub\Matrix task 1\my-first-app\android\app\src\main\AndroidManifest.xml:5:22-75
 application
 ADDED from E:\GitHub\Matrix task 1\my-first-app\android\app\src\main\AndroidManifest.xml:7:5-24:19
 MERGED from [:react-native-navigation] E:\GitHub\Matrix task 1\my-first-app\node_modules\react-native-navigation\android\app\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-18:19
 MERGED from [:react-native-navigation] E:\GitHub\Matrix task 1\my-first-app\node_modules\react-native-navigation\android\app\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-18:19
-MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\react-native-0.55.3.aar\0f23a3447a842c9928076352bc6d1b7c\AndroidManifest.xml:13:5-20
-MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\react-native-0.55.3.aar\0f23a3447a842c9928076352bc6d1b7c\AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\react-native-0.55.3.aar\71bcbbc4887033e0a8e677c76e757e73\AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\react-native-0.55.3.aar\71bcbbc4887033e0a8e677c76e757e73\AndroidManifest.xml:13:5-20
 MERGED from [com.balysv.materialmenu:material-menu-toolbar:1.5.4] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\material-menu-toolbar-1.5.4.aar\451a382be8313074b50e5dee4b8eeb57\AndroidManifest.xml:12:5-20
 MERGED from [com.balysv.materialmenu:material-menu-toolbar:1.5.4] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\material-menu-toolbar-1.5.4.aar\451a382be8313074b50e5dee4b8eeb57\AndroidManifest.xml:12:5-20
 MERGED from [com.aurelhubert:ahbottomnavigation:2.0.6] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\ahbottomnavigation-2.0.6.aar\f8a37841f3f42e41536fd4315d1d4772\AndroidManifest.xml:11:5-20
@@ -142,8 +142,8 @@ MERGED from [:react-native-navigation] E:\GitHub\Matrix task 1\my-first-app\node
 MERGED from [:react-native-navigation] E:\GitHub\Matrix task 1\my-first-app\node_modules\react-native-navigation\android\app\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] E:\GitHub\Matrix task 1\my-first-app\node_modules\react-native-vector-icons\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] E:\GitHub\Matrix task 1\my-first-app\node_modules\react-native-vector-icons\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\react-native-0.55.3.aar\0f23a3447a842c9928076352bc6d1b7c\AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\react-native-0.55.3.aar\0f23a3447a842c9928076352bc6d1b7c\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\react-native-0.55.3.aar\71bcbbc4887033e0a8e677c76e757e73\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\react-native-0.55.3.aar\71bcbbc4887033e0a8e677c76e757e73\AndroidManifest.xml:7:5-9:41
 MERGED from [com.balysv.materialmenu:material-menu-toolbar:1.5.4] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\material-menu-toolbar-1.5.4.aar\451a382be8313074b50e5dee4b8eeb57\AndroidManifest.xml:8:5-10:41
 MERGED from [com.balysv.materialmenu:material-menu-toolbar:1.5.4] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\material-menu-toolbar-1.5.4.aar\451a382be8313074b50e5dee4b8eeb57\AndroidManifest.xml:8:5-10:41
 MERGED from [com.aurelhubert:ahbottomnavigation:2.0.6] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\ahbottomnavigation-2.0.6.aar\f8a37841f3f42e41536fd4315d1d4772\AndroidManifest.xml:7:5-9:41

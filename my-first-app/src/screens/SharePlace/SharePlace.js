@@ -2,12 +2,27 @@ import React, {Component} from 'react';
 import {View} from 'react-native';
 import UserInput from '../../components/UserInput/UserInput';
 import { connect } from 'react-redux';
-import {addPlace} from "../../store/actions";
+import {addPlace} from "../../store/actions/index";
 
 class SharePlaceScreen extends Component {
 
+    constructor(props) {
+        super(props);
+        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+    }
+   // toggle sideDrawer
+    onNavigatorEvent = event => {
+        if (event.type === 'NavBarButtonPress'){
+            if(event.id === "sideDrawerToggle") {
+                this.props.navigator.toggleDrawer({
+                    side: "left"
+                })
+            }
+        }
+    };
+
     placeAddedHandler = (placeName) => {
-        this.props.AddPlace(placeName)
+        this.props.onAddPlace(placeName)
     };
 
     render () {
@@ -21,7 +36,7 @@ class SharePlaceScreen extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        AddPlace: (placeName) => dispatch(addPlace(placeName))
+        onAddPlace: (placeName) => dispatch(addPlace(placeName))
     }
 };
 

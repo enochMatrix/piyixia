@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView,StyleSheet, FlatList} from 'react-native';
+import {StyleSheet, FlatList} from 'react-native';
 import ListItem from '../Listitem/Listitem';
 
 const placeOutput = (props) => {
