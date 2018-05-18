@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, Button,ScrollView, StyleSheet,Image } from 'react-native';
+import { View, Text, Button,ScrollView, StyleSheet,Image } from 'react-native';
 import { connect } from 'react-redux';
 import { addPlace } from '../../store/actions/index';
-import DefaultInput from '../../components/UI/DefaultInput/DefaultInput';
 import MainText from '../../components/UI/MainText/MainText';
 import HeadingText from '../../components/UI/HeadingText/HeadingText';
-import ImagePlaceholder from '../../assets/beautiful-place.jpg';
+import PlaceInput from '../../components/PlaceInput/PlaceInput';
+import PickImage from '../../components/PickImage/PickImage';
+import PickMap from '../../components/PickMap/PickMap';
+
 
 class SharePlaceScreen extends Component {
+
+    state = {
+        placeName: ""
+    };
 
     constructor(props) {
         super(props);
@@ -24,8 +30,16 @@ class SharePlaceScreen extends Component {
         }
     };
 
-    placeAddedHandler = placeName => {
-        this.props.onAddPlace(placeName);
+    placeAddedHandler = () => {
+        if(this.state.placeName.trim() !== "") {
+            this.props.onAddPlace(this.state.placeName);
+        }
+    };
+
+    placeNameChangedHandler = val => {
+        this.setState({
+            placeName: val
+        })
     };
 
     render () {
@@ -35,21 +49,12 @@ class SharePlaceScreen extends Component {
                     <MainText>
                 <HeadingText>Share a Place with us!</HeadingText>
                     </MainText>
-                <View style={styles.placeholder}>
-                    <Image source={ImagePlaceholder} style={styles.previewImage}/>
-                </View>
+                    <PickImage />
+                    <PickMap />
+                    <PlaceInput placeName={this.state.placeName}
+                                onChangeText={this.placeNameChangedHandler}/>
                     <View style={styles.button}>
-                <Button title="Pick Image"/>
-                    </View>
-                <View style={styles.placeholder}>
-                    <Text>Map</Text>
-                </View>
-                    <View style={styles.button}>
-                <Button title="Locate me"/>
-                    </View>
-                <DefaultInput placeholder="Place Name"/>
-                    <View style={styles.button}>
-                <Button title="Share the place!"/>
+                <Button title="Share the place!" onPress={this.placeAddedHandler}/>
                     </View>
                 </View>
             </ScrollView>
@@ -61,21 +66,6 @@ const styles = StyleSheet.create({
     container: {
         flex:1,
         alignItems: 'center',
-    },
-    placeholder: {
-        borderWidth:1,
-        borderColor: 'black',
-        backgroundColor: '#eee',
-        margin: 8,
-        width: "80%",
-        height: 150
-    },
-    button: {
-        margin:8
-    },
-    previewImage: {
-        width: "100%",
-        height: "100%"
     }
 });
 
