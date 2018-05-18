@@ -15,7 +15,9 @@ class SideDrawer extends Component {
         );
     }
 }
-
+//does not only create js object , it validated the styles and sends them to native code more efficiently
+// use whenever you can!
+// only Image, ScrollView, Text and View can be applied styles.
 const styles = StyleSheet.create({
     container: {
         paddingTop: 22,
