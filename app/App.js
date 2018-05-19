@@ -11,18 +11,34 @@ const store = configureStore();
 
 //Rrhister Screens
 
-Navigation.registerComponent("awesome-places.AuthScreen",()=>AuthScreen, store, Provider
+Navigation.registerComponent(
+    "awesome-places.AuthScreen",
+    ()=>AuthScreen,
+    store,
+    Provider
 );
-Navigation.registerComponent("awesome-places.SharePlaceScreen",()=>SharePlaceScreen,
+Navigation.registerComponent(
+    "awesome-places.SharePlaceScreen",
+    ()=>SharePlaceScreen,
     store,
-    Provider );
-Navigation.registerComponent("awesome-places.FindPlaceScreen",()=>FindPlaceScreen,
+    Provider
+);
+Navigation.registerComponent(
+    "awesome-places.FindPlaceScreen",
+    ()=>FindPlaceScreen,
     store,
-    Provider );
-Navigation.registerComponent("awesome-places.PlaceDetailScreen",()=>PlaceDetailScreen,
+    Provider
+);
+Navigation.registerComponent(
+    "awesome-places.PlaceDetailScreen",
+    ()=>PlaceDetailScreen,
     store,
-    Provider);
-Navigation.registerComponent("awesome-places.SideDrawerScreen",()=>SideDrawer);
+    Provider
+);
+Navigation.registerComponent(
+    "awesome-places.SideDrawerScreen",
+    ()=>SideDrawer
+);
 //register the sideDrawerScreen
 //we should have this to show this when we put mouse on left of screen
 //but in android system we cannot do this, so we should add a button to triggle the sideDrawer

@@ -17,9 +17,6 @@ const list=(props)=> {
                           onItemPressed={()=>props.onItemSelected(info.item.key)}/>
 
             )}/>
-            //no longer use map method on render
-
-
     );
 };
 

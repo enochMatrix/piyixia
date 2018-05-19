@@ -1,9 +1,8 @@
-import {ADD_PLACE, SELETE_PLACE, DESELETE_PLACE, DELETE_PLACE} from '../actions/actionsTypes';
+import {ADD_PLACE ,DELETE_PLACE} from '../actions/actionsTypes';
 import image from '../../asset/1.jpg';
 
 const initialState = {
-    places: [],
-    selectPlace: null
+    places: []
 };
 
 const reducer = (state = initialState,action) => {
@@ -25,7 +24,6 @@ const reducer = (state = initialState,action) => {
                 places: state.places.filter( place => {
                     return place.key !== action.placeKey
                 }),
-                selectPlace: null
             };
 
         default:

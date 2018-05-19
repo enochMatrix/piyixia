@@ -1,63 +1,14 @@
 import React,{Component} from 'react';
 import {View,TextInput,StyleSheet,Button} from 'react-native';
+import DefaultInput from '../../components/UI/DefaultInput/DefaultInput';
 
-class inputPlace extends Component{
-    state ={
-        placeName:'',
-        places: null
-    };
-    placeNameChangedHandler=event=>{
-        this.setState({placeName:event})//设置状态
-        // alert(event)
-    };
-    placeSubmitHandler=()=>{
-        if(this.state.placeName.trim()===""){
-            return
-        }
-        //trim:remove whitespace from both side
-        this.props.onPlaceAdded(this.state.placeName);
-    };
-    render(){
+const inputPlace = props=>{
         return(
-            <View style={styles.inputContainer}>
-                <TextInput
-                    style={styles.placeInput}
-                    // style={{width:300}}
-                    //inline  style
-                    placeholder="majingyi"
-                    // value={this.state.placeName}
-                    onChangeText={this.placeNameChangedHandler} //the same as React.
-                />
-                <Button title="Add"
-                        style={styles.placeButton}
-                        onPress={this.placeSubmitHandler}/>
-
-            </View>
-
+            <DefaultInput placeholder="place name"
+            onChangeText={props.onChangeText}
+            value={props.placeName}/>
         )
-    }
-    }
+    };
 
-const styles = StyleSheet.create({
-    inputContainer:{
-        // flex:1,
-        flexDirection:"row",
-        justifyContent: 'space-between',//main axis
-        alignItems:"center"//cross axis
-
-    },
-    placeInput:{
-        flex:7,
-        flexDirection:"row"
-
-
-    },
-    placeButton:{
-        flex:3,
-        flexDirection:"row"
-
-    }
-
-});
 export default inputPlace;
 

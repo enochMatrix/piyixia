@@ -9,8 +9,9 @@ const listItem =(props)=>(
             {props.placeName}
         </Text>
     </View>
-    </TouchableOpacity>//view not have property of onPress, wrap it with TouchableHighlight
+    </TouchableOpacity>
 );
+//view not have property of onPress, wrap it with TouchableHighlight
 
 const styles= StyleSheet.create({
     listItem:{
@@ -26,7 +27,6 @@ const styles= StyleSheet.create({
         marginRight:8,
         height:100,
         width:100,
-
     }
 
 
