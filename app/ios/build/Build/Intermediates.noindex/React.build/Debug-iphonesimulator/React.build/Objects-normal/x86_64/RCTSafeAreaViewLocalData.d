@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/majingyi/app/node_modules/react-native/React/Views/SafeAreaView/RCTSafeAreaViewLocalData.m \
-  /Users/majingyi/app/node_modules/react-native/React/Views/SafeAreaView/RCTSafeAreaViewLocalData.h
+  /Users/majingyi/Desktop/Matrix/app/node_modules/react-native/React/Views/SafeAreaView/RCTSafeAreaViewLocalData.m \
+  /Users/majingyi/Desktop/Matrix/app/node_modules/react-native/React/Views/SafeAreaView/RCTSafeAreaViewLocalData.h

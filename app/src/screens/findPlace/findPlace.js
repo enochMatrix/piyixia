@@ -1,9 +1,18 @@
 import React ,{Component} from 'react';
-import {View} from 'react-native';
+import {View,Text, TouchableOpacity, StyleSheet, Animated} from 'react-native';
 import { connect} from 'react-redux';
 import List from '../../components/List/List';
 
 class findPlaceScreen extends Component{
+    static navigatorStyle ={
+        navBarButtonColor:"orange"
+    }
+
+    state={
+        placeLoaded: false,
+        removeAnim: new Animated.Value(1)
+
+    }
 
     constructor(props){
 
@@ -39,13 +48,52 @@ class findPlaceScreen extends Component{
             }
         )
     };
+    placeSearchHandler=()=>{
+        Animated.timing(this.state.removeAnim,{
+            toValue:0,
+            duration:500,
+            useNativeDriver: true
+        }).start();
+    }
+    //把变化的 removeAnim 值传给state
+
 
     render(){
+        let content = (
+            <Animated.View
+                style={{
+                    opacity:this.state.removeAnim,
+                transform:[
+                    {
+                        scale:this.state.removeAnim.interpolate({
+                            inputRange:[0,1],
+                            outputRange:[0,1]
+
+                        })
+                    }
+                ]}}>
+
+            <TouchableOpacity onPress={this.placeSearchHandler}>
+                <View style={styles.searchButton}>
+                    <Text style={styles.searchButtonText}>
+                        Find Places
+                    </Text>
+                </View>
+            </TouchableOpacity>
+            </Animated.View>
+        );
+
+        if(this.state.placeLoaded){
+            content=(
+                    <List
+                        places={this.props.places}
+                        onItemSelected={this.ItemSelectedHandler}/>
+            )
+        }
+
         return(
-            <View>
-                <List
-                    places={this.props.places}
-                      onItemSelected={this.ItemSelectedHandler}/>
+            <View style={this.state.placeLoaded?null:styles.buttonContainer}>
+            {content}
             </View>
         )
     }
@@ -56,5 +104,26 @@ const mapStateToProps = state => {
         places: state.places.places,
     };
 };
+
+const styles= StyleSheet.create({
+    searchButton:{
+        borderColor:'orange',
+        borderWidth:3,
+        borderRadius:50,
+        padding:20
+    },
+    searchButtonText:{
+        color:'orange',
+        fontWeight:'bold',
+        fontSize:26
+
+    },
+    buttonContainer:{
+        flex:1,
+        justifyContent:"center",
+        alignItems:'center'
+    }
+
+})
 
 export default connect(mapStateToProps)(findPlaceScreen);

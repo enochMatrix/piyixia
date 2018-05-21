@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/majingyi/app/node_modules/react-native/React/Base/RCTVersion.m \
-  /Users/majingyi/app/node_modules/react-native/React/Base/RCTVersion.h
+  /Users/majingyi/Desktop/Matrix/app/node_modules/react-native/React/Base/RCTVersion.m \
+  /Users/majingyi/Desktop/Matrix/app/node_modules/react-native/React/Base/RCTVersion.h

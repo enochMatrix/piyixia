@@ -1,2 +1,2 @@
-dependencies: /Users/majingyi/app/ios/app/main.m \
-  /Users/majingyi/app/ios/app/AppDelegate.h
+dependencies: /Users/majingyi/Desktop/Matrix/app/ios/app/main.m \
+  /Users/majingyi/Desktop/Matrix/app/ios/app/AppDelegate.h

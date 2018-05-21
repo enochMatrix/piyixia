@@ -17,8 +17,9 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor:"pink",
         padding:5,
-        margin:8,
-        width: "80%"
+        marginTop:8,
+        marginBottom:8,
+        width: "100%"
     },
 });
 
