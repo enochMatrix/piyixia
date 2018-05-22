@@ -11,16 +11,25 @@ import PickMap from '../../components/PickMap/PickMap';
 
 class SharePlaceScreen extends Component {
 
+    // add color to nav button
+
+    static navigatorStyle = {
+        navBarButtonColor: "orange"
+    };
+
     state = {
         placeName: ""
     };
 
     constructor(props) {
+
         super(props);
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+
     }
 
     onNavigatorEvent = event => {
+
         if (event.type === "NavBarButtonPress") {
             if (event.id === "sideDrawerToggle") {
                 this.props.navigator.toggleDrawer({
