@@ -10,9 +10,10 @@ class findPlaceScreen extends Component{
 
     state={
         placeLoaded: false,
-        removeAnim: new Animated.Value(1)
+        removeAnim: new Animated.Value(1),
+        addAnim: new Animated.Value(0)
 
-    }
+    };
 
     constructor(props){
 
@@ -34,6 +35,8 @@ class findPlaceScreen extends Component{
     };
     //combine the button and sideDrawer
 
+
+
     ItemSelectedHandler =key=>{
         const selectedPlace= this.props.places.find(place=>{
             return place.key === key
@@ -48,12 +51,26 @@ class findPlaceScreen extends Component{
             }
         )
     };
+
+    placeLoadedHandler =()=>{
+        Animated.timing(this.state.addAnim,{
+            toValue:1,
+            duration:2000,
+            useNativeDriver: true
+        }).start()
+    };
+
     placeSearchHandler=()=>{
         Animated.timing(this.state.removeAnim,{
             toValue:0,
             duration:500,
             useNativeDriver: true
-        }).start();
+        }).start(()=>{
+            this.setState({
+                placeLoaded: true
+            });
+            this.placeLoadedHandler();
+        });
     }
     //把变化的 removeAnim 值传给state
 
@@ -67,7 +84,7 @@ class findPlaceScreen extends Component{
                     {
                         scale:this.state.removeAnim.interpolate({
                             inputRange:[0,1],
-                            outputRange:[0,1]
+                            outputRange:[12,1]
 
                         })
                     }
@@ -85,9 +102,13 @@ class findPlaceScreen extends Component{
 
         if(this.state.placeLoaded){
             content=(
+                <Animated.View
+                    style={{
+                        opacity:this.state.addAnim}}>
                     <List
                         places={this.props.places}
                         onItemSelected={this.ItemSelectedHandler}/>
+                </Animated.View>
             )
         }
 

@@ -7,26 +7,39 @@ import {TouchableOpacity,
      Platform} from 'react-native';
 
 const buttonWithBackground =props => {
-    const Content=(<View style={[styles.button, {backgroundColor: props.color}]}>
-        <Text>{props.children}</Text>
+    const Content=(
+        <View style={[styles.button,
+        {backgroundColor: props.color},
+        !props.disabled?null:props.disabled]}>
+        <Text style={props.disabled?null:styles.textColor}>
+            {props.children}
+            </Text>
     </View>);
     //content is the same, deffirent method of touch
 
-    if(Platform.OS==='android'){
-        //choose the OS
-        return(
-            <TouchableNativeFeedback onPress={props.onpress}>
-                {Content}
-            </TouchableNativeFeedback>
+    if(!props.disabled){
+        return Content;
+    }
 
-        )
-    }
-    else{
-        return(
-            <TouchableOpacity onPress={props.onpress}>
-                {Content}
-            </TouchableOpacity>)
-    }
+        if(Platform.OS==='android'){
+            //choose the OS
+            return(
+                <TouchableNativeFeedback onPress={props.onpress}>
+                    {Content}
+                </TouchableNativeFeedback>
+
+            )
+        }
+        else{
+            return(
+                <TouchableOpacity onPress={props.onpress}>
+                    {Content}
+                </TouchableOpacity>)
+        }
+
+
+
+
 
 
 
@@ -38,6 +51,12 @@ const styles =StyleSheet.create({
         margin: 5,
         borderRadius:5,
         borderColor:"black"
+    },
+    disabled:{
+        backgroundColor:"#eee",
+    },
+    textColor:{
+        color:'grey'
     }
 })
 

@@ -5,7 +5,9 @@ const DefaultInput = (props)=>(
     <TextInput
     underlineColorAndroid="transparent"
     {...props}
-    style={[styles.input, props.style]}/>
+    style={[styles.input,
+        props.style,
+        !props.valid&&props.touched?styles.invalid:null]}/>
 
 );
 
@@ -21,6 +23,10 @@ const styles = StyleSheet.create({
         marginBottom:8,
         width: "100%"
     },
+    invalid:{
+        backgroundColor:'#f9c0c0',
+        borderColor:'red'},
+
 });
 
 

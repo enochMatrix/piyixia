@@ -3,9 +3,27 @@ import {StyleSheet, View, Image, Text, Button,TouchableOpacity} from 'react-nati
 import Icon from 'react-native-vector-icons/Ionicons';//add a 3rd party icon from react-native-vector-icons/Ionicons
 import {connect} from 'react-redux';
 import {deletePlace} from "../../store/actions";
-import {Platform} from 'react-native';
+import {Platform, Dimensions} from 'react-native';
 
 class placeDetail extends Component {
+    state={
+        viewMode:"portrait"
+    };
+
+    constructor(props){
+        super(props);
+        Dimensions.addEventListener('change',this.updateStyles)
+    }
+    componentWillUnmount(){
+        Dimensions.removeEventListener('change',this.updateStyles)
+    }
+
+    updateStyles=dims=>{
+            console.log(dims);
+            this.setState({
+                viewMode: dims.window.height>500?'portrait':'landscape'
+            })
+    }
 
     placeDeleteHandler = () => {
         this.props.onDeletePlace(this.props.selectedPlace.key);
@@ -15,12 +33,20 @@ class placeDetail extends Component {
     render(){
 
         return (
-            <View style={styles.container}>
-                <View>
+            <View style={[styles.container,
+                this.state.viewMode==='portrait'
+                    ?styles.portraitContainer
+                    :styles.landscapeContainer]}>
+
+                <View style={styles.subContainer}>
                     <Image source={this.props.selectedPlace.image} style={styles.image}/>
-                    <Text style={styles.placeName}>{this.props.selectedPlace.name}</Text>
                 </View>
-                <View>
+
+
+                <View style={styles.subContainer} >
+                    <View>
+                    <Text style={styles.placeName}>{this.props.selectedPlace.name}</Text>
+                    </View>
                     <TouchableOpacity onPress={this.placeDeleteHandler}>
                         <View style={styles.deleteButton}>
                             <Icon size={30} name={Platform.OS==='android'?"md-trash":"ios-trash"} color="red"/>
@@ -29,6 +55,7 @@ class placeDetail extends Component {
                     </TouchableOpacity>//add TouchableOpacity to add onPress method
                     {/*<Button title="Delete" color="red" onPress={props.onItemDeleted}/>*/}
                 </View>
+
             </View>
         )
     }
@@ -42,8 +69,16 @@ const mapDispatchToProps =dispatch =>{
 };
 const styles = StyleSheet.create({
     container: {
-
-        margin: 22
+        margin: 22,
+        flex:1
+    },
+    portraitContainer:{
+        flexDirection:'column'
+    },
+    landscapeContainer:{
+        flexDirection:'row'
+    },
+    subContainer:{
     },
     image:{
         height:300,
