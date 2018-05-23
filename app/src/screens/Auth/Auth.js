@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ImageBackground, Dimensions} from 'react-native';
+import { View, StyleSheet, ImageBackground, Dimensions, KeyboardAvoidingView, Keyboard, TouchableWithoutFeedback} from 'react-native';
 import DefaultInput from '../../components/UI/DefaultInput/DefaultInput';
 import startMainTabs from '../MainTabs/startMainTabs';
 import HeadingText from '../../components/UI/HeadingText/HeadingText';
@@ -7,6 +7,8 @@ import MainText from '../../components/UI/MainText/MainText';
 import backgroundImage from '../../assets/beautiful-place.jpg';
 import ButtonWithBackground from '../../components/UI/ButtonWithBackground/ButtonWithBackground';
 import validate from '../../utility/validation';
+import { connect } from 'react-redux';
+import {tryAuth} from '../../store/actions/index'
 
 class AuthScreen extends Component {
 
@@ -16,30 +18,34 @@ class AuthScreen extends Component {
             pwContainerJustifyContent: "flex-start",
             pwWrapperWidth: "100%",
         },
+        authMode: 'login',
         controls: {
                 email: {
                     value: "",
                     valid: false,
                     validationRules: {
                         isEmail: true
-                    }
+                    },
+                    touched: false
                 },
                 password:{
                     value: "",
                     valid: false,
                     validationRules: {
                         minLength: 6
-                    }
+                    },
+                    touched: false
                 },
                 confirmPassword:{
                     value: "",
                     valid: false,
                     validationRules: {
                         equalTo: 'password'
-                    }
+                    },
+                    touched: false
                 },
             }
-    };
+        };
 
     // dynamically change the layout by rotating
     constructor(props) {
@@ -48,9 +54,9 @@ class AuthScreen extends Component {
             // console.log(dims);
             this.setState({
                 styles: {
-                    pwContainerDirection: Dimensions.get('window').height > 500 ? "column" :"row",
-                    pwContainerJustifyContent: Dimensions.get('window').height > 500 ? "flex-start":"space-between",
-                    pwWrapperWidth: Dimensions.get('window').height > 500 ? "100%" : "45%",
+                    pwContainerDirection: Dimensions.get('window').height > 500 || this.state.authMode === 'login' ? "column" :"row",
+                    pwContainerJustifyContent: Dimensions.get('window').height > 500 || this.state.authMode === 'login' ? "flex-start":"space-between",
+                    pwWrapperWidth: Dimensions.get('window').height > 500 || this.state.authMode === 'login' ? "100%" : "45%",
                 }
             })
         })
@@ -62,9 +68,9 @@ class AuthScreen extends Component {
             // console.log(dims);
             this.setState({
                 styles: {
-                    pwContainerDirection: Dimensions.get('window').height > 500 ? "column" :"row",
-                    pwContainerJustifyContent: Dimensions.get('window').height > 500 ? "flex-start":"space-between",
-                    pwWrapperWidth: Dimensions.get('window').height > 500 ? "100%" : "45%",
+                    pwContainerDirection: Dimensions.get('window').height > 500 || this.state.authMode === 'login' ? "column" :"row",
+                    pwContainerJustifyContent: Dimensions.get('window').height > 500 || this.state.authMode === 'login' ? "flex-start":"space-between",
+                    pwWrapperWidth: Dimensions.get('window').height > 500 || this.state.authMode === 'login' ? "100%" : "45%",
                 }
             })
         })
@@ -82,24 +88,19 @@ class AuthScreen extends Component {
             }
         }
 
+        // for reset password, recheck the validation of confirm password
         if( key === 'password') {
-            const equalControl = this.state.controls.confirmPassword.validationRules.equalTo;
-            const equalValue = this.state.controls[equalControl].value;
             connectedValue = {
                 ...connectedValue,
-                equalTo: equalValue
+                equalTo: value
             }
         }
+
         // end
-      this.setState(prevState => {
-          return {
+        this.setState(prevState => {
+           return {
               controls: {
                   ...prevState.controls,
-                  [key]: {
-                      ...prevState.controls[key],
-                      valid: validate(value, prevState.controls[key].validationRules, connectedValue),
-                      value: value
-                  },
                   confirmPassword: {
                       ...prevState.controls.confirmPassword,
                       valid: key === 'password'
@@ -108,20 +109,57 @@ class AuthScreen extends Component {
                               connectedValue)
                           : prevState.controls.confirmPassword.valid
                   },
-
+                   [key]: {
+                      ...prevState.controls[key],
+                      valid: validate(value, prevState.controls[key].validationRules, connectedValue),
+                      value: value,
+                       touched: true
+                  },
+                }
               }
-          }
-      })
+           })
     };
+    // switch to log in mode by button
+
+    switchAuthModeHandler = () => {
+        this.setState(prevState => {
+            return {
+                authMode: prevState.authMode === "login" ? "signup" : "login"
+            }
+        })
+     };
 
 // switch to tab based nav
     loginHandler = () => {
+        const authDate = {
+          email: this.state.controls.email.value,
+          password: this.state.controls.password.value
+        };
+        this.props.onLogin(authDate);
         startMainTabs();
+
     };
 
     render () {
 
         let headingText = null;
+
+        let confirmPasswordControl = null;
+        if(this.state.authMode === 'signup') {
+            confirmPasswordControl = (
+                <View style={{width: this.state.styles.pwWrapperWidth}}>
+                    <DefaultInput
+                        placeholder="Confirm Password"
+                        style={styles.input}
+                        value={this.state.controls.confirmPassword.value}
+                        onChangeText = { (val) => this.updateInputState('confirmPassword',val)}
+                        valid={this.state.controls.confirmPassword.valid}
+                        touched={this.state.controls.confirmPassword.touched}
+                        secureTextEntry/>
+                </View >
+            )
+        }
+        // responsive display
 
         if(Dimensions.get('window').height > 500) {
             headingText = (
@@ -133,35 +171,49 @@ class AuthScreen extends Component {
         return (
                 // add background image
                 <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
-                    <View style={styles.container}>
+                    <KeyboardAvoidingView style={styles.container} behavior="padding">
                         {headingText}
-                        <ButtonWithBackground color="#29aaf4" onPress={() => alert('Hello')}>Switch to LogIn!</ButtonWithBackground>
-                <View style={styles.inputContainer}>
-                    <DefaultInput
-                        placeholder="Your Email"
-                        style={styles.input}
-                        value={this.state.controls.email.value}
-                        onChangeText = { (val) => this.updateInputState('email',val)}/>
-                    <View style={{flexDirection: this.state.styles.pwContainerDirection,
-                                  justifyContent: this.state.styles.pwContainerJustifyContent,}}>
-                        <View style={{width: this.state.styles.pwWrapperWidth}}>
-                         <DefaultInput
-                             placeholder="Your Password"
-                             style={[styles.input, {borderColor: "red"}]}
-                             value={this.state.controls.password.value}
-                             onChangeText = { (val) => this.updateInputState('password',val)}/>
-                        </View>
-                        <View style={{width: this.state.styles.pwWrapperWidth}}>
-                         <DefaultInput
-                             placeholder="Confirm Password"
-                             style={styles.input}
-                             value={this.state.controls.confirmPassword.value}
-                             onChangeText = { (val) => this.updateInputState('confirmPassword',val)}/>
-                        </View >
-                    </View>
-                </View>
-                        <ButtonWithBackground color="#29aaf4" onPress={this.loginHandler}>Submit</ButtonWithBackground>
-                    </View>
+                        <ButtonWithBackground color="#29aaf4"
+                                              onPress={this.switchAuthModeHandler}
+                                              disabled="true">
+                            Switch to {this.state.authMode === 'login' ? "Sign Up" : "Log In"}!
+                        </ButtonWithBackground>
+                        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                            <View style={styles.inputContainer}>
+                                <DefaultInput
+                                    placeholder="Your Email"
+                                    style={styles.input}
+                                    value={this.state.controls.email.value}
+                                    onChangeText = { (val) => this.updateInputState('email',val)}
+                                    valid={this.state.controls.email.valid}
+                                    touched={this.state.controls.email.touched}
+                                    autoCapitalize="none"
+                                    autoCorrect={false}
+                                    keyboardType="email-address"/>
+                                <View style={{flexDirection: this.state.styles.pwContainerDirection,
+                                              justifyContent: this.state.styles.pwContainerJustifyContent}}>
+                                    <View style={{width: this.state.styles.pwWrapperWidth}}>
+                                     <DefaultInput
+                                         placeholder="Your Password"
+                                         style={styles.input}
+                                         value={this.state.controls.password.value}
+                                         onChangeText = { (val) => this.updateInputState('password',val)}
+                                         valid={this.state.controls.password.valid}
+                                         touched={this.state.controls.password.touched}
+                                         secureTextEntry/>
+                                    </View>
+                                    {confirmPasswordControl}
+                                </View>
+                            </View>
+                        </TouchableWithoutFeedback>
+                        <ButtonWithBackground color="#29aaf4"
+                                              onPress={this.loginHandler}
+                                              disabled={(this.state.controls.confirmPassword.valid || this.state.authMode === 'login')&&
+                                                        this.state.controls.password.valid &&
+                                                        this.state.controls.email.valid}>
+                            Submit
+                        </ButtonWithBackground>
+                    </KeyboardAvoidingView>
                 </ImageBackground>
 
         );
@@ -190,4 +242,10 @@ const styles = StyleSheet.create({
     },
     });
 
-export default AuthScreen;
+const mapDispatchToProps = dispatch => {
+   return {
+       onLogin: (authDate) => dispatch(tryAuth(authDate))
+   }
+};
+
+export default connect(null, mapDispatchToProps)(AuthScreen);

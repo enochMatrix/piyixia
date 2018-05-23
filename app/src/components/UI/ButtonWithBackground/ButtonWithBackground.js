@@ -9,11 +9,16 @@ import {TouchableOpacity,
 const buttonWithBackground = props => {
 
     const content = (
-        <View style={[styles.button, {backgroundColor: props.color}]}>
-            <Text>{props.children}</Text>
+        <View style={[styles.button,
+            {backgroundColor: props.color},
+            props.disabled ? null : styles.disabled]}>
+            <Text style={props.disabled ? null: styles.disabledText}>{props.children}</Text>
         </View>
     );
 //  Platform API TO deal with different OS
+    if( !props.disabled ) {
+        return content;
+    }
     if(Platform.OS === 'android') {
         return (
             <TouchableNativeFeedback onPress={props.onPress}>
@@ -35,8 +40,14 @@ const styles = StyleSheet.create({
        borderRadius: 5,
        borderWidth: 1,
        borderColor: "black"
-
-   }
+   },
+    disabled: {
+       backgroundColor: "#eee",
+        borderColor: "#aaa"
+    },
+    disabledText: {
+       color: "#aaa"
+    }
 });
 
 export default buttonWithBackground;
