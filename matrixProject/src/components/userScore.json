@@ -1,0 +1,24 @@
+{
+    "data":[
+    {
+      "userName": "Joe",
+      "highScore": 52
+    },
+    {
+      "userName": "John",
+      "highScore": 64
+    },
+    {
+      "userName": "Hary",
+      "highScore": 12
+    },
+    {
+      "userName": "Susie",
+      "highScore": 88
+    },
+    {
+      "userName": "Lucio",
+      "highScore": 13
+    }
+  ]
+}
