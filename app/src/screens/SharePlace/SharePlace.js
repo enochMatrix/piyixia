@@ -7,6 +7,7 @@ import HeadingText from '../../components/UI/HeadingText/HeadingText';
 import PlaceInput from '../../components/PlaceInput/PlaceInput';
 import PickImage from '../../components/PickImage/PickImage';
 import PickMap from '../../components/PickMap/PickMap';
+import validate from '../../utility/validation';
 
 
 class SharePlaceScreen extends Component {
@@ -18,7 +19,12 @@ class SharePlaceScreen extends Component {
     };
 
     state = {
-        placeName: ""
+        placeName: "",
+        validationRules: {
+            isEmpty: true
+        },
+        valid: false,
+        touched: false
     };
 
     constructor(props) {
@@ -46,9 +52,13 @@ class SharePlaceScreen extends Component {
     };
 
     placeNameChangedHandler = val => {
+        const rules = this.state.validationRules;
+
         this.setState({
-            placeName: val
-        })
+                placeName: val,
+                valid: validate(val,rules),
+                touched: true
+        });
     };
 
     render () {
@@ -61,9 +71,14 @@ class SharePlaceScreen extends Component {
                     <PickImage />
                     <PickMap />
                     <PlaceInput placeName={this.state.placeName}
-                                onChangeText={this.placeNameChangedHandler}/>
+                                onChangeText={this.placeNameChangedHandler}
+                                touched={this.state.touched}
+                                valid={this.state.valid}/>
                     <View style={styles.button}>
-                <Button title="Share the place!" onPress={this.placeAddedHandler}/>
+                <Button title="Share the place!"
+                        onPress={this.placeAddedHandler}
+                        disabled={!this.state.valid}
+                        />
                     </View>
                 </View>
             </ScrollView>
@@ -75,7 +90,7 @@ const styles = StyleSheet.create({
     container: {
         flex:1,
         alignItems: 'center',
-    }
+    },
 });
 
 const mapDispatchToProps = dispatch => {
