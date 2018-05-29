@@ -10,17 +10,71 @@ class PickMap extends Component {
           longitude: -122.4013726,
           latitudeDelta: 0.0122,
            longitudeDelta: Dimensions.get('window').width / Dimensions.get('window').height * 0.0122
-       }
+       },
+        locationChosen: false // add marker on location
+    };
+
+    // center the location picked
+    pickLocationHandler = event => {
+        const coords = event.nativeEvent.coordinate;
+        this.map.animateToRegion({
+            ...this.state.focusedLocation,
+            latitude: coords.latitude,
+            longitude: coords.longitude
+        },500); // add animation for map
+        this.setState( prevState => {
+            return {
+                focusedLocation: {
+                    ...prevState.focusedLocation,
+                    latitude: coords.latitude,
+                    longitude: coords.longitude
+                },
+                locationChosen: true
+            }
+        });
+        //add coordinate to sharePlace state
+        this.props.onLocationPick(coords);
+    };
+
+    getLocationHandler = () => {
+// get the current position of the device.
+        navigator.geolocation.getCurrentPosition(pos => {
+            const coordsEvent = {
+                nativeEvent: {
+                    coordinate: {
+                        latitude: pos.coords.latitude,
+                        longitude: pos.coords.longitude
+                    }
+                }
+            };
+            this.pickLocationHandler(coordsEvent);
+            //add coordinate to sharePlace state
+            this.props.onLocationPick(coordsEvent.nativeEvent.coordinate);
+        },
+            err => {
+            console.log(err);
+            alert('Fetching the Position failed, please pick one manually!');
+        })
     };
 
     render() {
+        let marker = null;
+
+        if(this.state.locationChosen) {
+            marker = <MapView.Marker coordinate={this.state.focusedLocation}/>
+        }
+
         return (
             <View style={styles.container}>
                 <MapView
                     initialRegion={this.state.focusedLocation}
-                    style={styles.map}/>
+                    style={styles.map}
+                    onPress={(event)=>this.pickLocationHandler(event)}
+                    ref={ref => this.map = ref }>
+                    {marker}
+                </MapView>
                 <View style={styles.button}>
-                    <Button title="Locate me" onPress={() => alert('Pick Map!')}/>
+                    <Button title="Locate me" onPress={this.getLocationHandler}/>
                 </View>
             </View>
         )
@@ -33,7 +87,6 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     map: {
-
         width: "100%",
         height: 250
     },

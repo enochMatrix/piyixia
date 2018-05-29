@@ -11,11 +11,18 @@ import {
 import { connect } from "react-redux";
 import Icon from "react-native-vector-icons/Ionicons";
 import { deletePlace } from "../../store/actions/index";
+import MapView from 'react-native-maps';
 
 class PlaceDetail extends Component {
 
     state = {
-        listDirection: 'portrait'
+        listDirection: 'portrait',
+        focusedLocation: {
+            latitude: this.props.focusedLocation.latitude,
+            longitude: this.props.focusedLocation.longitude,
+            latitudeDelta: 0.0122,
+            longitudeDelta: Dimensions.get('window').width / Dimensions.get('window').height * 0.0122
+        },
     };
 
     constructor(props) {
@@ -48,6 +55,10 @@ class PlaceDetail extends Component {
                     <Image source={this.props.selectedPlace.image} style={styles.placeImage} />
                 </View>
                 <View style={styles.subContainer}>
+                    <MapView region={this.state.focusedLocation}
+                              style={styles.map}>
+                        <MapView.Marker coordinate={this.state.focusedLocation}/>
+                    </MapView>
                     <View>
                         <Text style={styles.placeName}>{this.props.selectedPlace.name}</Text>
                     </View>
@@ -89,6 +100,10 @@ const styles = StyleSheet.create({
     },
     deleteButton: {
         alignItems: "center"
+    },
+    map: {
+        width: "100%",
+        height: 200
     }
 });
 

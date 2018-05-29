@@ -64,7 +64,8 @@ class FindPlaceScreen extends Component {
             screen: "awesome-places.PlaceDetailScreen",
             title: selPlace.name,
             passProps: {
-                selectedPlace: selPlace
+                selectedPlace: selPlace,
+                focusedLocation: selPlace.location
             }
         });
     };

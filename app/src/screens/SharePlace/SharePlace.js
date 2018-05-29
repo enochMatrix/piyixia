@@ -24,7 +24,12 @@ class SharePlaceScreen extends Component {
             isEmpty: true
         },
         valid: false,
-        touched: false
+        touched: false,
+        location: {
+            value: null,
+            valid: false
+
+        }
     };
 
     constructor(props) {
@@ -46,9 +51,7 @@ class SharePlaceScreen extends Component {
     };
 
     placeAddedHandler = () => {
-        if(this.state.placeName.trim() !== "") {
-            this.props.onAddPlace(this.state.placeName);
-        }
+            this.props.onAddPlace(this.state.placeName, this.state.location.value);
     };
 
     placeNameChangedHandler = val => {
@@ -61,6 +64,19 @@ class SharePlaceScreen extends Component {
         });
     };
 
+    locationPickedHandler = location => {
+      this.setState(prevState => {
+          return {
+              ...prevState,
+              location: {
+                  value: location,
+                  valid: true
+              }
+          }
+
+      })
+    };
+
     render () {
         return (
             <ScrollView>
@@ -69,7 +85,7 @@ class SharePlaceScreen extends Component {
                 <HeadingText>Share a Place with us!</HeadingText>
                     </MainText>
                     <PickImage />
-                    <PickMap />
+                    <PickMap onLocationPick={this.locationPickedHandler}/>
                     <PlaceInput placeName={this.state.placeName}
                                 onChangeText={this.placeNameChangedHandler}
                                 touched={this.state.touched}
@@ -77,7 +93,7 @@ class SharePlaceScreen extends Component {
                     <View style={styles.button}>
                 <Button title="Share the place!"
                         onPress={this.placeAddedHandler}
-                        disabled={!this.state.valid}
+                        disabled={!this.state.valid || !this.state.location.valid}
                         />
                     </View>
                 </View>
@@ -95,7 +111,7 @@ const styles = StyleSheet.create({
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddPlace: (placeName) => dispatch(addPlace(placeName))
+        onAddPlace: (placeName, location) => dispatch(addPlace(placeName, location))
     };
 };
 

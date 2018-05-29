@@ -7,6 +7,7 @@ import FindPlaceScreen from "./src/screens/FindPlace/FindPlace";
 import PlaceDetailScreen from "./src/screens/PlaceDetail/PlaceDetail";
 import configureStore from "./src/store/configureStore";
 import SideDrawer from './src/screens/SideDrawer/SideDrawer';
+import RefreshableList from './src/screens/RefreshableList/RefreshableList';
 
 const store = configureStore();
 
@@ -38,6 +39,10 @@ Navigation.registerComponent(
 Navigation.registerComponent(
     "awesome-places.SideDrawer",
     () => SideDrawer
+);
+Navigation.registerComponent(
+    "awesome-places.RefreshableList",
+    () => RefreshableList
 );
 
 // Start a App

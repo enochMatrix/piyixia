@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-28:12
-INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-28:12
-INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-28:12
-INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-28:12
+ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-29:12
+INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-29:12
+INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-29:12
+INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-29:12
 MERGED from [:react-native-navigation] E:\React\React-native\NewApp\app\node_modules\react-native-navigation\android\app\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-20:12
 MERGED from [:react-native-vector-icons] E:\React\React-native\NewApp\app\node_modules\react-native-vector-icons\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\react-native-0.55.3.aar\845c275bee93b2a58080ae9545b3e4de\AndroidManifest.xml:2:1-15:12
@@ -37,20 +37,20 @@ MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\zz\.gradl
 MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\support-core-utils-25.3.1.aar\5ac53716b9e9613045264d374f5c09bf\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\support-core-ui-25.3.1.aar\bc3f25866eff6634d5fb058290fb41dc\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:25.3.1] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\support-compat-25.3.1.aar\214d93a1a0b5ec4205b279d31b86e9b5\AndroidManifest.xml:17:1-31:12
-INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-28:12
-INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-28:12
-INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-28:12
+INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-29:12
+INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-29:12
+INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-29:12
 	package
 		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:2:5-22
 		INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml
 		INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml
-		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-28:12
+		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-29:12
 		INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml
-		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-28:12
+		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-29:12
 		INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:11-69
@@ -68,8 +68,12 @@ MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\
 MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\react-native-0.55.3.aar\845c275bee93b2a58080ae9545b3e4de\AndroidManifest.xml:11:5-78
 	android:name
 		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:5:22-75
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:6:5-78
+	android:name
+		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:6:22-76
 application
-ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:7:5-27:19
+ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:8:5-28:19
 MERGED from [:react-native-navigation] E:\React\React-native\NewApp\app\node_modules\react-native-navigation\android\app\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-18:19
 MERGED from [:react-native-navigation] E:\React\React-native\NewApp\app\node_modules\react-native-navigation\android\app\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-18:19
 MERGED from [com.facebook.react:react-native:0.55.3] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\react-native-0.55.3.aar\845c275bee93b2a58080ae9545b3e4de\AndroidManifest.xml:13:5-20
@@ -117,49 +121,49 @@ MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\zz\.gradle\cac
 MERGED from [com.android.support:support-compat:25.3.1] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\support-compat-25.3.1.aar\214d93a1a0b5ec4205b279d31b86e9b5\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-compat:25.3.1] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\support-compat-25.3.1.aar\214d93a1a0b5ec4205b279d31b86e9b5\AndroidManifest.xml:29:5-20
 	android:label
-		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:9:7-39
+		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:10:7-39
 	android:icon
-		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:10:7-41
+		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:11:7-41
 	android:allowBackup
-		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:11:7-34
+		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:12:7-34
 	android:theme
-		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:12:7-38
+		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:13:7-38
 	android:name
-		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:8:7-38
+		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:9:7-38
 activity#com.app.MainActivity
-ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:13:7-22:18
+ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:14:7-23:18
 	android:label
-		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:15:9-41
+		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:16:9-41
 	android:windowSoftInputMode
-		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:17:9-51
+		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:18:9-51
 	android:configChanges
-		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:16:9-79
+		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:17:9-79
 	android:name
-		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:14:9-37
+		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:15:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:18:9-21:25
+ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:19:9-22:25
 action#android.intent.action.MAIN
-ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:19:13-65
+ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:20:13-65
 	android:name
-		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:19:21-62
+		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:20:21-62
 category#android.intent.category.LAUNCHER
-ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:20:13-73
+ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:21:13-73
 	android:name
-		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:20:23-70
+		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:21:23-70
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:23:7-84
+ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:24:7-84
 MERGED from [:react-native-navigation] E:\React\React-native\NewApp\app\node_modules\react-native-navigation\android\app\build\intermediates\manifests\full\debug\AndroidManifest.xml:15:9-17:40
 MERGED from [:react-native-navigation] E:\React\React-native\NewApp\app\node_modules\react-native-navigation\android\app\build\intermediates\manifests\full\debug\AndroidManifest.xml:15:9-17:40
 	android:exported
 		ADDED from [:react-native-navigation] E:\React\React-native\NewApp\app\node_modules\react-native-navigation\android\app\build\intermediates\manifests\full\debug\AndroidManifest.xml:17:13-37
 	android:name
-		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:23:17-81
+		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:24:17-81
 meta-data#com.google.android.geo.API_KEY
-ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:24:9-26:74
+ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:25:9-27:74
 	android:value
-		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:26:17-72
+		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:27:17-72
 	android:name
-		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:25:17-62
+		ADDED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:26:17-62
 uses-sdk
 INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml
@@ -305,8 +309,8 @@ MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\zz\.gradle
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:10.0.1] C:\Users\zz\.gradle\caches\transforms-1\files-1.1\play-services-basement-10.0.1.aar\11300e2ce1fcd4e8ddf29b02d1b86fbe\AndroidManifest.xml:20:20-65
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-IMPLIED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-28:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+IMPLIED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-29:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-28:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+IMPLIED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-29:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-28:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
+IMPLIED from E:\React\React-native\NewApp\app\android\app\src\main\AndroidManifest.xml:1:1-29:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE

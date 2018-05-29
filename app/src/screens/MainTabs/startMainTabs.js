@@ -40,7 +40,22 @@ const startTabs = () => {
                             }
                         ]
                     }
-                }
+                },
+                {
+                    screen: "awesome-places.RefreshableList",
+                    label: "Refreshable List",
+                    title: "Refreshable List",
+                    icon: sources[0],
+                    navigatorButtons: {
+                        leftButtons: [
+                            {
+                                icon: sources[2],
+                                title: "Menu",
+                                id: "sideDrawerToggle"
+                            }
+                        ]
+                    }
+                },
             ],
             tabStyle: {
                tabBarSelectedButtonColor: "orange" // for ios
