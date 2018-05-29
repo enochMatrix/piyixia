@@ -3,11 +3,21 @@ import { Text, View } from 'react-native';
 import { Card, QuestionCard, AnswerCard, Buttons } from './common';
 import questionData from './questionData.json';
 
+const NUMBER_OF_QUESTIONS = 3;
+
+function shuffle(array) {
+ for (let i = array.length - 1; i > 0; i--) {
+     const j = Math.floor(Math.random() * (i + 1));
+     [array[i], array[j]] = [array[j], array[i]]; // eslint-disable-line no-param-reassign
+ }
+}
+
 class QuestionPage extends Component {
 
   state = { question: [], options: [], correctoption: [], questionIndex: 0 };
 
   componentWillMount() {
+     shuffle(questionData.data);
     this.setState({ question: questionData.data[0].question,
                     options: questionData.data[0].options,
                     correctoption: questionData.data[0].correctoption,
@@ -17,7 +27,7 @@ class QuestionPage extends Component {
 
   nextButtonOnPress() {
     const c = this.state.questionIndex + 1;
-    if (this.state.questionIndex < 4) {
+    if (this.state.questionIndex < NUMBER_OF_QUESTIONS - 1) {
       this.setState({ question: questionData.data[c].question,
                     options: questionData.data[c].options,
                     correctoption: questionData.data[c].correctoption,
