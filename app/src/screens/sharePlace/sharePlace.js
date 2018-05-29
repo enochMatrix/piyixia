@@ -15,7 +15,12 @@ import PickLocation from "../../components/PickLocation/PickLocation";
      }
 
      state={
-         placeName:''
+         placeName:'',
+         location:{
+             value:null,
+             valid:false,
+
+         }
      };
 
      constructor(props){
@@ -48,9 +53,22 @@ import PickLocation from "../../components/PickLocation/PickLocation";
 
      placeAddedHandler = () => {
          if(this.state.placeName.trim()!==''){
-             this.props.onAddPlace(this.state.placeName);
+             this.props.onAddPlace(this.state.placeName,
+                 this.state.location.value);
          }
 
+     };
+
+     locationPickHandler=location=>{
+         this.setState(preState=> {
+                 return {
+                     ...preState,
+                     location:{
+                         value:location,
+                         valid:true,
+                     }
+                 }
+             })
      };
 
      render(){
@@ -63,10 +81,11 @@ import PickLocation from "../../components/PickLocation/PickLocation";
                          </HeadingText>
                      </MainText>
                      <PickImage/>
-                  <PickLocation/>
+                  <PickLocation onLocationPick={this.locationPickHandler}/>
                  <PlaceInput  placeName={this.state.placeName}
                  onChangeText={this.placeNameChangedHandler}/>
-                 <Button title="share the place" onPress={this.placeAddedHandler}/>
+                 <Button title="share the place" onPress={this.placeAddedHandler}
+                 disabled={!this.state.location.valid||!this.state.placeName}/>
                  </View>
              </ScrollView>
          )
@@ -76,7 +95,7 @@ import PickLocation from "../../components/PickLocation/PickLocation";
 
  const mapDispatchToProps =dispatch =>{
     return{
-        onAddPlace: (name) => dispatch(addPlace(name)),
+        onAddPlace: (name,location) => dispatch(addPlace(name,location)),
     }
 
  };

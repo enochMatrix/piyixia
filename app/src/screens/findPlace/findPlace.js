@@ -123,6 +123,8 @@ class findPlaceScreen extends Component{
 const mapStateToProps = state => {
     return {
         places: state.places.places,
+
+
     };
 };
 

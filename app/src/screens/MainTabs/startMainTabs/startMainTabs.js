@@ -45,7 +45,24 @@ const startTabs = ()=>{
                         ]
                     }
 
+                },
+                {
+                    screen: "awesome-places.LoadPlaceScreen",
+                    label:"Load place",
+                    title:"Load place",
+                    icon:source[2],
+                    navigatorButtons:{
+                        leftButtons:[{
+                            icon:source[2],
+                            title: "menu",
+                            id:"sideDrawerToggle"
+                        }
+
+                        ]
+                    }
+
                 }
+
 
             ],
             tabStyle:{

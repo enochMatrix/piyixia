@@ -2,7 +2,8 @@ import {ADD_PLACE ,DELETE_PLACE} from '../actions/actionsTypes';
 import image from '../../asset/1.jpg';
 
 const initialState = {
-    places: []
+    places: [],
+
 };
 
 const reducer = (state = initialState,action) => {
@@ -13,7 +14,8 @@ const reducer = (state = initialState,action) => {
                 places: state.places.concat({
                     key: Math.random(),
                     name: action.placeName,
-                    image: image
+                    image: image,
+                    location:action.location,
                     // fetch image from online
                 })
             };

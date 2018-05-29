@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons';//add a 3rd party icon fro
 import {connect} from 'react-redux';
 import {deletePlace} from "../../store/actions";
 import {Platform, Dimensions} from 'react-native';
+import MapView from 'react-native-maps';
 
 class placeDetail extends Component {
     state={
@@ -43,10 +44,14 @@ class placeDetail extends Component {
                 </View>
 
 
+
                 <View style={styles.subContainer} >
                     <View>
                     <Text style={styles.placeName}>{this.props.selectedPlace.name}</Text>
                     </View>
+                    <MapView initialRegion={this.props.places.location}/>
+
+
                     <TouchableOpacity onPress={this.placeDeleteHandler}>
                         <View style={styles.deleteButton}>
                             <Icon size={30} name={Platform.OS==='android'?"md-trash":"ios-trash"} color="red"/>
@@ -67,6 +72,13 @@ const mapDispatchToProps =dispatch =>{
     }
 
 };
+
+const mapStateToProps = state => {
+    return {
+        places: state.places.places,
+    };
+};
+
 const styles = StyleSheet.create({
     container: {
         margin: 22,
@@ -98,4 +110,4 @@ const styles = StyleSheet.create({
 
 
 
-export default connect(null,mapDispatchToProps)(placeDetail);
+export default connect(mapStateToProps,mapDispatchToProps)(placeDetail);

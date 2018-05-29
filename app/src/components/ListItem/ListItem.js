@@ -8,6 +8,12 @@ const listItem =(props)=>(
         <Text>
             {props.placeName}
         </Text>
+        <Text>
+            {props.placeLocation.latitude}
+        </Text>
+
+
+
     </View>
     </TouchableOpacity>
 );

@@ -3,6 +3,7 @@ import AuthScreen from './src/screens/Auth/Auth';
 import SharePlaceScreen from './src/screens/sharePlace/sharePlace';
 import FindPlaceScreen from './src/screens/findPlace/findPlace';
 import PlaceDetailScreen from './src/screens/placeDetail/placeDetail';
+import LoadPlaceScreen from './src/screens/loadPlace/loadPlace';
 import SideDrawer from './src/screens/SideDrawer/SideDrawe';
 import {Provider} from 'react-redux';
 import configureStore from './src/store/configureStore';
@@ -38,6 +39,12 @@ Navigation.registerComponent(
 Navigation.registerComponent(
     "awesome-places.SideDrawerScreen",
     ()=>SideDrawer
+);
+Navigation.registerComponent(
+    "awesome-places.LoadPlaceScreen",
+    ()=>LoadPlaceScreen,
+    store,
+    Provider
 );
 //register the sideDrawerScreen
 //we should have this to show this when we put mouse on left of screen
