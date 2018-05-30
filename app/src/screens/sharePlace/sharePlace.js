@@ -20,6 +20,10 @@ import PickLocation from "../../components/PickLocation/PickLocation";
              value:null,
              valid:false,
 
+         },
+         image:{
+             value:null,
+             valid:false
          }
      };
 
@@ -54,7 +58,8 @@ import PickLocation from "../../components/PickLocation/PickLocation";
      placeAddedHandler = () => {
          if(this.state.placeName.trim()!==''){
              this.props.onAddPlace(this.state.placeName,
-                 this.state.location.value);
+                 this.state.location.value,
+                 this.state.image.value);
          }
 
      };
@@ -71,6 +76,19 @@ import PickLocation from "../../components/PickLocation/PickLocation";
              })
      };
 
+     imagePickedHandler=image=>{
+         this.setState(preState=>{
+             return{
+                 ...preState,
+                 image:{
+                     value:image,
+                     valid:true
+                 }
+             }
+         })
+
+     }
+
      render(){
          return(
              <ScrollView>
@@ -80,12 +98,12 @@ import PickLocation from "../../components/PickLocation/PickLocation";
                              share a place with us
                          </HeadingText>
                      </MainText>
-                     <PickImage/>
+                     <PickImage onImagepick={this.imagePickedHandler}/>
                   <PickLocation onLocationPick={this.locationPickHandler}/>
                  <PlaceInput  placeName={this.state.placeName}
                  onChangeText={this.placeNameChangedHandler}/>
                  <Button title="share the place" onPress={this.placeAddedHandler}
-                 disabled={!this.state.location.valid||!this.state.placeName}/>
+                 disabled={!this.state.location.valid||!this.state.placeName||!this.state.image}/>
                  </View>
              </ScrollView>
          )
@@ -95,7 +113,7 @@ import PickLocation from "../../components/PickLocation/PickLocation";
 
  const mapDispatchToProps =dispatch =>{
     return{
-        onAddPlace: (name,location) => dispatch(addPlace(name,location)),
+        onAddPlace: (name,location,image) => dispatch(addPlace(name,location,image)),
     }
 
  };

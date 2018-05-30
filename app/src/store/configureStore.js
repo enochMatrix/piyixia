@@ -1,20 +1,43 @@
-import {createStore, combineReducers,compose } from 'redux';
+// import {createStore, combineReducers,compose, applyMiddleware } from 'redux';
+// import thunk from 'redux-thunk';
+//
+// import placeReducer from './reducers/places';
+//
+// const rootReducer = combineReducers({
+//     places: placeReducer
+// });
+//
+// let composeEnhancers = compose;
+//
+// if(__DEV__){
+//     composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__||compose;
+// }
+// // a way to reveal redux devTool in react-native debugger, you can see things
+// // such as function name, state change when you perform sth!
+//
+// const configureStore = () => {
+//     return createStore(rootReducer,composeEnhancers(applyMiddleware(thunk)));
+// };
+//
+// export default configureStore;
 
-import placeReducer from './reducers/places';
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
+import placesReducer from './reducers/places';
 
 const rootReducer = combineReducers({
-    places: placeReducer
+    places: placesReducer
 });
 
 let composeEnhancers = compose;
-if(__DEV__){
-    composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__||compose;
+
+if (__DEV__) {
+    composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 }
-// a way to reveal redux devTool in react-native debugger, you can see things
-// such as function name, state change when you perform sth!
 
 const configureStore = () => {
-    return createStore(rootReducer,composeEnhancers())
+    return createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 };
 
 export default configureStore;

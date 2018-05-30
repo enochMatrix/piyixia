@@ -14,8 +14,8 @@ const reducer = (state = initialState,action) => {
                 places: state.places.concat({
                     key: Math.random(),
                     name: action.placeName,
-                    image: image,
                     location:action.location,
+                    image:action.image,
                     // fetch image from online
                 })
             };
