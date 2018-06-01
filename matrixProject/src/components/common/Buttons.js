@@ -4,7 +4,7 @@ import { Text, TouchableOpacity } from 'react-native';
 const Buttons = ({ onPress, children }) => {
   const { textStyle, buttonStyle } = styles;
   return ( // making Buttons reusable!
-    <TouchableOpacity onPress={onPress} style={buttonStyle}>
+    <TouchableOpacity onPress={() => onPress()} style={buttonStyle}>
       <Text style={textStyle}>{children}</Text>
     </TouchableOpacity>
   );
