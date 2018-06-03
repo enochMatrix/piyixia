@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import { View, TouchableOpacity, Text, StyleSheet, Animated} from "react-native";
 import { connect } from "react-redux";
-
 import PlaceList from "../../components/PlaceList/PlaceList";
+import {getPlace} from '../../store/actions/index';
 
 class FindPlaceScreen extends Component {
 
     static navigatorStyle = {
         navBarButtonColor: "orange"
     };
+
+    componentDidMount() {
+        this.props.onLoadPlace();
+    }
 
     state = {
       placesLoaded: false,
@@ -142,4 +146,10 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(FindPlaceScreen);
+const mapDispatchToProps = dispatch => {
+    return {
+        onLoadPlace: () => dispatch(getPlace())
+    }
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(FindPlaceScreen);

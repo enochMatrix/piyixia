@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button,ScrollView, StyleSheet,Image } from 'react-native';
+import { View, Button, ScrollView, StyleSheet, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
 import { addPlace } from '../../store/actions/index';
 import MainText from '../../components/UI/MainText/MainText';
@@ -29,6 +29,10 @@ class SharePlaceScreen extends Component {
             value: null,
             valid: false
 
+        },
+        image: {
+            value: null,
+            valid: false
         }
     };
 
@@ -51,7 +55,10 @@ class SharePlaceScreen extends Component {
     };
 
     placeAddedHandler = () => {
-            this.props.onAddPlace(this.state.placeName, this.state.location.value);
+            this.props.onAddPlace(
+                this.state.placeName,
+                this.state.location.value,
+                this.state.image.value);
     };
 
     placeNameChangedHandler = val => {
@@ -77,24 +84,40 @@ class SharePlaceScreen extends Component {
       })
     };
 
+    imagePickedHandler = image => {
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                image: {
+                    value: image,
+                    valid: true
+                }
+            }
+        });
+    };
+
     render () {
+        let submitButton =  <Button title="Share the place!"
+                                    onPress={this.placeAddedHandler}
+                                    disabled={!this.state.valid || !this.state.location.valid || !this.state.image.valid}
+        />;
+        if(this.props.isLoading) {
+            submitButton = <ActivityIndicator/>;
+        }
         return (
             <ScrollView>
                 <View style={styles.container}>
                     <MainText>
                 <HeadingText>Share a Place with us!</HeadingText>
                     </MainText>
-                    <PickImage />
+                    <PickImage onImagePick={this.imagePickedHandler}/>
                     <PickMap onLocationPick={this.locationPickedHandler}/>
                     <PlaceInput placeName={this.state.placeName}
                                 onChangeText={this.placeNameChangedHandler}
                                 touched={this.state.touched}
                                 valid={this.state.valid}/>
                     <View style={styles.button}>
-                <Button title="Share the place!"
-                        onPress={this.placeAddedHandler}
-                        disabled={!this.state.valid || !this.state.location.valid}
-                        />
+                        {submitButton}
                     </View>
                 </View>
             </ScrollView>
@@ -111,8 +134,14 @@ const styles = StyleSheet.create({
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddPlace: (placeName, location) => dispatch(addPlace(placeName, location))
+        onAddPlace: (placeName, location, image) => dispatch(addPlace(placeName, location, image))
     };
 };
 
-export default connect(null, mapDispatchToProps)(SharePlaceScreen);
+const mapStateToProps = state => {
+    return {
+       isLoading: state.ui.isLoading
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SharePlaceScreen);

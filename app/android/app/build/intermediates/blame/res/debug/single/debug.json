@@ -640,6 +640,10 @@
         "source": "C:\\Users\\zz\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\55b91e109600f41810bc0402267ee6ed\\res\\drawable-xxhdpi-v4\\abc_list_pressed_holo_light.9.png"
     },
     {
+        "merged": "E:\\React\\React-native\\NewApp\\app\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml_provider_paths.xml.flat",
+        "source": "E:\\React\\React-native\\NewApp\\app\\node_modules\\react-native-image-picker\\android\\build\\intermediates\\packaged_res\\debug\\xml\\provider_paths.xml"
+    },
+    {
         "merged": "E:\\React\\React-native\\NewApp\\app\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
         "source": "C:\\Users\\zz\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\55b91e109600f41810bc0402267ee6ed\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
     },
@@ -1062,6 +1066,10 @@
     {
         "merged": "E:\\React\\React-native\\NewApp\\app\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_black_16dp.png.flat",
         "source": "C:\\Users\\zz\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\55b91e109600f41810bc0402267ee6ed\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "E:\\React\\React-native\\NewApp\\app\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_list_item.xml.flat",
+        "source": "E:\\React\\React-native\\NewApp\\app\\node_modules\\react-native-image-picker\\android\\build\\intermediates\\packaged_res\\debug\\layout\\list_item.xml"
     },
     {
         "merged": "E:\\React\\React-native\\NewApp\\app\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_pressed_holo_dark.9.png.flat",

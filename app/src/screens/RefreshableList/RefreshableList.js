@@ -78,7 +78,7 @@ class RefreshableList extends Component {
                         refreshing={this.state.refreshing}
                         onRefresh={this._onRefresh.bind(this)}
                         colors={['black','blue']}
-                        progressViewOffset={50}/>
+                        progressViewOffset={10}/>
                 }
                 removeClippedSubviews/>
         )
