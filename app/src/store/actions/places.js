@@ -27,56 +27,81 @@
 //     }
 // };
 
-import { ADD_PLACE, DELETE_PLACE } from './actionsTypes';
+import {ADD_PLACE, DELETE_PLACE,SET_PLACE} from './actionsTypes';
 // applied http communciation
+import {uiStartLoading, uiStopLoading} from "./ui";
 
 export const addPlace = (placeName, location, image) => {
     return dispatch => {
-        const placeDate = {
-            name: placeName,
-            location: location
-        };
+        dispatch(uiStartLoading());
 
-fetch(' https://us-central1-awesome-place-1527277902911.cloudfunctions.net/storeImage',{
+fetch('https://us-central1-awesome-place-1527277902911.cloudfunctions.net/storeImage',{
     method:'POST',
     body:JSON.stringify({
         image:image.base64
     })
 })
     .catch(err=>{
+        alert('sth wrong!');
+        dispatch(uiStopLoading());
         console.log(err)
     })
     .then(res=>{
         res.json()
     })
     .then(parsedRes=>{
-        console.log(parsedRes)
+        const placeData={
+            name: placeName,
+            location: location,
+            image:parsedRes.imageUrl,
+        };
+        return fetch('https://zhe-awesome-place.firebaseio.com/places.json',
+            {
+                method:'POST',
+                body: JSON.stringify(placeData)
+            })
+                .catch(err=> {console.log(err);
+                    dispatch(uiStopLoading())} )
+                .then(res=>res.json())
+                .then(parsedRes=> {console.log(parsedRes);
+                    dispatch(uiStopLoading())});
+
+
+
+
         }
     )
-        // fetch("https://console.firebase.google.com/project/zhe-awesome-place/database/zhe-awesome-place/data/places.json", {
-        //     method: "POST",
-        //     body: JSON.stringify(placeDate),
-        //     headers: {
-        //         Accept: 'application/json',
-        //         'Content-Type': 'application/json',
-        //     },
-        // })
-        //     .then(res => res.json())
-        //     .then(parsedRes => {
-        //         console.log(parsedRes);
-        //     })
-        //     .catch(err => {
-        //         console.log(err);
-        //         throw err;
-        //     });
+
     };
 
-    // {
-    //     type: ADD_PLACE,
-    //     placeName: placeName,
-    //     location: location,
-    //     image: image
-    // };
+};
+
+export const getPlaces =()=>{
+    return dispatch=>{
+        fetch('https://zhe-awesome-place.firebaseio.com/places.json')
+            .catch(err=>{
+                alert('error');
+                console.log(err);
+            })
+            .then(res=>res.json())
+            .then(parsedRes=>{
+                const places =[];
+                for(let key in parsedRes){
+                    places.push({
+                        ...parsedRes[key],
+                        key:key,
+                        image:{
+                            uri: parsedRes[key].image
+                        }
+                    })
+                }
+
+                    dispatch(setPlaces(places));
+                    console.log(parsedRes)
+                }
+            )
+
+    }
 };
 
 export const deletePlace = (key) => {
@@ -84,4 +109,30 @@ export const deletePlace = (key) => {
         type: DELETE_PLACE,
         placeKey: key
     };
+};
+// to delete local data
+
+export const removePlace =(key)=>{
+    return dispatch=>{
+        dispatch(deletePlace(key));
+        fetch('https://zhe-awesome-place.firebaseio.com/places/'+key+'.json',{
+            method:'DELETE'
+        })
+            .catch(err=>{
+                alert('error');
+                console.log(err);
+            })
+            .then(res=>res.json())
+            .then(parsedRes=>{
+                    console.log('DONE!')
+                }
+            )
+    }
+};//delete remote data
+
+export  const setPlaces =(places)=>{
+    return{
+        type:SET_PLACE,
+        places:places
+    }
 };

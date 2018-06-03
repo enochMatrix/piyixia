@@ -58,6 +58,6 @@ const styles =StyleSheet.create({
     textColor:{
         color:'grey'
     }
-})
+});
 
 export default buttonWithBackground;

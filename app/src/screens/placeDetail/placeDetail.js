@@ -68,7 +68,7 @@ class placeDetail extends Component {
 
 const mapDispatchToProps =dispatch =>{
     return{
-        onDeletePlace: (name) => dispatch(deletePlace(name)),
+        onDeletePlace: (name) => dispatch(removePlace(name)),
     }
 
 };

@@ -1,5 +1,5 @@
 import React ,{Component} from 'react';
-import {View, Text, TextInput, Button,StyleSheet,ScrollView, Image} from 'react-native';
+import {View, Text, TextInput, Button,StyleSheet,ScrollView, ActivityIndicator} from 'react-native';
 import {connect} from 'react-redux';
 import {addPlace} from '../../store/actions/index';
 import PlaceInput from '../../components/InputPlace/InputPlace';
@@ -87,9 +87,17 @@ import PickLocation from "../../components/PickLocation/PickLocation";
              }
          })
 
-     }
+     };
 
      render(){
+         let submitButton =
+             <Button title="share the place" onPress={this.placeAddedHandler}
+                                   disabled={!this.state.location.valid||!this.state.placeName||!this.state.image}/>;
+         if(this.props.isLoading){
+             submitButton =<ActivityIndicator
+                 size="large" color="#0000ff"/>
+         }
+
          return(
              <ScrollView>
                  <View style={styles.container}>
@@ -102,14 +110,22 @@ import PickLocation from "../../components/PickLocation/PickLocation";
                   <PickLocation onLocationPick={this.locationPickHandler}/>
                  <PlaceInput  placeName={this.state.placeName}
                  onChangeText={this.placeNameChangedHandler}/>
-                 <Button title="share the place" onPress={this.placeAddedHandler}
-                 disabled={!this.state.location.valid||!this.state.placeName||!this.state.image}/>
+                     <View
+                     style={styles.button}>
+                         {submitButton}
+                         </View>
+
                  </View>
              </ScrollView>
          )
 
      }
  }
+const mapStateToProps = state => {
+    return {
+        ui: state.ui.isLoading,
+    };
+};
 
  const mapDispatchToProps =dispatch =>{
     return{
@@ -140,4 +156,4 @@ import PickLocation from "../../components/PickLocation/PickLocation";
      }
  });
 
- export default connect(null,mapDispatchToProps)(sharePlaceScreen);
+ export default connect(mapStateToProps,mapDispatchToProps)(sharePlaceScreen);

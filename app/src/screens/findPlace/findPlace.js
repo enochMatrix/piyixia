@@ -2,6 +2,8 @@ import React ,{Component} from 'react';
 import {View,Text, TouchableOpacity, StyleSheet, Animated} from 'react-native';
 import { connect} from 'react-redux';
 import List from '../../components/List/List';
+import {setPlaces} from "../../store/actions/places";
+import {getPlaces} from "../../store/actions/index";
 
 class findPlaceScreen extends Component{
     static navigatorStyle ={
@@ -25,8 +27,8 @@ class findPlaceScreen extends Component{
     onNavigatorEvent = event =>{
 
         console.log(event);
-        if(event.type==="NavBarButtonPress"){
-            if(event.id==="sideDrawerToggle"){
+        if(event.type === "NavBarButtonPress"){
+            if(event.id === "sideDrawerToggle"){
                 this.props.navigator.toggleDrawer({
                     side:'left'
                 })
@@ -34,11 +36,12 @@ class findPlaceScreen extends Component{
         }
     };
     //combine the button and sideDrawer
-
-
+    componentDidMount(){
+    this.props.getPlaces();
+    }
 
     ItemSelectedHandler =key=>{
-        const selectedPlace= this.props.places.find(place=>{
+        const selectedPlace = this.props.places.find(place=>{
             return place.key === key
         });
         this.props.navigator.push(
@@ -71,7 +74,7 @@ class findPlaceScreen extends Component{
             });
             this.placeLoadedHandler();
         });
-    }
+    };
     //把变化的 removeAnim 值传给state
 
 
@@ -127,6 +130,12 @@ const mapStateToProps = state => {
 
     };
 };
+const mapDispatchToProps =dispatch =>{
+    return{
+        getPlaces: () => dispatch(getPlaces()),
+    }
+
+};
 
 const styles= StyleSheet.create({
     searchButton:{
@@ -146,7 +155,6 @@ const styles= StyleSheet.create({
         justifyContent:"center",
         alignItems:'center'
     }
+});
 
-})
-
-export default connect(mapStateToProps)(findPlaceScreen);
+export default connect(mapStateToProps,mapDispatchToProps)(findPlaceScreen);
