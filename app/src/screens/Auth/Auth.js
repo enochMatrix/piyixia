@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ImageBackground, Dimensions, KeyboardAvoidingView, Keyboard, TouchableWithoutFeedback} from 'react-native';
+import { View, StyleSheet, ImageBackground, Dimensions, KeyboardAvoidingView, Keyboard, TouchableWithoutFeedback, ActivityIndicator} from 'react-native';
 import DefaultInput from '../../components/UI/DefaultInput/DefaultInput';
-import startMainTabs from '../MainTabs/startMainTabs';
 import HeadingText from '../../components/UI/HeadingText/HeadingText';
 import MainText from '../../components/UI/MainText/MainText';
 import backgroundImage from '../../assets/beautiful-place.jpg';
 import ButtonWithBackground from '../../components/UI/ButtonWithBackground/ButtonWithBackground';
 import validate from '../../utility/validation';
 import { connect } from 'react-redux';
-import {tryAuth} from '../../store/actions/index'
+import {tryAuth, authAutoSignIn} from '../../store/actions/index'
 
 class AuthScreen extends Component {
 
@@ -60,6 +59,10 @@ class AuthScreen extends Component {
                 }
             })
         })
+    }
+
+    componentDidMount() {
+        this.props.onAutoSignIn();
     }
 
 // cleaning event listener in case of memory leak
@@ -130,14 +133,12 @@ class AuthScreen extends Component {
      };
 
 // switch to tab based nav
-    loginHandler = () => {
+    authHandler = () => {
         const authDate = {
           email: this.state.controls.email.value,
           password: this.state.controls.password.value
         };
-        this.props.onLogin(authDate);
-        startMainTabs();
-
+        this.props.onTryAuth(authDate, this.state.authMode);
     };
 
     render () {
@@ -145,6 +146,23 @@ class AuthScreen extends Component {
         let headingText = null;
 
         let confirmPasswordControl = null;
+        let submitButton = (
+            <ButtonWithBackground color="#29aaf4"
+                                  onPress={this.authHandler}
+                                  disabled={(
+                                      this.state.controls.confirmPassword.valid
+                                      || this.state.authMode === 'login')
+                                      && this.state.controls.password.valid
+                                      && this.state.controls.email.valid}>
+                Submit
+            </ButtonWithBackground>
+        );
+        if(this.props.isLoading) {
+            submitButton = (
+                <ActivityIndicator size="large"
+                                   color="black"/>
+            )
+        }
         if(this.state.authMode === 'signup') {
             confirmPasswordControl = (
                 <View style={{width: this.state.styles.pwWrapperWidth}}>
@@ -168,6 +186,8 @@ class AuthScreen extends Component {
                 </MainText>
             )
         }
+
+
         return (
                 // add background image
                 <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
@@ -206,13 +226,7 @@ class AuthScreen extends Component {
                                 </View>
                             </View>
                         </TouchableWithoutFeedback>
-                        <ButtonWithBackground color="#29aaf4"
-                                              onPress={this.loginHandler}
-                                              disabled={(this.state.controls.confirmPassword.valid || this.state.authMode === 'login')&&
-                                                        this.state.controls.password.valid &&
-                                                        this.state.controls.email.valid}>
-                            Submit
-                        </ButtonWithBackground>
+                        {submitButton}
                     </KeyboardAvoidingView>
                 </ImageBackground>
 
@@ -244,8 +258,15 @@ const styles = StyleSheet.create({
 
 const mapDispatchToProps = dispatch => {
    return {
-       onLogin: (authDate) => dispatch(tryAuth(authDate))
+       onTryAuth: (authDate, authMode) => dispatch(tryAuth(authDate, authMode)),
+       onAutoSignIn: () => dispatch(authAutoSignIn())
    }
 };
 
-export default connect(null, mapDispatchToProps)(AuthScreen);
+const mapStateToProps = state => {
+    return {
+        isLoading: state.ui.isLoading
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthScreen);
