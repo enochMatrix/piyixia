@@ -31,25 +31,21 @@ import {ADD_PLACE, DELETE_PLACE,SET_PLACE} from './actionsTypes';
 // applied http communciation
 import {uiStartLoading, uiStopLoading} from "./ui";
 
-export const addPlace = (placeName, location, image) => {
-    return dispatch => {
-        dispatch(uiStartLoading());
 
+export const addPlace = (placeName, location, image) => {
+    return dispatch=> {
+        dispatch(uiStartLoading());
 fetch('https://us-central1-awesome-place-1527277902911.cloudfunctions.net/storeImage',{
     method:'POST',
     body:JSON.stringify({
         image:image.base64
     })
 })
-    .catch(err=>{
-        alert('sth wrong!');
-        dispatch(uiStopLoading());
-        console.log(err)
-    })
     .then(res=>{
         res.json()
     })
     .then(parsedRes=>{
+        console.log(parsedRes);
         const placeData={
             name: placeName,
             location: location,
@@ -60,29 +56,36 @@ fetch('https://us-central1-awesome-place-1527277902911.cloudfunctions.net/storeI
                 method:'POST',
                 body: JSON.stringify(placeData)
             })
-                .catch(err=> {console.log(err);
-                    dispatch(uiStopLoading())} )
                 .then(res=>res.json())
                 .then(parsedRes=> {console.log(parsedRes);
-                    dispatch(uiStopLoading())});
+                    dispatch(uiStopLoading())})
+            .catch(err=> {console.log(err);
+                dispatch(uiStopLoading())} );
 
 
 
 
         }
     )
+    .catch(err=>{
+        alert('sth wrong!');
+        dispatch(uiStopLoading());
+        console.log(err)
+    })
 
     };
 
 };
 
 export const getPlaces =()=>{
-    return dispatch=>{
-        fetch('https://zhe-awesome-place.firebaseio.com/places.json')
-            .catch(err=>{
-                alert('error');
-                console.log(err);
-            })
+    return (dispatch,getState)=>{
+
+        const token =getState().auth.token;
+        if(!token){
+            return;
+        }
+        //get the token return from database;
+        fetch('https://zhe-awesome-place.firebaseio.com/places.json?auth='+token)
             .then(res=>res.json())
             .then(parsedRes=>{
                 const places =[];
@@ -98,8 +101,11 @@ export const getPlaces =()=>{
 
                     dispatch(setPlaces(places));
                     console.log(parsedRes)
-                }
-            )
+                })
+            .catch(err=>{
+            alert('error');
+            console.log(err);
+        })
 
     }
 };
@@ -115,18 +121,19 @@ export const deletePlace = (key) => {
 export const removePlace =(key)=>{
     return dispatch=>{
         dispatch(deletePlace(key));
+        // const token =getState().auth.token;
         fetch('https://zhe-awesome-place.firebaseio.com/places/'+key+'.json',{
             method:'DELETE'
         })
-            .catch(err=>{
-                alert('error');
-                console.log(err);
-            })
             .then(res=>res.json())
             .then(parsedRes=>{
                     console.log('DONE!')
                 }
             )
+            .catch(err=>{
+                alert('error');
+                console.log(err);
+            })
     }
 };//delete remote data
 
