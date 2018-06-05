@@ -2,11 +2,66 @@ import {TRY_AUTH} from "./actionsTypes";
 import {AUTH_SET_TOKEN} from './actionsTypes';
 import {uiStartLoading,uiStopLoading} from './ui';
 import StartMainTabs from '../../screens/MainTabs/startMainTabs/startMainTabs';
+import {AsyncStorage} from 'react-native';
+//AsyncStorage is an API to store token
+
+export const authStoreToken =(token,expiresIn) =>{
+  return dispatch =>{
+      dispatch(authSetToken(token));
+      const now =new Date();
+      const expiryDate =now.getTime()+20*1000;
+      console.log(now,new Date(expiryDate));
+      AsyncStorage.setItem('ap:auth:token',token);
+      AsyncStorage.setItem('ap:auth:expiryDate',expiryDate.toString())
+  }
+};//get the token from storage
 
 export const authSetToken =token =>{
     return {
         type:AUTH_SET_TOKEN,
         token:token
+    }
+};//set the token as a state in redux
+
+//authGetToken is a useful function which can be used to add the token anywhere!
+export const authGetToken =()=>{
+    return (dispatch,getState)=>{
+        const promise =new Promise((resolve,reject)=>{
+            const token =getState().auth.token;
+            let storageToken =null;
+            if(!token){
+                AsyncStorage.getItem('ap:auth:token')
+                    .catch(err=>reject())
+                    .then(tokenFromStorage=>{
+                        storageToken=tokenFromStorage;
+
+                        if(!tokenFromStorage){
+                            reject();
+                            return;
+
+                            //if there is no valid token in storage,
+                            //we will return without excuting the code below
+                        }
+                        return AsyncStorage.getItem('ap:auth:expiryDate')})
+                    .then(expiryDate=>{
+                        const parsedExpiryDate =new Date(parseInt(expiryDate));
+                        const now =new Date();
+                        if(parsedExpiryDate> now){
+                            dispatch(authSetToken(storageToken));
+                            resolve(storageToken);
+                        }else{
+                            reject();
+                        }
+                    })
+                        //token here is a promise, so we need to resolve and reject it.
+                    }
+                //if there is no token, get it from AsyncStorage API
+            else{
+                resolve(token)
+            }
+        });
+        promise.catch(err=>authClearStorage());
+        return promise;
     }
 };
 
@@ -51,7 +106,7 @@ export const authSign =(authData,Url)=>{
 
 
                 }else{
-                    dispatch(authSetToken(parsedRes.idToken));
+                    dispatch(authStoreToken(parsedRes.idToken,parsedRes.expiresIn));
                     StartMainTabs();
                 }
                 console.log(parsedRes)
@@ -63,6 +118,23 @@ export const authSign =(authData,Url)=>{
             })
     }
 
+};
+
+export const autoSignIn =()=>{
+    return dispatch=>{
+        dispatch(authGetToken())
+            //the token mostly come from AsyncStorage;
+            .then(token => {
+                StartMainTabs();
+            })
+            .catch(err=>console.log('fail to get token'))
+
+    }
+};
+
+export const authClearStorage =()=>{
+    AsyncStorage.removeItem('app:auth:token');
+    AsyncStorage.removeItem('app:auth:expiryDate')
 };
 
 

@@ -7,7 +7,7 @@ import backgroundImage from '../../asset/1.jpg';
 import ButtonWithBackground from '../../components/UI/ButtonWithBackground/ButtonWithBackground';
 import validate from '../../../src/utility/validation';
 import {connect} from 'react-redux';
-import {tryAuth} from '../../store/actions/index';
+import {tryAuth,autoSignIn} from '../../store/actions/index';
 
 
 
@@ -86,7 +86,13 @@ class AuthScreen extends Component {
         })
     }
 
-    //unmount
+    componentDidMount(){
+        this.props.autoSignIn();
+
+    }
+    // it will be excuted if the user clear the app and reload it
+    //if the user have a token, it will login automatically
+    //a good place to check whether the user have a token
     switchAuthModeHandler=()=>{
         this.setState(preState=>{
             return{
@@ -301,6 +307,7 @@ const styles = StyleSheet.create({
 const mapDispatchToProps =dispatch =>{
     return{
         onTryAuth: (authData,authMode) => dispatch(tryAuth(authData,authMode)),
+        autoSignIn:()=>dispatch(autoSignIn())
     }
 
 };
