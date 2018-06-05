@@ -47,7 +47,7 @@ export const authSignup = (authData, url) => {
                 alert("Auth failed, please try again!");
               } else {
                   // async store token in redux store
-                  dispatch(authStoreToken(parseRes.idToken));
+                  dispatch(authStoreToken(parseRes.idToken, parseRes.expiresIn));
                   startMainTab();
               }
               // console.log(parseRes);
@@ -56,11 +56,14 @@ export const authSignup = (authData, url) => {
     };
 };
 // store token in asyncStore
-export const authStoreToken = token => {
+export const authStoreToken = (token, expiryTime) => {
     return dispatch => {
-
         dispatch(authSetToken(token));
+        const now = new Date();
+        const expiryDate = now.getTime() + 20 * 1000;
+        console.log(now, new Date(expiryDate));
         AsyncStorage.setItem("zheap:auth:token", token);
+        AsyncStorage.setItem("zheap:auth:expiryDate", expiryDate.toString());
     }
 };
 // store token in redux store
@@ -75,22 +78,36 @@ export const authGetToken = () => {
     return (dispatch,getState) => {
         const promise = new Promise( (resolve, reject) => {
             const token = getState().auth.token;
+            let tokenStorage = null;
             if(!token) {
                 // check if async storage has token
                 AsyncStorage.getItem("zheap:auth:token")
                     .catch(err => reject())
                     .then(tokenFromStorage => {
-                        if(!tokenFromStorage) {
+                        if (!tokenFromStorage) {
                             reject();
-                            return ;
+                            return;
                         }
-                        dispatch(authSetToken(tokenFromStorage));
-                        resolve(tokenFromStorage);
-                    });
+                        tokenStorage = tokenFromStorage;
+                        // check expiry time
+                        return AsyncStorage.getItem("zheap:auth:expiryDate");
+                    })
+                    .then(expiryDate => {
+                                const parseExpiryDate = new Date(parseInt(expiryDate));
+                                const now = new Date();
+                                if (parseExpiryDate > now) {
+                                    dispatch(authSetToken(tokenStorage));
+                                    resolve(tokenStorage)
+                                } else {
+                                    reject();
+                                }
+                            })
+
             } else {
                 resolve(token);
             }
         });
+        promise.catch(error => dispatch(authClearStorage()));
         return promise;
     }
 };
@@ -103,5 +120,12 @@ export const authAutoSignIn = () => {
             })
             .catch(err => console.log("Failed to get token!"))
 
+    }
+};
+
+export const authClearStorage = () => {
+    return dispatch => {
+        AsyncStorage.removeItem("zheap:auth:token");
+        AsyncStorage.removeItem("zheap:auth:expiryDate");
     }
 };

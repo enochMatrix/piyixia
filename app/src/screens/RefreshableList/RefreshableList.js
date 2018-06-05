@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {ListView, RefreshControl} from 'react-native';
+import {ListView, RefreshControl, TouchableOpacity} from 'react-native';
 import {Card, CardTitle, CardContent, CardAction, CardButton, CardImage} from 'react-native-cards';
 import DynamicListRow from "../../components/DynamicListRow/DynamicListRow";
+
 class RefreshableList extends Component {
 
     // set state and list view data
@@ -25,8 +26,8 @@ class RefreshableList extends Component {
         // fetchData().then(() => {
         //     this.setState({refreshing: false});
         // });
-
         // simulate fetch data process using setinterval
+
         setInterval( () => {
             const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
             this.setState({
@@ -36,8 +37,17 @@ class RefreshableList extends Component {
         }, 2000)
     }
 
+    onItemSelectedHandler = () => {
+
+        this.props.navigator.push({
+            screen: "awesome-places.MatrixDetail",
+            title: "Detail Page",
+            })
+    };
+
     _renderRow = (rowData) => {
         return (
+            <TouchableOpacity onPress={this.onItemSelectedHandler}>
             <DynamicListRow>
                 <Card>
                     <CardImage
@@ -64,6 +74,7 @@ class RefreshableList extends Component {
                     </CardAction>
                 </Card>
             </DynamicListRow>
+            </TouchableOpacity>
         )
     };
 

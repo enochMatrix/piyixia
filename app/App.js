@@ -8,7 +8,7 @@ import PlaceDetailScreen from "./src/screens/PlaceDetail/PlaceDetail";
 import configureStore from "./src/store/configureStore";
 import SideDrawer from './src/screens/SideDrawer/SideDrawer';
 import RefreshableList from './src/screens/RefreshableList/RefreshableList';
-
+import MatrixDetail from './src/screens/MatrixDetail/MatrixDetail';
 const store = configureStore();
 
 // Register Screens
@@ -43,6 +43,10 @@ Navigation.registerComponent(
 Navigation.registerComponent(
     "awesome-places.RefreshableList",
     () => RefreshableList
+);
+Navigation.registerComponent(
+    "awesome-places.MatrixDetail",
+    () => MatrixDetail
 );
 
 // Start a App
