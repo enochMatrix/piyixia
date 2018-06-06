@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Card, CardTitle, CardContent, CardAction, CardButton, CardImage} from 'react-native-cards';
-import {View, StyleSheet, ProgressBarAndroid, Text, Image} from 'react-native';
+import {ScrollView, View, StyleSheet, Text, Image, Button} from 'react-native';
+import ProgressBar from 'react-native-progress/Bar';
+import Icon from 'react-native-vector-icons';
 
 class MatrixDetail extends Component {
 
@@ -9,15 +11,57 @@ class MatrixDetail extends Component {
         const date = "Create by Kwan at 2017-02-09 12:22";
         return (
             <View style={styles.container}>
-                {/*<Text>*/}
-                    {/*{content}*/}
-                {/*</Text>*/}
-                {/*<Image style={{width: "80%", height: 100}}*/}
-                       {/*resizeMode="cover"*/}
-                       {/*source={{uri: 'http://bit.ly/2GfzooV'}}/>*/}
-                {/*<Text>*/}
-                    {/*{date}*/}
-                {/*</Text>*/}
+                <ScrollView >
+                    <Text style={{fontSize: 24, margin: 10}}>
+                        IceBucket Challenge
+                    </Text>
+                    <Image style={{width: "100%", height: 200}}
+                                  resizeMode="cover"
+                                  source={{uri: 'http://bit.ly/2GfzooV'}}/>
+                    <Text style={{margin: 10}}>
+                        {date}
+                    </Text>
+                    <Text style={{fontSize: 18, margin: 15}}>
+                        {content}
+                    </Text>
+                    <View style={{alignItems: "center"}}>
+                        <ProgressBar progress={0.3}
+                                     width={300}
+                                     animated
+                                     animationType="timing"/>
+                        <Text>
+                            30%
+                        </Text>
+                    </View>
+                    <Text style={{fontSize: 24, marginTop: 10}}>
+                        Comment
+                    </Text>
+                    <Text style={{fontSize: 18, margin: 15}}>
+                        {content}
+                    </Text>
+                    <Text style={{fontSize: 18, margin: 15}}>
+                        {content}
+                    </Text>
+                  {/*<Card>*/}
+                      {/*<CardTitle title="IceBucket  Challenge" style={{marginBottom: 5, padding: 0}}/>*/}
+                      {/*<CardImage source={{uri: 'http://bit.ly/2GfzooV'}} style={{marginTop: 5, height: 200, padding: 0}}/>*/}
+                      {/*<CardTitle subtitle={date}/>*/}
+                      {/*<CardContent text={content}/>*/}
+                  {/*</Card>*/}
+                </ScrollView>
+                <View style={styles.foot}>
+                    <View>
+                        <Text style={{fontSize: 30}}>
+                        Pledged: 10K
+                        </Text>
+                    </View>
+                    <View>
+                    <Button
+                        title="Sponsor Now!"
+                        color="green"
+                        onPress={() => {}}/>
+                    </View>
+                </View>
             </View>
         )
     }
@@ -26,10 +70,16 @@ class MatrixDetail extends Component {
 const styles = StyleSheet.create({
     container: {
         flex:1,
-        alignItems: "center"
     },
     title: {
-        margin: 10,
+        marginBottom: 5,
+    },
+    foot: {
+        flexDirection: "row",
+        height: 50,
+        backgroundColor: "#eee",
+        justifyContent: "space-between",
+        alignItems: "center"
     }
 });
 

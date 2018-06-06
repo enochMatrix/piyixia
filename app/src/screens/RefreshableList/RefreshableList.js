@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {ListView, RefreshControl, TouchableOpacity} from 'react-native';
+import {ListView, RefreshControl, TouchableOpacity, View} from 'react-native';
 import {Card, CardTitle, CardContent, CardAction, CardButton, CardImage} from 'react-native-cards';
 import DynamicListRow from "../../components/DynamicListRow/DynamicListRow";
+import Icon from 'react-native-vector-icons/Ionicons';
 
 class RefreshableList extends Component {
 
@@ -51,26 +52,40 @@ class RefreshableList extends Component {
             <DynamicListRow>
                 <Card>
                     <CardImage
+                        styel={{height: 100}}
                         source={{uri: 'http://bit.ly/2GfzooV'}}
                         title="Top 10 South African beaches"
                         resizeMode="contain"
                     />
-                    <CardTitle
-                        subtitle="Number 6"/>
                     <CardContent text={rowData} />
                     <CardAction
                         separator={true}
-                        inColumn={false}>
+                        inColumn={false}
+                        >
+                        <View style={{flex: 1, flexDirection: "row", padding: 0}}>
+                       <Icon name="ios-star" size={40} color="green"/>
                         <CardButton
                             onPress={() => {}}
-                            title="Share"
+                            title="3.1K"
                             color="#FEB557"
+                            style={{padding: 0}}
                         />
+                        </View>
+                        <View style={{flex: 1, flexDirection: "row"}}>
+                        <Icon name="ios-chatbubbles" size={40} color="black"/>
                         <CardButton
                             onPress={() => {}}
-                            title="Explore"
+                            title="200"
                             color="#FEB557"
                         />
+                        </View>
+                        <View style={{flex: 1, flexDirection: "row"}}>
+                        <CardButton
+                            onPress={() => {}}
+                            title="Sponsor"
+                            color="#FEB557"
+                        />
+                        </View>
                     </CardAction>
                 </Card>
             </DynamicListRow>

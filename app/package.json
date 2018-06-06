@@ -24,6 +24,8 @@
     "react-native-image-picker": "^0.26.10",
     "react-native-maps": "^0.21.0",
     "react-native-navigation": "^1.1.458",
+    "react-native-progress": "^3.5.0",
+    "react-native-progress-bar": "^0.1.2",
     "react-native-vector-icons": "^4.6.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",

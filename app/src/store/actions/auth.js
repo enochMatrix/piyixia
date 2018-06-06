@@ -60,7 +60,7 @@ export const authStoreToken = (token, expiryTime) => {
     return dispatch => {
         dispatch(authSetToken(token));
         const now = new Date();
-        const expiryDate = now.getTime() + 20 * 1000;
+        const expiryDate = now.getTime() + expiryTime * 1000;
         console.log(now, new Date(expiryDate));
         AsyncStorage.setItem("zheap:auth:token", token);
         AsyncStorage.setItem("zheap:auth:expiryDate", expiryDate.toString());
@@ -99,7 +99,7 @@ export const authGetToken = () => {
                                     dispatch(authSetToken(tokenStorage));
                                     resolve(tokenStorage)
                                 } else {
-                                    reject();
+                                     reject();
                                 }
                             })
 
