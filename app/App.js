@@ -38,7 +38,9 @@ Navigation.registerComponent(
 );
 Navigation.registerComponent(
     "awesome-places.SideDrawer",
-    () => SideDrawer
+    () => SideDrawer,
+    store,
+    Provider
 );
 Navigation.registerComponent(
     "awesome-places.RefreshableList",

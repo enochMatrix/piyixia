@@ -1,16 +1,19 @@
 import {AsyncStorage} from 'react-native';
-import {TRY_AUTH, AUTH_SET_TOKEN} from './actionTypes';
+import {TRY_AUTH, AUTH_SET_TOKEN, AUTH_REMOVE_TOKEN} from './actionTypes';
 import {uiStartLoading, uiStopLoading} from './ui';
 import startMainTab from '../../screens/MainTabs/startMainTabs';
+import App from '../../../App';
+import {Navigation} from "react-native-navigation";
 
+const API_KEY = "AIzaSyDKzwD1SC1_c7APT_SlpvVV7WDiP5IlkZQ";
 export const tryAuth = (authData, authMode) => {
 
     return dispatch => {
         dispatch(uiStartLoading());
-        const apiKey = "AIzaSyDKzwD1SC1_c7APT_SlpvVV7WDiP5IlkZQ";
-        let url = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + apiKey;
+
+        let url = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + API_KEY;
         if(authMode === 'signup') {
-            url = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=" + apiKey;
+            url = "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=" + API_KEY;
         }
         dispatch(authSignup(authData, url));
         }
@@ -47,7 +50,10 @@ export const authSignup = (authData, url) => {
                 alert("Auth failed, please try again!");
               } else {
                   // async store token in redux store
-                  dispatch(authStoreToken(parseRes.idToken, parseRes.expiresIn));
+                  dispatch(authStoreToken(
+                      parseRes.idToken,
+                      parseRes.expiresIn,
+                      parseRes.refreshToken));
                   startMainTab();
               }
               // console.log(parseRes);
@@ -56,7 +62,7 @@ export const authSignup = (authData, url) => {
     };
 };
 // store token in asyncStore
-export const authStoreToken = (token, expiryTime) => {
+export const authStoreToken = (token, expiryTime, refreshToken) => {
     return dispatch => {
         dispatch(authSetToken(token));
         const now = new Date();
@@ -64,6 +70,7 @@ export const authStoreToken = (token, expiryTime) => {
         console.log(now, new Date(expiryDate));
         AsyncStorage.setItem("zheap:auth:token", token);
         AsyncStorage.setItem("zheap:auth:expiryDate", expiryDate.toString());
+        AsyncStorage.setItem("zheap:auth:refreshToken", refreshToken);
     }
 };
 // store token in redux store
@@ -107,11 +114,41 @@ export const authGetToken = () => {
                 resolve(token);
             }
         });
-        promise.catch(error => dispatch(authClearStorage()));
-        return promise;
+        return promise.catch(error => {
+            return AsyncStorage.getItem("zheap:auth:refreshToken")
+                .then(refreshToken => {
+                    return fetch("https://securetoken.googleapis.com/v1/token?key=" + API_KEY, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        body: "grant_type=refresh_token&refresh_token=" + refreshToken
+                    })
+                })
+                .then(res => res.json())
+                .then(parseRes => {
+                    if(parseRes.id_token) {
+                        console.log("Refresh token worked!");
+                        dispatch(authStoreToken(
+                            parseRes.id_token,
+                            parseRes.expires_in,
+                            parseRes.refresh_token));
+                        return parseRes.id_token;
+                    } else {
+                        dispatch(authClearStorage());
+                    }
+                });
+        })
+            .then(token => {
+                if(!token) {
+                    throw(new Error())
+                } else {
+                    return token;
+                }
+            });
     }
 };
-
+// first step when auth screen didmount
 export const authAutoSignIn = () => {
     return dispatch => {
         dispatch(authGetToken())
@@ -119,13 +156,35 @@ export const authAutoSignIn = () => {
                 startMainTab();
             })
             .catch(err => console.log("Failed to get token!"))
-
     }
 };
-
+// clear the async store
 export const authClearStorage = () => {
     return dispatch => {
         AsyncStorage.removeItem("zheap:auth:token");
         AsyncStorage.removeItem("zheap:auth:expiryDate");
+       return AsyncStorage.removeItem("zheap:auth:refreshToken");
+
+    }
+};
+
+export const authLogout = () => {
+    return dispatch => {
+        dispatch(authClearStorage())
+            .then( () => {
+                Navigation.startSingleScreenApp({
+                    screen: {
+                        screen: "awesome-places.AuthScreen",
+                        title: "Login"
+                    }
+                });
+            });
+        dispatch(authRemoveToken());
+    }
+};
+
+export const authRemoveToken =() => {
+    return {
+        type: AUTH_REMOVE_TOKEN
     }
 };
