@@ -5,7 +5,7 @@ import StartPage from './components/StartPage';
 import FinishPage from './components/FinishPage';
 import ScoreBoard from './components/ScoreBoard';
 
-export const Router = StackNavigator({
+const Router = StackNavigator({
   start: {
      screen: StartPage,
   },
@@ -19,3 +19,5 @@ export const Router = StackNavigator({
     screen: FinishPage,
   },
 });
+
+export default Router;

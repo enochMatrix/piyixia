@@ -12,7 +12,9 @@
     "react-native-circle-checkbox": "^0.1.6",
     "react-native-leaderboard": "^1.0.5",
     "react-native-material-design": "^0.3.7",
+    "react-native-swipe-gestures": "^1.0.2",
     "react-native-vector-icons": "^4.6.0",
+    "react-native-video": "^2.1.1",
     "react-navigation": "^2.0.1"
   },
   "devDependencies": {

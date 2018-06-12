@@ -4,9 +4,13 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 class StartPage extends Component {
   static navigationOptions = {
-    title: 'Quiz',
+      tabBarVisible: false,
+  }
+  componentDidMount() {
+        console.log('HomePage');
   }
   onPressStartButton() {
+    console.log('start on press');
     this.props.navigation.navigate('questionpage');
   }
   onPressScoreButton() {
