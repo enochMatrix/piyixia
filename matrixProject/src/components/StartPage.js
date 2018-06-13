@@ -3,9 +3,6 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 class StartPage extends Component {
-  static navigationOptions = {
-      tabBarVisible: false,
-  }
   componentDidMount() {
         console.log('HomePage');
   }
