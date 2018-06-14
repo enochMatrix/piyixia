@@ -1,11 +1,11 @@
 import {AsyncStorage} from 'react-native';
-import {TRY_AUTH, AUTH_SET_TOKEN, AUTH_REMOVE_TOKEN} from './actionTypes';
+import {AUTH_SET_TOKEN, AUTH_REMOVE_TOKEN} from './actionTypes';
 import {uiStartLoading, uiStopLoading} from './ui';
 import startMainTab from '../../screens/MainTabs/startMainTabs';
-import App from '../../../App';
 import {Navigation} from "react-native-navigation";
 
 const API_KEY = "AIzaSyDKzwD1SC1_c7APT_SlpvVV7WDiP5IlkZQ";
+
 export const tryAuth = (authData, authMode) => {
 
     return dispatch => {
@@ -64,9 +64,9 @@ export const authSignup = (authData, url) => {
 // store token in asyncStore
 export const authStoreToken = (token, expiryTime, refreshToken) => {
     return dispatch => {
-        dispatch(authSetToken(token));
         const now = new Date();
         const expiryDate = now.getTime() + expiryTime * 1000;
+        dispatch(authSetToken(token, expiryDate));
         console.log(now, new Date(expiryDate));
         AsyncStorage.setItem("zheap:auth:token", token);
         AsyncStorage.setItem("zheap:auth:expiryDate", expiryDate.toString());
@@ -74,10 +74,11 @@ export const authStoreToken = (token, expiryTime, refreshToken) => {
     }
 };
 // store token in redux store
-export const authSetToken = token => {
+export const authSetToken = (token, expiryDate) => {
     return {
         type: AUTH_SET_TOKEN,
-        token: token
+        token: token,
+        expiryDate: expiryDate
     }
 };
 // helper function
@@ -85,8 +86,9 @@ export const authGetToken = () => {
     return (dispatch,getState) => {
         const promise = new Promise( (resolve, reject) => {
             const token = getState().auth.token;
+            const expiryDate = getState().auth.expiryDate;
             let tokenStorage = null;
-            if(!token) {
+            if(!token || new Date(expiryDate) <= new Date()) {
                 // check if async storage has token
                 AsyncStorage.getItem("zheap:auth:token")
                     .catch(err => reject())

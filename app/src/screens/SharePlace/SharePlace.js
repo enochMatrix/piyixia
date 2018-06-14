@@ -18,29 +18,13 @@ class SharePlaceScreen extends Component {
         navBarButtonColor: "orange"
     };
 
-    state = {
-        placeName: "",
-        validationRules: {
-            isEmpty: true
-        },
-        valid: false,
-        touched: false,
-        location: {
-            value: null,
-            valid: false
-
-        },
-        image: {
-            value: null,
-            valid: false
-        }
-    };
-
     constructor(props) {
-
         super(props);
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+    }
 
+    componentWillMount() {
+        this.reset();
     }
 
     onNavigatorEvent = event => {
@@ -59,6 +43,7 @@ class SharePlaceScreen extends Component {
                 this.state.placeName,
                 this.state.location.value,
                 this.state.image.value);
+            this.reset();
     };
 
     placeNameChangedHandler = val => {
@@ -95,6 +80,27 @@ class SharePlaceScreen extends Component {
             }
         });
     };
+
+    reset = () => {
+        this.setState({
+            placeName: "",
+            validationRules: {
+                isEmpty: true
+            },
+            valid: false,
+            touched: false,
+            location: {
+                value: null,
+                valid: false
+
+            },
+            image: {
+                value: null,
+                valid: false
+            }
+        })
+    };
+
 
     render () {
         let submitButton =  <Button title="Share the place!"

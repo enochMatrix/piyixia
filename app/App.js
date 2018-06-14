@@ -9,6 +9,8 @@ import configureStore from "./src/store/configureStore";
 import SideDrawer from './src/screens/SideDrawer/SideDrawer';
 import RefreshableList from './src/screens/RefreshableList/RefreshableList';
 import MatrixDetail from './src/screens/MatrixDetail/MatrixDetail';
+import JoinedChallenge from './src/screens/JoinedChallenge/JoinedChallenge';
+
 const store = configureStore();
 
 // Register Screens
@@ -49,6 +51,10 @@ Navigation.registerComponent(
 Navigation.registerComponent(
     "awesome-places.MatrixDetail",
     () => MatrixDetail
+);
+Navigation.registerComponent(
+    "awesome-places.JoinedChallenge",
+    () => JoinedChallenge
 );
 
 // Start a App

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ListView, RefreshControl, TouchableOpacity, View} from 'react-native';
+import {ListView, RefreshControl, TouchableOpacity, View, StyleSheet, Text} from 'react-native';
 import {Card, CardTitle, CardContent, CardAction, CardButton, CardImage} from 'react-native-cards';
 import DynamicListRow from "../../components/DynamicListRow/DynamicListRow";
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -44,6 +44,13 @@ class RefreshableList extends Component {
             screen: "awesome-places.MatrixDetail",
             title: "Detail Page",
             })
+    };
+
+    onJoinedHandler = () => {
+        this.props.navigator.push({
+            screen: "awesome-places.JoinedChallenge",
+            title: "Joined",
+        })
     };
 
     _renderRow = (rowData) => {
@@ -95,6 +102,19 @@ class RefreshableList extends Component {
 
     render() {
         return (
+            <View>
+                <TouchableOpacity onPress={this.onJoinedHandler}>
+                <View style={styles.header}>
+                    <View style={{flex: 1, flexDirection: 'row'}}>
+                        <Icon name="ios-briefcase" color="green" size={40}/>
+                        <Text style={styles.text}> Joined</Text>
+                    </View>
+                    <View style={{flex: 1, flexDirection: 'row', justifyContent:'flex-end'}}>
+                        <Text style={styles.text}>33 </Text>
+                        <Icon name="ios-arrow-forward" size={40}/>
+                    </View>
+                </View>
+                </TouchableOpacity>
             <ListView
                 style={this.state.refreshing ? {paddingTop: 50} : null }
                 dataSource={this.state.dataSource}
@@ -107,11 +127,27 @@ class RefreshableList extends Component {
                         progressViewOffset={10}/>
                 }
                 removeClippedSubviews/>
+            </View>
         )
     }
 }
 
-
+const styles = StyleSheet.create({
+   header: {
+       padding: 10,
+       flexDirection: 'row',
+        justifyContent: 'space-evenly',
+       alignItems: 'center',
+       width: '100%',
+       height: 50,
+       backgroundColor: '#a9a9a9',
+   },
+    text: {
+        fontWeight: 'bold',
+        alignItems: 'center',
+        fontSize: 30
+    }
+});
 
 
 export default RefreshableList;
