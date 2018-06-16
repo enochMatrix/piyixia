@@ -3,14 +3,10 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 class StartPage extends Component {
-  componentDidMount() {
-        console.log('HomePage');
-  }
-  onPressStartButton() {
-    console.log('start on press');
+  onPressInStartButton() {
     this.props.navigation.navigate('questionpage');
   }
-  onPressScoreButton() {
+  onPressInScoreButton() {
     this.props.navigation.navigate('scoreboard');
   }
 
@@ -25,7 +21,7 @@ class StartPage extends Component {
 
       <View style={styles.containerStyle2}>
         <TouchableOpacity
-          onPress={this.onPressStartButton.bind(this)}
+          onPressIn={this.onPressInStartButton.bind(this)}
           style={styles.buttonStyle}
         >
         <Text style={styles.buttonTextStyle}>
@@ -36,7 +32,7 @@ class StartPage extends Component {
 
       <TouchableOpacity
         style={styles.trophyStyle}
-        onPress={this.onPressScoreButton.bind(this)}
+        onPressIn={this.onPressInScoreButton.bind(this)}
       >
         <Icon name='ios-trophy-outline' type='Ionicons' size={50} color='green' />
       </TouchableOpacity>

@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity, Alert } from 'react-native';
 import CircleCheckBox from 'react-native-circle-checkbox';
 import questionData from './questionData.json';
 
+
 const NUMBER_OF_QUESTIONS = 3;
 
 //shuffle(array) is to randonize an array
@@ -38,7 +39,7 @@ class QuestionPage extends Component {
                   });
   }
 
-  nextButtonOnPress() {
+  nextButtononPressIn() {
     if (this.state.userSelect === this.state.correctoption) {
       const c = this.state.questionIndex + 1;
       const s = this.state.score + 1;
@@ -94,7 +95,7 @@ class QuestionPage extends Component {
           label={currentOptions[key]}
         />
         </View>
-        //  Buttons onPress={() => this.answerButtonOnPress(key)}
+        //  Buttons onPressIn={() => this.answerButtononPressIn(key)}
 
      );
    }
@@ -144,7 +145,7 @@ class QuestionPage extends Component {
 
         <View style={styles.containerStyle2}>
           <TouchableOpacity
-            onPress={this.nextButtonOnPress.bind(this)}
+            onPressIn={this.nextButtononPressIn.bind(this)}
             style={styles.buttonStyle}
           >
           <Text style={styles.buttonTextStyle}>
