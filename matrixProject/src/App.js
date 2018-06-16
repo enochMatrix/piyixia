@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GestureRecognizer from 'react-native-swipe-gestures';
- import HomePage from './components/HomePage';
+import HomePage from './components/HomePage';
+
 import Router from './Router';
 import Router2 from './Router2';
 
