@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "correctoption" : "option1",
+      "options" : {
+        "option1" : "别整这些",
+        "option2" : "有的没的",
+        "option3" : "五五六六",
+        "option4" : "七七八八"
+      },
+      "question" : "Jowei ajfoeiv wel weivi, le sl owjefv wieojo preo aljei.Jowei ajfoeiv wel weivi, le sl owjefv wieojo preo aljei.Jowei ajfoeiv wel weivi, le sl owjefv wieojo preo aljei.Jowei ajfoeiv wel weivi, le sl owjefv wieojo preo aljei.这题选A"
+    },
+    {
+      "correctoption" : "option2",
+      "options" : {
+        "option1" : "1",
+        "option2" : "2",
+        "option3" : "3",
+        "option4" : "4"
+      },
+      "question" : "jfwo aljie lweio, la huei, le sl owjei, le sl owje,r jeiwo. Ijoi wf woe. Jiwoie wjvh rbjsoe. Owjei, le sl owje jwe wov, we wl br.jfwo aljie lweio, la huei, le sl owjei, le sl owje,r jeiwo. Ijoi wf woe. Jiwoie wjvh rbjsoe. Owjei, le sl 这题选B"
+    },
+    {
+      "correctoption" : "option3",
+      "options" : {
+        "option1" : "1",
+        "option2" : "2",
+        "option3" : "3",
+        "option4" : "4"
+      },
+      "question" : "Jowei ajfoeiv wjfwo aljie lweio, la huei, le sl owjei, le sl owje,r jeiwo. Ijoi wf woe. Jiwoie wjvh rbjsoe. Owjei, le sl owje jwe wov, we wl br.jfwo aljie lweio, la huei, le sl owjei, le sl owje,r jeiwo. Ijoi wf woe. Jiwoie wjvh rbjsoe. Owjeiel weivi, le sl owjefv wieojo preo aljei.选C"
+    },
+    {
+      "correctoption" : "option2",
+      "options" : {
+        "option1" : "1",
+        "option2" : "2",
+        "option3" : "3",
+        "option4" : "4"
+      },
+      "question" : "jfwo aljie lweio, la huer jjfwo aljie lweio, la huei, le sl owjei, le sl owje,r jeiwo. Ijoi wf woe. Jiwoie wjvh rbjsoe. Owjei, le sl owje jwe wov, we wl br.jfwo aljie lweio, la huei, le sl owjei, le sl owje,r jeiwo. Ijoi wf woe. Jiwoie wjvh rbjsoe. Owjeieiwo. Ijoi wf woe. Jiwoie wjvh rbjsoe. Owje jwe wov, we wl br.选B"
+    },
+    {
+      "correctoption" : "option1",
+      "options" : {
+        "option1" : "1",
+        "option2" : "2",
+        "option3" : "3",
+        "option4" : "4"
+      },
+      "question" : "Jowei ajfoeiv wel weivi, lejfwo aljie lweio, la huei, le sl owjei, le sl owje,r jeiwo. Ijoi wf woe. Jiwoie wjvh rbjsoe. Owjei, le sl owje jwe wov, we wl br.jfwo aljie lweio, la huei, le sl owjei, le sl owje,r jeiwo. Ijoi wf woe. Jiwoie wjvh rbjsoe. Owjei sl owjefv wieojo preo aljei.选A"
+    }
+  ]
+}
