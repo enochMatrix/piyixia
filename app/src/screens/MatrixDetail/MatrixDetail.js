@@ -42,12 +42,6 @@ class MatrixDetail extends Component {
                     <Text style={{fontSize: 18, margin: 15}}>
                         {content}
                     </Text>
-                  {/*<Card>*/}
-                      {/*<CardTitle title="IceBucket  Challenge" style={{marginBottom: 5, padding: 0}}/>*/}
-                      {/*<CardImage source={{uri: 'http://bit.ly/2GfzooV'}} style={{marginTop: 5, height: 200, padding: 0}}/>*/}
-                      {/*<CardTitle subtitle={date}/>*/}
-                      {/*<CardContent text={content}/>*/}
-                  {/*</Card>*/}
                 </ScrollView>
                 <View style={styles.foot}>
                     <View>

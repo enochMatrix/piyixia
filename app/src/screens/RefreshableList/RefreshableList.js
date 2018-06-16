@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {ListView, RefreshControl, TouchableOpacity, View, StyleSheet, Text} from 'react-native';
-import {Card, CardTitle, CardContent, CardAction, CardButton, CardImage} from 'react-native-cards';
+import ListCards from '../../components/Cards/Cards';
+import {Card, CardContent, CardAction, CardButton, CardImage} from 'react-native-cards';
 import DynamicListRow from "../../components/DynamicListRow/DynamicListRow";
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -68,30 +69,30 @@ class RefreshableList extends Component {
                     <CardAction
                         separator={true}
                         inColumn={false}
-                        >
+                    >
                         <View style={{flex: 1, flexDirection: "row", padding: 0}}>
-                       <Icon name="ios-star" size={40} color="green"/>
-                        <CardButton
-                            onPress={() => {}}
-                            title="3.1K"
-                            color="#FEB557"
-                            style={{padding: 0}}
-                        />
+                            <Icon name="ios-star" size={40} color="green"/>
+                            <CardButton
+                                onPress={() => {}}
+                                title="3.1K"
+                                color="#FEB557"
+                                style={{padding: 0}}
+                            />
                         </View>
                         <View style={{flex: 1, flexDirection: "row"}}>
-                        <Icon name="ios-chatbubbles" size={40} color="black"/>
-                        <CardButton
-                            onPress={() => {}}
-                            title="200"
-                            color="#FEB557"
-                        />
+                            <Icon name="ios-chatbubbles" size={40} color="black"/>
+                            <CardButton
+                                onPress={() => {}}
+                                title="200"
+                                color="#FEB557"
+                            />
                         </View>
                         <View style={{flex: 1, flexDirection: "row"}}>
-                        <CardButton
-                            onPress={() => {}}
-                            title="Sponsor"
-                            color="#FEB557"
-                        />
+                            <CardButton
+                                onPress={() => {}}
+                                title="Sponsor"
+                                color="#FEB557"
+                            />
                         </View>
                     </CardAction>
                 </Card>
