@@ -105,6 +105,7 @@ class HomePage extends Component {
     this.setState({ videoPaused: true, commentModal: !this.state.commentModal });
   }
   pauseVideo() {
+    console.log("state");
     this.setState({ videoPaused: !this.state.videoPaused });
   }
   hidePlayIcon() {
