@@ -1,7 +1,7 @@
 import React from 'react';
 import { TabNavigator } from 'react-navigation';
 import Router from './Router';
- import HomePage from './components/HomePage';
+import HomePage from './components/HomePage';
 
 const Router2 = TabNavigator(
   {
