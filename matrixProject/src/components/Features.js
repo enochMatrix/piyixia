@@ -9,12 +9,19 @@ import { UserCircle, Comment, Share, Music, Wechat, Weibo } from './icons';
 import CommentModal from './CommentModal';
 
 class Features extends Component {
-  state={
-    shareModal: false,
-    commentModal: false,
-    videoPaused: false,
-    videoMuted: false,
+  constructor(props) {
+    super(props);
+    this.commentModal = this.commentModal.bind(this);
+    this.shareModal = this.shareModal.bind(this);
+    this.muteVideo = this.muteVideo.bind(this);
+
+    state={
+      shareModal: false,
+      commentModal: false,
+      videoPaused: false,
+      videoMuted: false,
   };
+}
   componentWillMount() {
       this.setState({
       videoPaused: false,
@@ -30,9 +37,12 @@ class Features extends Component {
   shareModal() {
     this.setState({ shareModal: !this.state.shareModal });
   }
+
   //To mute or unmute video; Button log changed when pressing it
-  muteVideo() {
+  muteVideo(data) {
     this.setState({ videoMuted: !this.state.videoMuted });
+    this.props.update(data);
+    console.log(this.state.videoMuted);
   }
 
   render() {
@@ -45,7 +55,7 @@ class Features extends Component {
       {/*COMMENT SHARE MUTE*/}
       <View style={[styles.overlay, { top: 400, left: 320 }]}>
       <View style={{ alignItems: 'center' }}>
-        <TouchableOpacity onPressIn={this.commentModal.bind(this)}><Comment /></TouchableOpacity>
+        <TouchableOpacity onPressIn={this.commentModal}><Comment /></TouchableOpacity>
         <Text style={{ color: 'white', fontSize: 12, fontWeight: '500' }}>2392k</Text>
       </View>
       <View style={{ alignItems: 'center', marginTop: 10 }}>
@@ -53,7 +63,7 @@ class Features extends Component {
         <Text style={{ color: 'white', fontSize: 12, fontWeight: '500' }}>623</Text>
       </View>
       <View style={{ marginTop: 10 }}>
-        <TouchableOpacity onPressIn={this.muteVideo.bind(this)}>
+        <TouchableOpacity onPressIn={()=>{this.muteVideo({ videoMuted: !this.state.videoMuted })}}>
         <Music off={this.state.videoMuted} />
         </TouchableOpacity>
       </View>
@@ -62,7 +72,7 @@ class Features extends Component {
       {/* Comment Modal*/}
       <CommentModal display={this.state.commentModal} />
       {/* Share Modal */}
-      <Modal
+      {this.state.shareModal && <Modal
         animationType="slide"
         transparent={true}
         visible={this.state.shareModal}
@@ -81,7 +91,7 @@ class Features extends Component {
             title="Close"
           />
         </View>
-      </Modal>
+      </Modal> }
     </View>
 );
 }

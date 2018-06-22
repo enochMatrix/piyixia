@@ -70,6 +70,12 @@ class HomePage extends Component {
     this.setState({ videoPaused: !this.state.videoPaused });
    }
 
+/* pass [state: muted ? or not to] from Features to here
+   prop: data is the state { some: someting } */
+   updateFromFeatures(data) {
+     this.setState(data);
+   }
+
 renderItem = ({ item, index }) => {
   const { videoPaused, videoMuted, mask, commentInput } = this.state;
   // render everything for the current video
@@ -77,7 +83,7 @@ renderItem = ({ item, index }) => {
   return (
     <View>
     <TouchableOpacity
-      style={{ flex: 1 }} onPressIn={ this.pauseV }
+      style={{ flex: 1 }} onPress={ this.pauseV }
     >
       <Video
         source={{ uri: item }}
@@ -101,7 +107,7 @@ renderItem = ({ item, index }) => {
 
     {/* Features component includes all the features in the video page */}
     <View style={[styles.overlay, { flex: 1 }]}>
-    <Features />
+    <Features update={this.updateFromFeatures.bind(this)} />
     </View>
     {mask &&  // Mask is when comment box open, darken the background
       <TouchableWithoutFeedback
