@@ -2,11 +2,9 @@ import React from 'react';
 import { View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const Cross = () => {
+const Cross = (props) => {
   return (
-    <View>
-      <Icon name='close' type='FontAwesome' size={30} color='#383838' />
-    </View>
+      <Icon.Button onPress={props.onPress} name='close' size={30} backgroundColor='rgba(0,0,0,0)' color='black' />
   );
 };
 

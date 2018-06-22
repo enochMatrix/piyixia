@@ -1,0 +1,150 @@
+/*
+Comment List
+*/
+import React, { Component } from 'react';
+import {
+  View, Text, Button, Modal, ListView, Image, TextInput, KeyboardAvoidingView
+ } from 'react-native';
+import { Cross, Send, Pen } from './icons';
+import comment from './comment.json';
+
+class CommentModal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      commentModal: this.props.display,
+      dataSource: new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 }),
+      commentInput: false,
+      videoPaused: false,
+      videoMuted: false,
+      comment: '',
+      yourComment: 'comment',
+      draftComment: '',
+    };
+  }
+
+  componentWillMount() {
+      this.setState({
+      comment: comment.data[5].comment,
+      dataSource: this.state.dataSource.cloneWithRows(comment.data),
+      videoPaused: false,
+      commentInput: false,
+      yourComment: 'comment',
+      draftComment: '',
+ });
+  }
+  // Pass onpress event from parent Feature.js
+  componentWillReceiveProps(nextProps) {
+    if (this.props.display !== nextProps.display) {
+    this.setState({
+      commentModal: true
+    });
+  }
+  }
+// Render user comment list
+  renderItem = (item) => {
+    return (
+      <View style={styles.rowsContainerStyle}>
+
+        <View style={[styles.imageBorderStyle, { width: 40, height: 40, borderRadius: 30 }]}>
+          <Image
+            source={{ uri: item.icon }}
+            style={{ width: 30, height: 30 }}
+          />
+        </View>
+
+        <View style={{ flexDirection: 'column', paddingHorizontal: 15, marginRight: 30 }}>
+          <Text style={{ fontSize: 15, color: '#383838' }}>
+            {item.name}
+          </Text>
+          <Text>{item.comment}</Text>
+        </View>
+
+        <View style={{ position: 'absolute', right: 5, top: 10 }}>
+          <Text style={{ color: '#707070' }}>{item.time}</Text>
+        </View>
+      </View>
+    );
+  }
+
+  render() {
+    return (
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={this.state.commentModal}
+      >
+
+      <View style={{ flex: 1, backgroundColor: 'rgba(255,255,255, 0.9)' }}>
+        {/*Close modal button*/}
+        <View style={{ position: 'absolute', top: 20, right: 5 }}>
+          <Cross onPress={() => { this.setState({ commentModal: false }); }} />
+          </View>
+
+        <View style={{ alignItems: 'center', margin: 8, paddingTop: 20 }}>
+        <Text style={{ fontSize: 20, color: '#707070' }}>Comment (1.2k)</Text>
+        </View>
+        <View
+          style={{ borderBottomWidth: 2, borderBottomColor: '#707070', marginHorizontal: 10 }}
+        />
+
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(data, someShit, i) => this.renderItem(data, i)}
+          enableEmptySections
+        />
+      </View>
+      {/*COMMENT BAR*/}
+      <KeyboardAvoidingView behavior="padding" enabled>
+      <View style={styles.commentBarContainer}>
+        <View style={{ justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row' }}>
+        <Pen color='black' />
+        <TextInput
+          style={{ color: 'black', paddingLeft: 15, fontWeight: '800' }}
+          placeholder='comment'
+          placeholderTextColor='black'
+          returnKeyType='done'
+          defaultValue={this.state.draftComment}
+          onChangeText={(yourComment) => {
+            this.setState({ yourComment: yourComment, draftComment: yourComment });
+          }}
+        />
+        </View>
+
+        <View><Send /></View>
+      </View>
+      </KeyboardAvoidingView>
+      </Modal>
+    );
+}
+}
+
+const styles = {
+  rowsContainerStyle: {
+    marginHorizontal: 15,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    borderBottomWidth: 0.8,
+    borderColor: '#707070'
+  },
+  imageBorderStyle: {
+    borderColor: 'black',
+    borderWidth: 0.5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white'
+  },
+  commentBarContainer: {
+    flexDirection: 'row',
+    height: 50,
+    backgroundColor: '#efefef',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingLeft: 10,
+    paddingRight: 20
+  }
+};
+
+export default CommentModal;
