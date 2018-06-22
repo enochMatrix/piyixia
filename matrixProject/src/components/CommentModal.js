@@ -3,8 +3,10 @@ Comment List
 */
 import React, { Component } from 'react';
 import {
-  View, Text, Button, Modal, ListView, Image, TextInput, KeyboardAvoidingView
+  View, Text, Button, Modal, ListView, Image, TextInput, KeyboardAvoidingView,
+  TouchableOpacity
  } from 'react-native';
+import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import { Cross, Send, Pen } from './icons';
 import comment from './comment.json';
 
@@ -41,6 +43,12 @@ class CommentModal extends Component {
     });
   }
   }
+
+// Swipe down to close modal
+  onSwipeDown(gestureState) {
+  this.setState({commentModal: false});
+}
+
 // Render user comment list
   renderItem = (item) => {
     return (
@@ -69,17 +77,23 @@ class CommentModal extends Component {
 
   render() {
     return (
+      <GestureRecognizer
+        onSwipeDown={(state) => this.onSwipeDown(state)}
+        config={{velocityThreshold: 1}}
+      >
       <Modal
         animationType="slide"
         transparent={true}
         visible={this.state.commentModal}
       >
 
-      <View style={{ flex: 1, backgroundColor: 'rgba(255,255,255, 0.9)' }}>
+      <View style={{ flex: 1, top:'30%', paddingBottom:'30%', borderRadius:12 ,backgroundColor: 'rgba(255,255,255, 0.9)' }}>
         {/*Close modal button*/}
-        <View style={{ position: 'absolute', top: 20, right: 5 }}>
-          <Cross onPress={() => { this.setState({ commentModal: false }); }} />
-          </View>
+        {/* <View style={{ position: 'absolute', top: 10, right: 2 }}>
+          <TouchableOpacity onPressIn={this.closeModal}>
+            <View style={{position: 'absolute', top: 16, right: 2, height: 45, width: 45, backgroundColor: 'rgba(0,0,0,0)'}}><Cross /></View>
+          </TouchableOpacity>
+          </View> */}
 
         <View style={{ alignItems: 'center', margin: 8, paddingTop: 20 }}>
         <Text style={{ fontSize: 20, color: '#707070' }}>Comment (1.2k)</Text>
@@ -115,6 +129,7 @@ class CommentModal extends Component {
       </View>
       </KeyboardAvoidingView>
       </Modal>
+      </GestureRecognizer>
     );
 }
 }

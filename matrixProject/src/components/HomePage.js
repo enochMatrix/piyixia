@@ -19,6 +19,7 @@ class HomePage extends Component {
   constructor() {
     super();
     this.handleViewableItemsChanged = this.handleViewableItemsChanged.bind(this);
+    this.pauseV = this.pauseV.bind(this);
     this.viewabilityConfig = { viewAreaCoveragePercentThreshold: 50 };
   }
   state={
@@ -65,6 +66,10 @@ class HomePage extends Component {
     this.setState({ page: info.viewableItems[0].index });
    }
 
+  pauseV() {
+    this.setState({ videoPaused: !this.state.videoPaused });
+   }
+
 renderItem = ({ item, index }) => {
   const { videoPaused, videoMuted, mask, commentInput } = this.state;
   // render everything for the current video
@@ -72,7 +77,7 @@ renderItem = ({ item, index }) => {
   return (
     <View>
     <TouchableOpacity
-      style={{ flex: 1 }} onPress={() => { this.setState({ videoPaused: !videoPaused }); }}
+      style={{ flex: 1 }} onPressIn={ this.pauseV }
     >
       <Video
         source={{ uri: item }}
@@ -93,6 +98,7 @@ renderItem = ({ item, index }) => {
         <Play />
       </View>}
     </TouchableOpacity>
+
     {/* Features component includes all the features in the video page */}
     <View style={[styles.overlay, { flex: 1 }]}>
     <Features />
