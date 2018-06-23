@@ -1,8 +1,20 @@
 import React, {Component} from 'react';
-import {ListView, RefreshControl, TouchableOpacity, View, StyleSheet, Text} from 'react-native';
+import {ListView, RefreshControl, TouchableOpacity, View, StyleSheet, Text,Button} from 'react-native';
 import {Card, CardContent, CardAction, CardButton, CardImage} from 'react-native-cards';
 import DynamicListRow from "./common/DynamicListRow";
 import Icon from 'react-native-vector-icons/Ionicons';
+import ActionButton from 'react-native-action-button';
+import PopupDialog,{
+    DialogTitle,
+    DialogButton,
+    SlideAnimation,
+    ScaleAnimation,
+    FadeAnimation,
+} from 'react-native-popup-dialog';
+
+// const slideAnimation = new SlideAnimation({ slideFrom: 'bottom' });
+// const scaleAnimation = new ScaleAnimation();
+// const fadeAnimation = new FadeAnimation({ animationDuration: 150 });
 
 class RefreshableList extends Component {
 
@@ -16,11 +28,35 @@ class RefreshableList extends Component {
         };
     }
 
+    // state = {
+    //     dialogShow: false,
+    // };
+
+
+
+    // showSlideAnimationDialog = () => {
+    //     this.slideAnimationDialog.show();
+    // };
+
+
+
+    // renderScene = () => (
+    //     <View style={styles.container}>
+    //         <Button
+    //             title="Show Dialog - Slide Animation"
+    //             onPress={this.showSlideAnimationDialog}
+    //         />
+    //     </View>
+    // );
+
     // // fetch Data
     // componentDidMount() {
     //     this.fetchTopicsData();
     // }
     // user fetch data and refresh page , call spiner
+    showFadeAnimationDialog = () => {
+        this.fadeAnimationDialog.show();
+    }
 
     _onRefresh() {
         this.setState({refreshing: true});
@@ -108,18 +144,45 @@ class RefreshableList extends Component {
                         </View>
                     </View>
                 </TouchableOpacity>
-                <ListView
-                    style={this.state.refreshing ? {paddingTop: 50} : null }
-                    dataSource={this.state.dataSource}
-                    renderRow={this._renderRow.bind(this)}
-                    refreshControl={
-                        <RefreshControl
-                            refreshing={this.state.refreshing}
-                            onRefresh={this._onRefresh.bind(this)}
-                            colors={['black','blue']}
-                            progressViewOffset={10}/>
-                    }
-                    removeClippedSubviews/>
+                {/*<ListView*/}
+                    {/*style={this.state.refreshing ? {paddingTop: 50} : null }*/}
+                    {/*dataSource={this.state.dataSource}*/}
+                    {/*renderRow={this._renderRow.bind(this)}*/}
+                    {/*refreshControl={*/}
+                        {/*<RefreshControl*/}
+                            {/*refreshing={this.state.refreshing}*/}
+                            {/*onRefresh={this._onRefresh.bind(this)}*/}
+                            {/*colors={['black','blue']}*/}
+                            {/*progressViewOffset={10}/>*/}
+                    {/*}*/}
+                    {/*removeClippedSubviews/>*/}
+                {/*<ActionButton buttonColor="rgba(231,76,60,1)">*/}
+                    {/*<ActionButton.Item buttonColor='#9b59b6' title="New Task" onPress={() => console.log("notes tapped!")}>*/}
+                        {/*<Icon name="md-create" style={styles.actionButtonIcon} />*/}
+                    {/*</ActionButton.Item>*/}
+                    {/*<ActionButton.Item buttonColor='#3498db' title="Notifications" onPress={() => {}}>*/}
+                        {/*<Icon name="md-notifications-off" style={styles.actionButtonIcon} />*/}
+                    {/*</ActionButton.Item>*/}
+                    {/*<ActionButton.Item buttonColor='#1abc9c' title="All Tasks" onPress={() => {}}>*/}
+                        {/*<Icon name="md-done-all" style={styles.actionButtonIcon} />*/}
+                    {/*</ActionButton.Item>*/}
+                {/*</ActionButton>*/}
+
+                <Button
+                    title="Show Dialog - Default Animation"
+                    onPress={this.showFadeAnimationDialog}
+                />
+                <PopupDialog
+                    ref={(fadeAnimationDialog) => {
+                        this.fadeAnimationDialog = fadeAnimationDialog;
+                    }}
+                    dialogTitle={<DialogTitle title="Popup Dialog - Default Animation" />}
+                >
+                    <View style={styles.dialogContentView}>
+                        <Text>Default Animation</Text>
+                    </View>
+                </PopupDialog>
+
             </View>
         )
     }
@@ -139,7 +202,17 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         alignItems: 'center',
         fontSize: 30
-    }
+    },
+    actionButtonIcon: {
+        fontSize: 20,
+        height: 22,
+        color: 'white',
+    },
+    dialogContentView: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
 });
 
 

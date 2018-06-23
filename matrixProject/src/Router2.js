@@ -8,9 +8,20 @@ import JoinedChallenge from "./components/JoinedChallenge";
 
 
 const ChallengePageStack = StackNavigator({
-    ChallengePage: {screen: ChallengePage},
-    ChallengeDetailPage: { screen: ChallengeDetailPage},
-    JoinedChallenge: {screen: JoinedChallenge}
+    ChallengePage:{
+        screen: ChallengePage,
+        navigationOptions:{
+        title:'challengePage'
+        }
+    },
+    ChallengeDetailPage: {
+        screen: ChallengeDetailPage,
+        title:'challengeDetailPage'
+        //not exist???
+    },
+    JoinedChallenge: {
+        screen: JoinedChallenge,
+        title:'challengeJoinedPage'}
 });
 
 
