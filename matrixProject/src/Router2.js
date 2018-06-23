@@ -5,12 +5,13 @@ import HomePage from './components/HomePage';
 import ChallengePage from './components/ChallengePage';
 import ChallengeDetailPage from './components/ChallengeDetailPage';
 import JoinedChallenge from "./components/JoinedChallenge";
-
+import CommentList from './components/CommentList';
 
 const ChallengePageStack = StackNavigator({
     ChallengePage: {screen: ChallengePage},
     ChallengeDetailPage: { screen: ChallengeDetailPage},
-    JoinedChallenge: {screen: JoinedChallenge}
+    JoinedChallenge: {screen: JoinedChallenge},
+    CommentList: {screen: CommentList}
 });
 
 

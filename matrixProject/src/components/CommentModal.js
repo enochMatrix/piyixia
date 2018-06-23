@@ -73,7 +73,8 @@ class CommentModal extends Component {
         </View>
       </View>
     );
-  }
+  };
+
 
   render() {
     return (

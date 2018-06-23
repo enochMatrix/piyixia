@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
 import {Card, CardTitle, CardContent, CardAction, CardButton, CardImage} from 'react-native-cards';
-import {ScrollView, View, StyleSheet, Text, Image, Button} from 'react-native';
+import {ScrollView, View, StyleSheet, Text, Image, Button, TouchableOpacity} from 'react-native';
 import ProgressBar from 'react-native-progress/Bar';
 import Icon from 'react-native-vector-icons';
 
 class MatrixDetail extends Component {
+
+    commentHandler = () => {
+        this.props.navigation.navigate('CommentList')
+    };
+
 
     render() {
         const content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravidaLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan.";
@@ -33,9 +38,11 @@ class MatrixDetail extends Component {
                             30%
                         </Text>
                     </View>
+                    <TouchableOpacity onPress={this.commentHandler}>
                     <Text style={{fontSize: 24, marginTop: 10}}>
                         Comment
                     </Text>
+                    </TouchableOpacity>
                     <Text style={{fontSize: 18, margin: 15}}>
                         {content}
                     </Text>
