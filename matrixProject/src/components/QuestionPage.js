@@ -66,6 +66,7 @@ class QuestionPage extends Component {
 
   hi(prop) {
     if (prop === 1) {
+      console.log('1');
       this.setState({
         option1checked: true, option2checked: false, option3checked: false, option4checked: false, userSelect: 'option1'
       });
@@ -86,20 +87,20 @@ class QuestionPage extends Component {
 
   render() {
   const currentOptions = this.state.options;
-      /*const options = Object.keys(currentOptions).map(key => {
-      return (
-        <View key={key} style={{ margin: 3 }}>
-        <CircleCheckBox
-          checked={this.state.finishAnswer}
-          onToggle={() => this.setState({ finishAnswer: !this.state.finishAnswer })}
-          label={currentOptions[key]}
-        />
-        </View>
-        //  Buttons onPressIn={() => this.answerButtononPressIn(key)}
-
-     );
-   }
- );*/
+ //      const options = Object.keys(currentOptions).map(key => {
+ //      return (
+ //        <View key={key} style={{ margin: 3 }}>
+ //        <Toucha
+ //          checked={this.state.finishAnswer}
+ //          onToggle={() => this.setState({ finishAnswer: !this.state.finishAnswer })}
+ //          label={currentOptions[key]}
+ //        />
+ //        </View>
+ //          Buttons onPressIn={() => this.answerButtononPressIn(key)}
+ //
+ //     );
+ //   }
+ // );*/
 
     return (
       <View style={styles.containerStyle}>
@@ -108,38 +109,30 @@ class QuestionPage extends Component {
             {this.state.question}
           </Text>
           <View style={{ marginTop: 15 }}>
-            <CircleCheckBox
-              checked={this.state.option1checked}
-              onToggle={() => this.hi(1)}
-              label={currentOptions.option1}
-              outerColor='#c1c1c1'
-              innerColor='#c1c1c1'
-              styleCheckboxContainer={{ margin: 6 }}
-            />
-            <CircleCheckBox
-              checked={this.state.option2checked}
-              onToggle={() => this.hi(2)}
-              label={currentOptions.option2}
-              outerColor='#c1c1c1'
-              innerColor='#c1c1c1'
-              styleCheckboxContainer={{ margin: 6 }}
-            />
-            <CircleCheckBox
-              checked={this.state.option3checked}
-              onToggle={() => this.hi(3)}
-              label={currentOptions.option3}
-              outerColor='#c1c1c1'
-              innerColor='#c1c1c1'
-              styleCheckboxContainer={{ margin: 6 }}
-            />
-            <CircleCheckBox
-              checked={this.state.option4checked}
-              onToggle={() => this.hi(4)}
-              label={currentOptions.option4}
-              outerColor='#c1c1c1'
-              innerColor='#c1c1c1'
-              styleCheckboxContainer={{ margin: 6 }}
-            />
+            <TouchableOpacity
+              style={this.state.option1checked? styles.answerButtononPress : styles.answerButtonStyle}
+              onPress={() => this.hi(1)}
+            >
+              <Text>{currentOptions.option1}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={this.state.option2checked? styles.answerButtononPress : styles.answerButtonStyle}
+              onPress={() => this.hi(2)}
+            >
+              <Text>{currentOptions.option2}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={this.state.option3checked? styles.answerButtononPress : styles.answerButtonStyle}
+              onPress={() => this.hi(3)}
+            >
+              <Text>{currentOptions.option3}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={this.state.option4checked? styles.answerButtononPress : styles.answerButtonStyle}
+              onPress={() => this.hi(4)}
+            >
+              <Text>{currentOptions.option4}</Text>
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -187,6 +180,26 @@ const styles = {
     flex: 1.25,
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  answerButtonStyle: {
+    borderStyle:'dashed',
+    borderWidth:0.5,
+    borderColor:'black',
+    height: '18%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 2
+  },
+  answerButtononPress: {
+    borderStyle:'dashed',
+    borderWidth:0.5,
+    borderColor:'gray',
+    borderRadius: 12,
+    height: '18%',
+    backgroundColor:'#ffeff5',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 2
   }
 };
 

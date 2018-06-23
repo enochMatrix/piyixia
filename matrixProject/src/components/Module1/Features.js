@@ -5,7 +5,7 @@ display in the video page
 */
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Modal, Button } from 'react-native';
-import { UserCircle, Comment, Share, Music, Wechat, Weibo } from './icons';
+import { UserCircle, Comment, Share, Music, Wechat, Weibo } from '../icons';
 import CommentModal from './CommentModal';
 
 class Features extends Component {
@@ -87,7 +87,7 @@ class Features extends Component {
           </View>
           <Button
             style={{ margin: 10 }}
-            onPress={this.shareModal.bind(this)}
+            onPress={this.shareModal}
             title="Close"
           />
         </View>

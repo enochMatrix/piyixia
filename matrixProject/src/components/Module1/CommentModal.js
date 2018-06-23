@@ -7,8 +7,8 @@ import {
   TouchableOpacity
  } from 'react-native';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
-import { Cross, Send, Pen } from './icons';
-import comment from './comment.json';
+import { Cross, Send, Pen } from '../icons';
+import comment from '../comment.json';
 
 class CommentModal extends Component {
   constructor(props) {

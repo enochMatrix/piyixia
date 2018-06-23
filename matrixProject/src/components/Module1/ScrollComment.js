@@ -7,8 +7,8 @@ import React, { Component } from 'react';
 import {
   View, Text, TouchableOpacity, ScrollView, Keyboard, TextInput, Button
 } from 'react-native';
-import { Pen } from './icons';
-import comment from './comment.json';
+import { Pen } from '../icons';
+import comment from '../comment.json';
 
 class ScrollComment extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class ScrollComment extends Component {
     this.keyboardWillShowSub = Keyboard.addListener('keyboardWillShow', this.keyboardWillShow);
     this.keyboardWillHideSub = Keyboard.addListener('keyboardWillHide', this.keyboardWillHide);
     this.setState({
-      comment: comment.data[5].comment,
+      comment: comment.data[this.props.index].comment,
       scrollY: 0,
       videoPaused: false,
       commentInput: false,
@@ -43,7 +43,7 @@ class ScrollComment extends Component {
   componentDidMount() {
     /* If video description excess two lines, auto scroll it
         Set Time interval 100 and scroll position in scrolling function */
-    if (this.state.comment.length > 80) {
+    if (this.state.comment.length > 75) {
     this.myInterval = setInterval(() => {
       this.scrolling();
     }, 100);

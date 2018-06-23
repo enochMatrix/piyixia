@@ -5,8 +5,8 @@ import {
  } from 'react-native';
 import Video from 'react-native-video';
 import { Play } from './icons';
-import Features from './Features';
-import ScrollComment from './ScrollComment';
+import Features from './Module1/Features';
+import ScrollComment from './Module1/ScrollComment';
 
 const VIDEOS = [
    'https://s3.amazonaws.com/bostondelhi/onboarding_screen.mp4',
@@ -107,7 +107,7 @@ renderItem = ({ item, index }) => {
 
     {/* Features component includes all the features in the video page */}
     <View style={[styles.overlay, { flex: 1 }]}>
-    <Features update={this.updateFromFeatures.bind(this)} />
+    <Features update={this.updateFromFeatures.bind(this)} index={index} />
     </View>
     {mask &&  // Mask is when comment box open, darken the background
       <TouchableWithoutFeedback
@@ -119,7 +119,7 @@ renderItem = ({ item, index }) => {
     }
     <View>
       {/* input is a boolean prop to open/close comment modal */}
-    <ScrollComment input={commentInput} />
+    <ScrollComment input={commentInput} index={index} />
     </View>
     </View>
   );
@@ -142,7 +142,7 @@ return (
   <Features />
   </View>
   <View>
-  <ScrollComment input={this.state.commentInput} />
+  <ScrollComment input={commentInput} index={index} />
   </View>
   </View>
 );
