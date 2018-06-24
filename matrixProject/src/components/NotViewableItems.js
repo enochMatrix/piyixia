@@ -5,9 +5,8 @@ display in the video page
 */
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Modal, Button } from 'react-native';
-import { UserCircle, Comment, Share, Music, Wechat, Weibo } from '../icons';
+import { UserCircle, Comment, Share, Music, Wechat, Weibo } from './icons';
 import CommentModal from './CommentModal';
-import ShareModal from './ShareModal';
 
 class Features extends Component {
   constructor(props) {
@@ -16,7 +15,7 @@ class Features extends Component {
     this.shareModal = this.shareModal.bind(this);
     this.muteVideo = this.muteVideo.bind(this);
 
-    this.state={
+    state={
       shareModal: false,
       commentModal: false,
       videoPaused: false,
@@ -27,22 +26,13 @@ class Features extends Component {
       this.setState({
       videoPaused: false,
       commentModal: false,
-      shareModal: false,
  });
-  }
-
-  shouldComponentUpdate ( nextProps,nextState ){
-    if(this.state === nextState) {
-      return false;
-    }
-    return true;
   }
 
   //To open or close comment modal, should pause video when open it
   commentModal() {
     this.setState({ commentModal: !this.state.commentModal });
   }
-
   //To open or close share modal
   shareModal() {
     this.setState({ shareModal: !this.state.shareModal });
@@ -52,10 +42,10 @@ class Features extends Component {
   muteVideo(data) {
     this.setState({ videoMuted: !this.state.videoMuted });
     this.props.update(data);
+    console.log(this.state.videoMuted);
   }
 
   render() {
-    console.log('renderFeatures');
   return (
     <View>
       {/*USER'S ICON*/}
@@ -65,24 +55,43 @@ class Features extends Component {
       {/*COMMENT SHARE MUTE*/}
       <View style={[styles.overlay, { top: 400, left: 320 }]}>
       <View style={{ alignItems: 'center' }}>
-        <TouchableOpacity onPressIn={this.commentModal}><Comment /></TouchableOpacity>
+        <View><Comment /></View>
         <Text style={{ color: 'white', fontSize: 12, fontWeight: '500' }}>2392k</Text>
       </View>
       <View style={{ alignItems: 'center', marginTop: 10 }}>
-        <TouchableOpacity onPressIn={this.shareModal}><Share /></TouchableOpacity>
+        <View><Share /></View>
         <Text style={{ color: 'white', fontSize: 12, fontWeight: '500' }}>623</Text>
       </View>
       <View style={{ marginTop: 10 }}>
-        <TouchableOpacity onPressIn={()=>{this.muteVideo({ videoMuted: !this.state.videoMuted })}}>
+        <View>
         <Music off={this.state.videoMuted} />
-        </TouchableOpacity>
+      </View>
       </View>
       </View>
 
       {/* Comment Modal*/}
       <CommentModal display={this.state.commentModal} />
       {/* Share Modal */}
-      <ShareModal display={this.state.shareModal} />
+      {this.state.shareModal && <Modal
+        animationType="slide"
+        transparent={true}
+        visible={this.state.shareModal}
+      >
+        <View style={styles.modalContainer}>
+          <Text style={{ fontSize: 20, margin: 10 }}>
+            Share to
+          </Text>
+          <View style={{ flexDirection: 'row' }}>
+            <Wechat />
+            <Weibo />
+          </View>
+          <Button
+            style={{ margin: 10 }}
+            onPress={this.shareModal.bind(this)}
+            title="Close"
+          />
+        </View>
+      </Modal> }
     </View>
 );
 }
@@ -92,7 +101,14 @@ const styles = {
   overlay: {
     position: 'absolute',
     backgroundColor: 'rgba(0,0,0,0)',
-  }
+  },
+  modalContainer: {
+    marginTop: 500,
+    flex: 1,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
 };
 
 export default Features;
