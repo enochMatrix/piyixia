@@ -86,6 +86,7 @@ class QuestionPage extends Component {
     }
 
   render() {
+    console.log('renderQuestionPage');
   const currentOptions = this.state.options;
  //      const options = Object.keys(currentOptions).map(key => {
  //      return (

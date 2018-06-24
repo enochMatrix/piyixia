@@ -16,6 +16,7 @@ class StartPage extends Component {
   }
 
   render() {
+    console.log('renderStartPage');
     return (
       <View style={styles.containerStyle}>
         <View style={styles.rulesStyle}>
