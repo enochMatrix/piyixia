@@ -3,12 +3,11 @@ Comment List
 */
 import React, { Component } from 'react';
 import {
-  View, Text, Button, Modal, ListView, Image, TextInput, KeyboardAvoidingView,
-  TouchableOpacity
+  View, Text, Modal, ListView, Image, TextInput, KeyboardAvoidingView
  } from 'react-native';
-import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
-import { Cross, Send, Pen } from './icons';
-import comment from './comment.json';
+import GestureRecognizer from 'react-native-swipe-gestures';
+import { Send, Pen } from '../icons';
+import comment from '../comment.json';
 
 class CommentModal extends Component {
   constructor(props) {
@@ -44,9 +43,16 @@ class CommentModal extends Component {
   }
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state !== nextState) {
+      return true;
+    }
+    return false;
+  }
+
 // Swipe down to close modal
-  onSwipeDown(gestureState) {
-  this.setState({commentModal: false});
+  onSwipeDown() {
+  this.setState({ commentModal: false });
 }
 
 // Render user comment list
@@ -76,10 +82,11 @@ class CommentModal extends Component {
   }
 
   render() {
+    console.log('renderCommentModal');
     return (
       <GestureRecognizer
         onSwipeDown={(state) => this.onSwipeDown(state)}
-        config={{velocityThreshold: 1}}
+        config={{ velocityThreshold: 0.3 }}
       >
       <Modal
         animationType="slide"

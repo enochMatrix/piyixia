@@ -5,24 +5,20 @@ in the video page
 */
 import React, { Component } from 'react';
 import {
-  View, Text, TouchableOpacity, ScrollView, Keyboard, TextInput, Button
+  View, Text, TouchableOpacity, Keyboard, TextInput, Button
 } from 'react-native';
-import { Pen } from './icons';
-import comment from './comment.json';
+import { Pen } from '../icons';
+import ScrollComment from './ScrollComment';
 
-class ScrollComment extends Component {
+class FeatureB extends Component {
   constructor(props) {
     super(props);
     this.state = {
       commentInput: props.input,
-      videoList: '',
       mask: false,
-      videoPaused: false,
-      comment: '',
       keyboardHeight: 0,
       yourComment: 'comment',
-      draftComment: '',
-      scrollY: 0
+      draftComment: ''
       };
   }
   componentWillMount() {
@@ -30,9 +26,6 @@ class ScrollComment extends Component {
     this.keyboardWillShowSub = Keyboard.addListener('keyboardWillShow', this.keyboardWillShow);
     this.keyboardWillHideSub = Keyboard.addListener('keyboardWillHide', this.keyboardWillHide);
     this.setState({
-      comment: comment.data[5].comment,
-      scrollY: 0,
-      videoPaused: false,
       commentInput: false,
       mask: false,
       keyboardHeight: 0,
@@ -40,15 +33,7 @@ class ScrollComment extends Component {
       draftComment: '',
  });
   }
-  componentDidMount() {
-    /* If video description excess two lines, auto scroll it
-        Set Time interval 100 and scroll position in scrolling function */
-    if (this.state.comment.length > 80) {
-    this.myInterval = setInterval(() => {
-      this.scrolling();
-    }, 100);
-  }
-  }
+
   // press anywhere outside the input box to close it
   componentWillReceiveProps() {
     this.setState({
@@ -59,7 +44,6 @@ class ScrollComment extends Component {
   componentWillUnmount() {
     this.keyboardWillShowSub.remove();
     this.keyboardWillHideSub.remove();
-    clearInterval(this.myInterval);
   }
 
   //Move the textInputbox up when keyboard shows
@@ -70,18 +54,6 @@ class ScrollComment extends Component {
     this.setState({ keyboardHeight: 0 });
 }
 
-  // Auto scrolling function
-  scrolling() {
-    this.myScroll.scrollTo({ y: this.state.scrollY + 1, animated: true });
-  }
-  // If scrolles to end, back to the begining
-  reachScrollEnd({ contentOffset, contentSize }) {
-    if (contentOffset.y >= contentSize.height) {
-      this.setState({ scrollY: -10 });
-    } else {
-      this.setState({ scrollY: this.state.scrollY + 1 });
-    }
-  }
   // Pop up text input box when pressing comment bar
   textInputbox() {
     if (this.state.commentInput) {
@@ -113,6 +85,7 @@ class ScrollComment extends Component {
   }
 
   render() {
+    console.log('renderFeatureB');
   return (
     <View style={{ flex: 1 }}>
       {/*VIDEO'S TAG*/}
@@ -122,19 +95,7 @@ class ScrollComment extends Component {
         </Text>
       </TouchableOpacity>
 
-      {/*AUTO SCROLL VIDEO DESCRIPTION */}
-      <View style={[styles.overlay, { height: 40, bottom: 35, marginHorizontal: '3%' }]}>
-        <ScrollView
-          ref={(ref) => this.myScroll = ref}
-          onScroll={({ nativeEvent }) => { this.reachScrollEnd(nativeEvent); }}
-          scrollEventThrottle={400}
-        >
-        <Text style={[styles.textStyle]}>
-          {this.state.comment}
-        </Text>
-      </ScrollView>
-      <View style={{ borderBottomWidth: 1, borderBottomColor: 'white' }} />{/*A LINE*/}
-      </View>
+      <ScrollComment index={this.props.index} />
 
       {/*USER COMMENT AREA*/}
       <TouchableOpacity
@@ -190,4 +151,4 @@ const styles = {
   }
 };
 
-export default ScrollComment;
+export default FeatureB;

@@ -5,8 +5,8 @@ import {
  } from 'react-native';
 import Video from 'react-native-video';
 import { Play } from './icons';
-import Features from './Features';
-import ScrollComment from './ScrollComment';
+import Features from './Module1/Features';
+import FeatureB from './Module1/FeatureB';
 
 const VIDEOS = [
    'https://s3.amazonaws.com/bostondelhi/onboarding_screen.mp4',
@@ -29,8 +29,6 @@ class HomePage extends Component {
     videoPaused: false,
     videoMuted: false,
     comment: '',
-    yourComment: 'comment',
-    draftComment: '',
     page: 0
   };
   componentWillMount() {
@@ -39,8 +37,6 @@ class HomePage extends Component {
       videoPaused: false,
       commentInput: false,
       mask: false,
-      yourComment: 'comment',
-      draftComment: ''
  });
   }
   componentDidMount() {
@@ -56,6 +52,16 @@ class HomePage extends Component {
     });
   });
   }
+  shouldComponentUpdate(nextProps,nextState){
+    // console.log('nextProps',nextProps);
+    // console.log('nextProps',nextState);
+    // console.log('thisstate',this.state);
+    // console.log('thisprops',this.props);
+    if(this.state === nextState){
+      return false
+    }
+     return true;
+  }
   componentWillUnmount() {
     this.pauseVideoOnChangingTab.remove();
     this.continueVideoOnChangingTab.remove();
@@ -67,12 +73,14 @@ class HomePage extends Component {
    }
 
   pauseV() {
+    console.log('pauseV()');
     this.setState({ videoPaused: !this.state.videoPaused });
    }
 
 /* pass [state: muted ? or not to] from Features to here
    prop: data is the state { some: someting } */
    updateFromFeatures(data) {
+     console.log('updatafromChil');
      this.setState(data);
    }
 
@@ -107,7 +115,7 @@ renderItem = ({ item, index }) => {
 
     {/* Features component includes all the features in the video page */}
     <View style={[styles.overlay, { flex: 1 }]}>
-    <Features update={this.updateFromFeatures.bind(this)} />
+    <Features update={this.updateFromFeatures.bind(this)} index={index} />
     </View>
     {mask &&  // Mask is when comment box open, darken the background
       <TouchableWithoutFeedback
@@ -119,7 +127,7 @@ renderItem = ({ item, index }) => {
     }
     <View>
       {/* input is a boolean prop to open/close comment modal */}
-    <ScrollComment input={commentInput} />
+    <FeatureB input={commentInput} index={index} />
     </View>
     </View>
   );
@@ -142,12 +150,13 @@ return (
   <Features />
   </View>
   <View>
-  <ScrollComment input={this.state.commentInput} />
+  <FeatureB input={commentInput} index={index} />
   </View>
   </View>
 );
 }
   render() {
+    console.log('renderHomePage');
     return (
       <View style={{ flex: 1 }}>
       <FlatList
