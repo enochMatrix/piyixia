@@ -12,11 +12,8 @@ class ScoreBoard extends Component {
  };
 
 componentWillMount() {
+    this.rankUser();
   this.setState({ dataSource: this.state.dataSource.cloneWithRows(ScoreData.data) });
-}
-
-componentDidMount() {
-  this.rankUser();
 }
 
 rankUser() {
@@ -62,6 +59,7 @@ renderItem = (item, index) => {
 }
 
   render() {
+    console.log('renderScoreBoard');
     this.sortFunction();
     return (
       <View style={{ borderWidth: 1, borderColor: 'gray', backgroundColor: 'white', flex: 1 }}>
