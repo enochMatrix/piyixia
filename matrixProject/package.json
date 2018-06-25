@@ -12,6 +12,7 @@
     "react-native-action-button": "^2.8.4",
     "react-native-cards": "^1.1.4",
     "react-native-circle-checkbox": "^0.1.6",
+    "react-native-elements": "^0.19.1",
     "react-native-leaderboard": "^1.0.5",
     "react-native-material-design": "^0.3.7",
     "react-native-popup-dialog": "^0.14.48",
