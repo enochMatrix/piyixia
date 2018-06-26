@@ -7,6 +7,7 @@ import JoinedChallenge from "./components/JoinedChallenge";
 import QuestionPage from './components/QuestionPage';
 import StartPage from './components/StartPage';
 import ScoreBoard from './components/ScoreBoard';
+import CommentPage from './components/commentPage';
 
 const Router = StackNavigator({
   start: {
@@ -49,7 +50,11 @@ const ChallengePageStack = StackNavigator({
     },
     JoinedChallenge: {
         screen: JoinedChallenge,
-        title:'challengeJoinedPage'}
+        title:'challengeJoinedPage'},
+    commentPage:{
+        screen: CommentPage,
+        title:'commentPage'
+    }
 });
 
 

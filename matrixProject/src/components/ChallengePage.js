@@ -32,6 +32,7 @@ class RefreshableList extends Component {
             refreshing: false,
             dataSource: ds.cloneWithRows(['row 1', 'row 1','row 2','row 2']),
         };
+        this.continueAnimationDialog = this.continueAnimationDialog.bind(this);
     }
 
     // state = {
@@ -62,7 +63,10 @@ class RefreshableList extends Component {
     cancelAnimationDialog =() => {
         this.fadeAnimationDialog.dismiss();
     };
+    continueAnimationDialog = ()=> {
+        this.props.navigation.navigate('commentPage');
 
+    };
     _onRefresh() {
         this.setState({refreshing: true});
         // fetchData().then(() => {
@@ -194,7 +198,9 @@ class RefreshableList extends Component {
                                 <Text style={styles.cancelBtnText}>取消</Text>
                             </TouchableHighlight>
                             // 按下确认键，跳转到另外一个界面；
-                            <TouchableHighlight style={styles.okBtnView} underlayColor='#f0f0f0'>
+                            <TouchableHighlight style={styles.okBtnView}
+                                                onPressIn={this.continueAnimationDialog}
+                                                underlayColor='#f0f0f0'>
                                 <Text style={styles.okBtnText}>确定</Text>
                             </TouchableHighlight>
                         </View>
