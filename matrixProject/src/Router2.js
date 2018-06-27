@@ -8,7 +8,14 @@ import QuestionPage from './components/QuestionPage';
 import StartPage from './components/StartPage';
 import ScoreBoard from './components/ScoreBoard';
 import CommentPage from './components/commentPage';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
+
+const myButton = (
+    <Icon.Button name="facebook" backgroundColor="#3b5998">
+        Login with Facebook
+    </Icon.Button>
+);
 const Router = StackNavigator({
   start: {
      screen: StartPage,
@@ -53,7 +60,14 @@ const ChallengePageStack = StackNavigator({
         title:'challengeJoinedPage'},
     commentPage:{
         screen: CommentPage,
-        title:'commentPage'
+        navigationOptions: () => ({
+            title: 'Create',
+            headerStyle:{ backgroundColor: 'white'},
+            headerBackTitle: null,
+            navigatorButtons:{myButton},
+            //???给标题添加一个发送按钮；
+
+        }),
     }
 });
 

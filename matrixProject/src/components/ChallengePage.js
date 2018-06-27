@@ -65,7 +65,6 @@ class RefreshableList extends Component {
     };
     continueAnimationDialog = ()=> {
         this.props.navigation.navigate('commentPage');
-
     };
     _onRefresh() {
         this.setState({refreshing: true});
