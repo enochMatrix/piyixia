@@ -103,12 +103,12 @@ class DiamondControls extends Component {
             </View>
             <View style={styles.bottomTab}>
                 <View style={{flexDirection: 'row', marginLeft: 5, marginRight: 5}}>
-                    <Text style={{fontSize: 24, color: 'white', marginRight: 10}}>Total:     </Text>
-                    <Text style={{fontSize: 35, fontWeight: 'bold', color: 'white'}}>{this.state.totalAmount}</Text>
+                    <Text style={{fontSize: 24, color: 'white', marginRight: 10}}>Total:  </Text>
+                    <Text style={{fontSize: 32, fontWeight: 'bold', color: 'white'}}>{this.state.totalAmount}</Text>
                 </View>
                 <TouchableWithoutFeedback onPress={this.props.close}>
                     <View>
-                        <Text style={{fontSize: 30, color: 'white'}}>| Sponsor Now</Text>
+                        <Text style={{fontSize: 28, color: 'white'}}>| Sponsor Now</Text>
                     </View>
                 </TouchableWithoutFeedback>
             </View>

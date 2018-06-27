@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
-import {Card, CardTitle, CardContent, CardAction, CardButton, CardImage} from 'react-native-cards';
 import {ScrollView, View, StyleSheet, Text, Image, Button, TouchableOpacity, Modal, TouchableHighlight} from 'react-native';
 import ProgressBar from 'react-native-progress/Bar';
-import Icon from 'react-native-vector-icons';
 import DiamondControls from './common/DiamondControls';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 class MatrixDetail extends Component {
 
     state = {
         modalVisible: false,
+        conModalVisible: false,
     };
 
     commentHandler = () => {
@@ -17,6 +16,11 @@ class MatrixDetail extends Component {
 
     sponsorHandler = (visible) => {
         this.setState({modalVisible: visible});
+        this.confirmModalHandler(!visible);
+    };
+
+    confirmModalHandler = (visible) => {
+        this.setState({conModalVisible: visible})
     };
 
 
@@ -68,14 +72,31 @@ class MatrixDetail extends Component {
                     <Modal
                         animationType="slide"
                         transparent={true}
+                        visible={this.state.conModalVisible}
+                        onRequestClose={() => {
+                            alert('Modal has been closed.');
+                        }}>
+                        <View style={{flex: 1, top: '60%', borderRadius:12 ,backgroundColor: 'rgba(255,255,255, 0.9)', padding: 30}}>
+                            <Text style={{fontSize: 24, fontWeight: 'bold', marginBottom: 20}}>Balance: 443234                        <Icon name='md-close' size={30}/></Text>
+                            <Text style={{fontSize: 24, fontWeight: 'bold', marginBottom: 20}}>Do you confirm the sponsorship?</Text>
+                            <Text style={{fontSize: 24, fontWeight: 'bold', marginBottom: 20}}><Icon name='ios-star' size={40}/>  1600</Text>
+                            <View style={{flexDirection: 'row', justifyContent:'space-between'}}>
+                                <Button title='back' onPress={() => {}} color='green'/>
+                                <Button title="Confirm" color='green' onPress={() => this.confirmModalHandler(!this.state.conModalVisible)} />
+                            </View>
+                            </View>
+                    </Modal>
+                    <Modal
+                        animationType="slide"
+                        transparent={true}
                         visible={this.state.modalVisible}
                         onRequestClose={() => {
                             alert('Modal has been closed.');
                         }}>
                         <View style={{flex: 1, top: '53%', borderRadius:12 ,backgroundColor: 'rgba(255,255,255, 0.9)'}}>
-                               <DiamondControls close={() => {
-                                   this.sponsorHandler(!this.state.modalVisible);
-                               }}/>
+                            <DiamondControls close={() => {
+                                this.sponsorHandler(!this.state.modalVisible);
+                            }}/>
                         </View>
                     </Modal>
                     <View>
