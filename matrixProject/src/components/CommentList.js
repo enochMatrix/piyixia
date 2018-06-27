@@ -1,23 +1,22 @@
 // For challenge comment
 
 import React, {Component} from 'react';
-import {View, Text, FlatList, StyleSheet} from 'react-native';
+import {ScrollView, Text, FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
 import ListItem from './common/ListItem';
 import comments from './comment';
-
-// const comments = [
-//     {name: 'Stan', icon: "uri: 'https://cdn.pixabay.com/photo/2016/06/18/17/42/image-1465348_960_720.jpg'", content: 'Lorem ipsum dolor sit amet'},
-//     {name: 'Enoch', icon: "uri: 'https://www.wonderplugin.com/videos/demo-image0.jpg'", content: 'Lorem ipsum dolor sit amet'},
-//     {name: 'Echo', icon: "uri: 'https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg'", content: 'Lorem ipsum dolor sit amet'},
-//     {name: 'Yuxin', icon: "uri: 'http://legacy.semantic-ui.com/images/demo/photo.jpg'", content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin s'},
-// ];
+import CommentForChallenge from './common/CommentForChallenge';
 
 class CommentList extends Component {
 
+    state = {
+        commentInput: false,
+        mask: false,
+    };
+
     render() {
-        console.log(comments.data);
         return (
-            <View style={styles.container}>
+            <ScrollView>
+                <View style={styles.container}>
                 <Text style={styles.title}>
                     Comment(1.2k)
                 </Text>
@@ -34,7 +33,17 @@ class CommentList extends Component {
                 <Text>
                     No more comments
                 </Text>
-            </View>
+                </View>
+                {this.state.mask &&  // Mask is when comment box open, darken the background
+                <TouchableWithoutFeedback
+                    onPressIn={() => {
+                        this.setState({ mask: !this.state.mask, commentInput: false });
+                    }}>
+                    <View style={styles.maskStyle} />
+                </TouchableWithoutFeedback>
+                }
+                <CommentForChallenge input={this.state.commentInput}/>
+            </ScrollView>
         )
     }
 }
@@ -44,7 +53,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 20,
+        marginBottom: 200,
     },
     title: {
         fontSize: 24,
@@ -54,6 +63,15 @@ const styles = StyleSheet.create({
     listContainer: {
         width: "100%"
     },
+    maskStyle: {
+        position: 'absolute',
+        flex: 1,
+        bottom: 0,
+        right: 0,
+        top: 0,
+        left: 0,
+        backgroundColor: 'rgba(0,0,0,0.8)'
+    }
 });
 
 

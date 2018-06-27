@@ -8,6 +8,7 @@ import CommentList from './components/CommentList';
 import QuestionPage from './components/QuestionPage';
 import StartPage from './components/StartPage';
 import ScoreBoard from './components/ScoreBoard';
+import DiamondControls from './components/common/DiamondControls'
 
 const Router = StackNavigator({
   start: {
@@ -40,7 +41,8 @@ const ChallengePageStack = StackNavigator({
     ChallengePage: {screen: ChallengePage},
     ChallengeDetailPage: { screen: ChallengeDetailPage},
     JoinedChallenge: {screen: JoinedChallenge},
-    CommentList: {screen: CommentList}
+    CommentList: {screen: CommentList},
+    DiamondControls: {screen: DiamondControls}
 });
 
 

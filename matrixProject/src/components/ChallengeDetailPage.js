@@ -1,13 +1,22 @@
 import React, {Component} from 'react';
 import {Card, CardTitle, CardContent, CardAction, CardButton, CardImage} from 'react-native-cards';
-import {ScrollView, View, StyleSheet, Text, Image, Button, TouchableOpacity} from 'react-native';
+import {ScrollView, View, StyleSheet, Text, Image, Button, TouchableOpacity, Modal, TouchableHighlight} from 'react-native';
 import ProgressBar from 'react-native-progress/Bar';
 import Icon from 'react-native-vector-icons';
+import DiamondControls from './common/DiamondControls';
 
 class MatrixDetail extends Component {
 
+    state = {
+        modalVisible: false,
+    };
+
     commentHandler = () => {
         this.props.navigation.navigate('CommentList')
+    };
+
+    sponsorHandler = (visible) => {
+        this.setState({modalVisible: visible});
     };
 
 
@@ -56,11 +65,24 @@ class MatrixDetail extends Component {
                             Pledged: 10K
                         </Text>
                     </View>
+                    <Modal
+                        animationType="slide"
+                        transparent={true}
+                        visible={this.state.modalVisible}
+                        onRequestClose={() => {
+                            alert('Modal has been closed.');
+                        }}>
+                        <View style={{flex: 1, top: '53%', borderRadius:12 ,backgroundColor: 'rgba(255,255,255, 0.9)'}}>
+                               <DiamondControls close={() => {
+                                   this.sponsorHandler(!this.state.modalVisible);
+                               }}/>
+                        </View>
+                    </Modal>
                     <View>
                         <Button
                             title="Sponsor Now!"
                             color="green"
-                            onPress={() => {}}/>
+                            onPress={ () => this.sponsorHandler(true)}/>
                     </View>
                 </View>
             </View>
