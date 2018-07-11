@@ -1,8 +1,26 @@
 import React, {Component} from 'react';
-import {ListView, RefreshControl, TouchableOpacity, View, StyleSheet, Text} from 'react-native';
+import {ListView, RefreshControl, TouchableOpacity, View, StyleSheet, Text,Button,TouchableHighlight, Dimensions} from 'react-native';
 import {Card, CardContent, CardAction, CardButton, CardImage} from 'react-native-cards';
 import DynamicListRow from "./common/DynamicListRow";
 import Icon from 'react-native-vector-icons/Ionicons';
+import ActionButton from 'react-native-action-button';
+import PopupDialog,{
+    DialogTitle,
+    DialogButton,
+    SlideAnimation,
+    ScaleAnimation,
+    FadeAnimation,
+} from 'react-native-popup-dialog';
+
+const {width, height} = Dimensions.get('window');
+const navigatorH = 64; // navigator height
+const [aWidth, aHeight] = [width, 108];
+
+
+
+// const slideAnimation = new SlideAnimation({ slideFrom: 'bottom' });
+// const scaleAnimation = new ScaleAnimation();
+// const fadeAnimation = new FadeAnimation({ animationDuration: 150 });
 
 class RefreshableList extends Component {
 
@@ -14,14 +32,40 @@ class RefreshableList extends Component {
             refreshing: false,
             dataSource: ds.cloneWithRows(['row 1', 'row 1','row 2','row 2']),
         };
+        this.continueAnimationDialog = this.continueAnimationDialog.bind(this);
     }
+
+    // state = {
+    //     dialogShow: false,
+    // };
+
+
+
+
+    // renderScene = () => (
+    //     <View style={styles.container}>
+    //         <Button
+    //             title="Show Dialog - Slide Animation"
+    //             onPress={this.showSlideAnimationDialog}
+    //         />
+    //     </View>
+    // );
 
     // // fetch Data
     // componentDidMount() {
     //     this.fetchTopicsData();
     // }
     // user fetch data and refresh page , call spiner
+    showFadeAnimationDialog = () => {
+        this.fadeAnimationDialog.show();
+    };
 
+    cancelAnimationDialog =() => {
+        this.fadeAnimationDialog.dismiss();
+    };
+    continueAnimationDialog = ()=> {
+        this.props.navigation.navigate('commentPage');
+    };
     _onRefresh() {
         this.setState({refreshing: true});
         // fetchData().then(() => {
@@ -94,6 +138,7 @@ class RefreshableList extends Component {
     };
 
     render() {
+      console.log('challengePage');
         return (
             <View>
                 <TouchableOpacity onPress={this.onJoinedHandler}>
@@ -119,7 +164,52 @@ class RefreshableList extends Component {
                             colors={['black','blue']}
                             progressViewOffset={10}/>
                     }
-                    removeClippedSubviews/>
+                    removeClippedSubviews
+                />
+                {/* <ActionButton buttonColor="rgba(231,76,60,1)">
+                    <ActionButton.Item buttonColor='#9b59b6' title="New Task" onPress={() => console.log("notes tapped!")}>
+                        <Icon name="md-create" style={styles.actionButtonIcon} />
+                    </ActionButton.Item>
+                    <ActionButton.Item buttonColor='#3498db' title="Notifications" onPress={() => {}}>
+                        <Icon name="md-notifications-off" style={styles.actionButtonIcon} />
+                    </ActionButton.Item>
+                    <ActionButton.Item buttonColor='#1abc9c' title="All Tasks" onPress={() => {}}>
+                        <Icon name="md-done-all" style={styles.actionButtonIcon} />
+                    </ActionButton.Item>
+                </ActionButton> */}
+
+                <View style={{ position: 'absolute', left: 10, bottom: 60, backgroundColor: 'rgba(1,1,1,0.5)' }}>
+                <Button
+                    title="Show Dialog - Default Animation"
+                    onPress={this.showFadeAnimationDialog}
+                />
+              </View>
+                <PopupDialog
+                    ref={(fadeAnimationDialog) => {
+                        this.fadeAnimationDialog = fadeAnimationDialog;
+                    }}
+                    dialogTitle={<DialogTitle title="Confirmation Information"
+                    style={styles.dialogTitle}/>}
+                >
+                    <View style={styles.dialogContent}>
+                        <Text style={styles.dialogText}>
+                            Confirmation Information
+                        </Text>
+                        <View style={styles.dialogContentView}>
+                            <TouchableHighlight style={styles.cancelBtnView} underlayColor='#f0f0f0'
+                                                onPress={this.cancelAnimationDialog}>
+                                <Text style={styles.cancelBtnText}>取消</Text>
+                            </TouchableHighlight>
+                             {/* 按下确认键，跳转到另外一个界面； */}
+                            <TouchableHighlight style={styles.okBtnView}
+                                                onPressIn={this.continueAnimationDialog}
+                                                underlayColor='#f0f0f0'>
+                                <Text style={styles.okBtnText}>确定</Text>
+                            </TouchableHighlight>
+                        </View>
+                    </View>
+                </PopupDialog>
+
             </View>
         )
     }
@@ -139,7 +229,66 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         alignItems: 'center',
         fontSize: 30
-    }
+    },
+    actionButtonIcon: {
+        fontSize: 20,
+        height: 22,
+        color: 'white',
+    },
+    //控制内容加上两个按钮
+    dialogContent: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection:'column'
+    },
+    dialogText: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize:45
+    },
+    //让 继续 和 取消按钮在一行上
+    //控制两个按钮
+    dialogContentView: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection:'row'
+    },
+    dialogTitle:{
+      height:88
+        //???????
+    },
+    cancelBtnView:{
+        width:aWidth/2,
+        height: 44,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRightWidth:1/2,
+        borderColor:'#f0f0f0',
+        flexDirection:'row'
+    },
+    cancelBtnText: {
+        fontSize:17,
+        color:"#e6454a",
+        textAlign:"center",
+        fontWeight:'bold',
+    },
+    okBtnView:{
+        width:aWidth/2,
+        height: 44,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection:'row'
+    },
+    okBtnText: {
+        fontSize:17,
+        color:"#e6454a",
+        textAlign:"center",
+    },
 });
 
 
