@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, Alert } from 'react-native';
-import CircleCheckBox from 'react-native-circle-checkbox';
 import questionData from './questionData.json';
 
 
@@ -16,8 +15,13 @@ function shuffle(array) {
 
 class QuestionPage extends Component {
 
+  static navigationOptions = {
+          swipeEnabled: false
+  }
+
   state = {
-    question: [],
+    data: [],
+    question: '',
     options: [],
     correctoption: '',
     userSelect: '',
@@ -30,13 +34,23 @@ class QuestionPage extends Component {
    };
 
   componentWillMount() {
-    shuffle(questionData.data);
-    this.setState({ question: questionData.data[0].question,
-                    options: questionData.data[0].options,
-                    correctoption: questionData.data[0].correctoption,
-                    questionIndex: 0,
-                    score: 0
-                  });
+    //console.log(this.props);
+    fetch('http://127.0.0.1:3000/get/quiz')
+      .then((response) => (response.json()))
+      .catch((error) => {
+        console.log(error);
+      })
+      .then((res) => {
+          console.log(res[0]);
+          shuffle(res);
+          this.setState({ data: res,
+                          question: res[0].description,
+                          options: res[0].options[0],
+                          correctoption: res[0].correct,
+                          questionIndex: 0,
+                          score: 0
+                        });
+  });
   }
 
   nextButtononPressIn() {
@@ -44,9 +58,9 @@ class QuestionPage extends Component {
       const c = this.state.questionIndex + 1;
       const s = this.state.score + 1;
       if (this.state.questionIndex < NUMBER_OF_QUESTIONS - 1) {
-        this.setState({ question: questionData.data[c].question,
-                      options: questionData.data[c].options,
-                      correctoption: questionData.data[c].correctoption,
+        this.setState({ question: this.state.data[c].description,
+                      options: this.state.data[c].options[0],
+                      correctoption: this.state.data[c].correct,
                       questionIndex: c,
                       option1checked: false,
                       option2checked: false,

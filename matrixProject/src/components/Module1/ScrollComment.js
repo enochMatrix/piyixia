@@ -5,22 +5,20 @@ in the video page
 */
 import React, { Component } from 'react';
 import {
-  View, Text, ScrollView, Keyboard
+  View, Text, ScrollView
 } from 'react-native';
-import comment from '../comment.json';
 
 class ScrollComment extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      description: '',
+      description: props.description,
       scrollY: 0
       };
   }
   componentWillMount() {
     //Keyboard listner to adjust comment bar height when input
     this.setState({
-      description: comment.data[this.props.index].comment,
       scrollY: 0,
  });
   }
@@ -53,7 +51,7 @@ class ScrollComment extends Component {
 
   render() {
   return (
-      <View style={[styles.overlay, { height: 40, bottom: 35, marginHorizontal: '3%' }]}>
+      <View style={[styles.overlay, { height: 40, bottom: 50, marginHorizontal: 10 }]}>
         <ScrollView
           ref={(ref) => this.myScroll = ref}
           onScroll={({ nativeEvent }) => { this.reachScrollEnd(nativeEvent); }}
@@ -63,7 +61,7 @@ class ScrollComment extends Component {
           {this.state.description}
         </Text>
       </ScrollView>
-      <View style={{ borderBottomWidth: 1, borderBottomColor: 'white' }} />{/*A LINE*/}
+      <View style={{ borderBottomWidth: 1.5, borderBottomColor: 'white', width: 350 }} />{/*A LINE*/}
       </View>
 );
 }

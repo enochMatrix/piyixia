@@ -1,19 +1,20 @@
 /*MODULE 1*/
 import React, { Component } from 'react';
 import {
-  View, TouchableOpacity, ListView, FlatList, Dimensions, TouchableWithoutFeedback
+  View, TouchableOpacity, FlatList, Dimensions, TouchableWithoutFeedback
  } from 'react-native';
 import Video from 'react-native-video';
 import { Play } from './icons';
 import Features from './Module1/Features';
 import FeatureB from './Module1/FeatureB';
 
-const VIDEOS = [
-   'https://s3.amazonaws.com/bostondelhi/onboarding_screen.mp4',
-   'https://s3.amazonaws.com/bostondelhi/V2_edited.mp4',
-   'https://s3.amazonaws.com/bostondelhi/V3_edited.mp4',
-   'https://s3.amazonaws.com/bostondelhi/V4_edited.mp4'
-];
+// const VIDEOS = [
+//    'https://s3.amazonaws.com/bostondelhi/onboarding_screen.mp4',
+//    'https://s3.amazonaws.com/bostondelhi/V2_edited.mp4',
+//    'https://s3.amazonaws.com/bostondelhi/V3_edited.mp4',
+//    'https://s3.amazonaws.com/bostondelhi/V4_edited.mp4'
+// ];
+
 
 class HomePage extends Component {
   constructor() {
@@ -31,15 +32,26 @@ class HomePage extends Component {
     comment: '',
     page: 0
   };
+
   componentWillMount() {
       this.setState({
-      videoList: VIDEOS,
+      //videoList: VIDEOS,
       videoPaused: false,
       commentInput: false,
       mask: false,
  });
   }
   componentDidMount() {
+    // GET ALL VIDEOS
+    fetch('http://127.0.0.1:3000/get/videos')
+      .then((response) => (response.json()))
+      .catch((error) => {
+        console.log(error);
+      })
+      .then((res) => {
+          this.setState({ videoList: res });
+          console.log(res);
+  });
     //Pause video when changing to other tabs
     this.pauseVideoOnChangingTab = this.props.navigation.addListener('didFocus', () => {
     this.setState({
@@ -52,13 +64,9 @@ class HomePage extends Component {
     });
   });
   }
-  shouldComponentUpdate(nextProps,nextState){
-    // console.log('nextProps',nextProps);
-    // console.log('nextProps',nextState);
-    // console.log('thisstate',this.state);
-    // console.log('thisprops',this.props);
-    if(this.state === nextState){
-      return false
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state === nextState) {
+      return false;
     }
      return true;
   }
@@ -71,6 +79,8 @@ class HomePage extends Component {
   handleViewableItemsChanged(info) {
     this.setState({ page: info.viewableItems[0].index });
    }
+   // get video
+
 
   pauseV() {
     console.log('pauseV()');
@@ -91,10 +101,10 @@ renderItem = ({ item, index }) => {
   return (
     <View>
     <TouchableOpacity
-      style={{ flex: 1 }} onPress={ this.pauseV }
+      style={{ flex: 1 }} onPress={this.pauseV}
     >
       <Video
-        source={{ uri: item }}
+        source={{ uri: item.url }}
         style={{
           width: Dimensions.get('window').width,
           height: Dimensions.get('window').height
@@ -127,7 +137,7 @@ renderItem = ({ item, index }) => {
     }
     <View>
       {/* input is a boolean prop to open/close comment modal */}
-    <FeatureB input={commentInput} index={index} />
+    <FeatureB input={commentInput} description={item.description} />
     </View>
     </View>
   );
@@ -137,7 +147,7 @@ renderItem = ({ item, index }) => {
 return (
   <View>
     <Video
-      source={{ uri: item }}
+      source={{ uri: item.url }}
       style={{
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height
@@ -150,7 +160,7 @@ return (
   <Features />
   </View>
   <View>
-  <FeatureB input={commentInput} index={index} />
+  <FeatureB input={commentInput} description={item.description} />
   </View>
   </View>
 );

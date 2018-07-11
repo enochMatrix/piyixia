@@ -3,7 +3,7 @@ Comment List
 */
 import React, { Component } from 'react';
 import {
-  View, Text, Modal, ListView, Image, TextInput, KeyboardAvoidingView
+  View, Text, Modal, ListView, Image, TextInput, KeyboardAvoidingView, TouchableWithoutFeedback
  } from 'react-native';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import { Send, Pen } from '../icons';

@@ -85,27 +85,26 @@ class FeatureB extends Component {
   }
 
   render() {
-    console.log('renderFeatureB');
   return (
     <View style={{ flex: 1 }}>
       {/*VIDEO'S TAG*/}
-      <TouchableOpacity style={[styles.overlay, { bottom: 80, left: 15 }]}>
+      <TouchableOpacity style={[styles.overlay, { bottom: 100, left: 15 }]}>
         <Text style={styles.textStyle}>
           # Eat
         </Text>
       </TouchableOpacity>
 
-      <ScrollComment index={this.props.index} />
+      <ScrollComment description={this.props.description} />
 
       {/*USER COMMENT AREA*/}
       <TouchableOpacity
-          style={[styles.overlay, { flexDirection: 'row', bottom: 10, left: '3%' }]}
+          style={[styles.overlay, { flexDirection: 'row', bottom: 15, left: '3%' }]}
           onPressIn={() => {
             this.setState({ mask: !this.state.mask, commentInput: true });
           }}
       >
         <Pen color='white' />
-        <Text style={{ color: 'white', paddingLeft: '1%', fontWeight: '800' }}>
+        <Text style={{ color: 'white', paddingLeft: '5%', fontWeight: '800' }}>
           {this.state.yourComment === '' ? 'comment' : this.state.yourComment}
         </Text>
       </TouchableOpacity>

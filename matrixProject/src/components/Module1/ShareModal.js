@@ -42,7 +42,7 @@ class ShareModal extends Component {
           <Text style={{ fontSize: 20, margin: 10 }}>
             Share to
           </Text>
-          <View style={{ flexDirection: 'row' }}>
+          <View style={{ flexDirection: 'row', padding: 10 }}>
             <Wechat />
             <Weibo />
           </View>

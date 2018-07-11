@@ -8,7 +8,7 @@ class App extends Component {
     state = { screen: '' };
   render() {
     return (
-     <LoginPage />
+     <Router2 />
     );
   }
 }

@@ -9,7 +9,7 @@ class LoginPage extends Component {
   }
 // 注册 api
   tryFetch = async () => {
-  fetch('http://127.0.0.1:3000/register', {
+  fetch('http://192.168.0.13/register', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ class LoginPage extends Component {
 }
 // 登陆 api
 logIn = async () => {
-fetch('http://127.0.0.1:3000/login', {
+fetch('http://192.168.0.13/login', {
   method: 'POST',
   headers: {
       'Content-Type': 'application/json'
