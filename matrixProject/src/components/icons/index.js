@@ -8,3 +8,4 @@ export * from './Music';
 export * from './Play';
 export * from './Cross';
 export * from './Send';
+export * from './Search';

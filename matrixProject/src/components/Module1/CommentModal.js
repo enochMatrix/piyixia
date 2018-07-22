@@ -3,11 +3,11 @@ Comment List
 */
 import React, { Component } from 'react';
 import {
-  View, Text, Modal, ListView, Image, TextInput, KeyboardAvoidingView, TouchableWithoutFeedback
+  View, Text, Modal, ListView, Image, TextInput, KeyboardAvoidingView, TouchableOpacity
  } from 'react-native';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import { Send, Pen } from '../icons';
-import comment from '../comment.json';
+
 
 class CommentModal extends Component {
   constructor(props) {
@@ -26,8 +26,6 @@ class CommentModal extends Component {
 
   componentWillMount() {
       this.setState({
-      comment: comment.data[5].comment,
-      dataSource: this.state.dataSource.cloneWithRows(comment.data),
       videoPaused: false,
       commentInput: false,
       yourComment: 'comment',
@@ -37,6 +35,21 @@ class CommentModal extends Component {
   // Pass onpress event from parent Feature.js
   componentWillReceiveProps(nextProps) {
     if (this.props.display !== nextProps.display) {
+      // GET ALL COMMENT 获取所有评论
+      fetch('http://192.168.0.16:3000/get/comment/' + nextProps.vid, {
+        credentials: 'same-origin',
+      })
+        .then((response) => (response.json()))
+        .catch((error) => {
+          console.log(error);
+        })
+        .then((res) => {
+            this.setState({
+              comment: res.content,
+              dataSource: this.state.dataSource.cloneWithRows(res)
+            });
+      });
+      //显示评论框
     this.setState({
       commentModal: true
     });
@@ -55,27 +68,45 @@ class CommentModal extends Component {
   this.setState({ commentModal: false });
 }
 
+//send comment 发表评论
+  send() {
+    fetch('http://192.168.0.16:3000/add/comment/' + this.props.vid, {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 'comment': this.state.yourComment })
+      }).then((response) => response.text())
+      .catch((error) => {
+        console.log(error);
+      })
+      .then((res) => {
+        console.log(res);
+  });
+  }
+
+
 // Render user comment list
   renderItem = (item) => {
     return (
       <View style={styles.rowsContainerStyle}>
 
-        <View style={[styles.imageBorderStyle, { width: 40, height: 40, borderRadius: 30 }]}>
+        {/* <View style={[styles.imageBorderStyle, { width: 40, height: 40, borderRadius: 30 }]}>
           <Image
             source={{ uri: item.icon }}
             style={{ width: 30, height: 30 }}
           />
-        </View>
+        </View> */}
 
         <View style={{ flexDirection: 'column', paddingHorizontal: 15, marginRight: 30 }}>
           <Text style={{ fontSize: 15, color: '#383838' }}>
-            {item.name}
+            {item.author}
           </Text>
-          <Text>{item.comment}</Text>
+          <Text>{item.content}</Text>
         </View>
 
         <View style={{ position: 'absolute', right: 5, top: 10 }}>
-          <Text style={{ color: '#707070' }}>{item.time}</Text>
+
+        <Text style={{ color: '#707070' }}>{item.date}</Text>
         </View>
       </View>
     );
@@ -132,7 +163,7 @@ class CommentModal extends Component {
         />
         </View>
 
-        <View><Send /></View>
+        <TouchableOpacity onPress={this.send.bind(this)}><Send /></TouchableOpacity>
       </View>
       </KeyboardAvoidingView>
       </Modal>

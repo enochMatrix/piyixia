@@ -23,6 +23,7 @@ class Features extends Component {
       commentModal: false,
       videoPaused: false,
       videoMuted: false,
+      comment: ''
   };
 }
   componentWillMount() {
@@ -30,6 +31,7 @@ class Features extends Component {
       videoPaused: false,
       commentModal: false,
       shareModal: false,
+      comment: ''
  });
   }
 
@@ -79,15 +81,15 @@ class Features extends Component {
       </View>
 
       {/* Comment Modal*/}
-      <CommentModal display={commentModal} />
+      <CommentModal display={commentModal} comment={this.state.comment} vid={this.props.currentVid} />
       {/* Share Modal */}
       <ShareModal display={this.state.shareModal} />
 
-      {commentModal &&
+      {/* {commentModal &&
       <TouchableWithoutFeedback>
         <View style={styles.backgroundOpacity} />
       </TouchableWithoutFeedback>
-      }
+      } */}
     </View>
 );
 }

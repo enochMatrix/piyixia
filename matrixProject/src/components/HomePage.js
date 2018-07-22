@@ -43,15 +43,16 @@ class HomePage extends Component {
   }
   componentDidMount() {
     // GET ALL VIDEOS
-    fetch('http://127.0.0.1:3000/get/videos')
+    fetch('http://192.168.0.16:3000/get/videos', {
+      credentials: 'same-origin',
+    })
       .then((response) => (response.json()))
       .catch((error) => {
         console.log(error);
       })
       .then((res) => {
           this.setState({ videoList: res });
-          console.log(res);
-  });
+      });
     //Pause video when changing to other tabs
     this.pauseVideoOnChangingTab = this.props.navigation.addListener('didFocus', () => {
     this.setState({
@@ -64,6 +65,7 @@ class HomePage extends Component {
     });
   });
   }
+
   shouldComponentUpdate(nextProps, nextState) {
     if (this.state === nextState) {
       return false;
@@ -78,6 +80,7 @@ class HomePage extends Component {
   /* TO get the current (viewable) video index in the flastlist */
   handleViewableItemsChanged(info) {
     this.setState({ page: info.viewableItems[0].index });
+    //console.log(this.state.videoList[this.state.page]._id);
    }
    // get video
 
@@ -95,7 +98,8 @@ class HomePage extends Component {
    }
 
 renderItem = ({ item, index }) => {
-  const { videoPaused, videoMuted, mask, commentInput } = this.state;
+
+  const { videoPaused, videoMuted, mask, commentInput, videoList, page } = this.state;
   // render everything for the current video
   if (index === this.state.page) {
   return (
@@ -125,7 +129,7 @@ renderItem = ({ item, index }) => {
 
     {/* Features component includes all the features in the video page */}
     <View style={[styles.overlay, { flex: 1 }]}>
-    <Features update={this.updateFromFeatures.bind(this)} index={index} />
+    <Features update={this.updateFromFeatures.bind(this)} currentVid={this.state.videoList[this.state.page]._id} />
     </View>
     {mask &&  // Mask is when comment box open, darken the background
       <TouchableWithoutFeedback

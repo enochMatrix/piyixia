@@ -3,11 +3,10 @@ import { TabNavigator,StackNavigator } from 'react-navigation';
 import HomePage from './components/HomePage';
 import ChallengePage from './components/ChallengePage';
 import ChallengeDetailPage from './components/ChallengeDetailPage';
-import JoinedChallenge from "./components/JoinedChallenge";
 import QuestionPage from './components/QuestionPage';
 import StartPage from './components/StartPage';
 import ScoreBoard from './components/ScoreBoard';
-import CommentPage from './components/commentPage';
+import LoginPage from './LoginPage';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
@@ -28,8 +27,8 @@ const Router = StackNavigator({
   questionpage: {
      screen: QuestionPage,
      navigationOptions: () => ({
-         title: `智力问答`,
-         headerStyle:{ backgroundColor: 'white'},
+         title: '智力问答',
+         headerStyle: { backgroundColor: 'white' },
          headerBackTitle: null
      }),
   },
@@ -37,46 +36,33 @@ const Router = StackNavigator({
     screen: ScoreBoard,
     navigationOptions: () => ({
         title: '积分榜',
-        headerStyle:{ backgroundColor: 'white'},
+        headerStyle: { backgroundColor: 'white' },
         headerBackTitle: null
     }),
   },
 });
 
 const ChallengePageStack = StackNavigator({
-    ChallengePage:{
+    ChallengePage: {
         screen: ChallengePage,
-        navigationOptions:{
-        title:'challengePage'
-        }
-    },
+},
     ChallengeDetailPage: {
-        screen: ChallengeDetailPage,
-        title:'challengeDetailPage'
-        //not exist???
+      screen: ChallengeDetailPage,
+      navigationOptions: () => ({
+          title: '挑战内容',
+          headerStyle: { backgroundColor: 'white' },
+          headerBackTitle: null
+      }),
     },
-    JoinedChallenge: {
-        screen: JoinedChallenge,
-        title:'challengeJoinedPage'},
-    commentPage:{
-        screen: CommentPage,
-        navigationOptions: () => ({
-            title: 'Create',
-            headerStyle:{ backgroundColor: 'white'},
-            headerBackTitle: null,
-            navigatorButtons:{myButton},
-            //???给标题添加一个发送按钮；
-
-        }),
-    }
 });
 
 
 const Router2 = TabNavigator(
   {
-    Router: Router,
-    HomePage: HomePage,
-    ChallengePage: ChallengePageStack,
+   Router: Router,
+   HomePage: HomePage,
+    ChallengePageStack: ChallengePageStack,
+   LoginPage: LoginPage,
   },
   {
       initialRouteName: 'HomePage',
