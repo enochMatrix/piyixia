@@ -1,5 +1,5 @@
 import React from 'react';
-import { TabNavigator,StackNavigator } from 'react-navigation';
+import { TabNavigator, StackNavigator } from 'react-navigation';
 import HomePage from './components/HomePage';
 import ChallengePage from './components/ChallengePage';
 import ChallengeDetailPage from './components/ChallengeDetailPage';
@@ -8,13 +8,8 @@ import StartPage from './components/StartPage';
 import ScoreBoard from './components/ScoreBoard';
 import LoginPage from './LoginPage';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import ProfilePage from './components/ProfilePage';
 
-
-const myButton = (
-    <Icon.Button name="facebook" backgroundColor="#3b5998">
-        Login with Facebook
-    </Icon.Button>
-);
 const Router = StackNavigator({
   start: {
      screen: StartPage,
@@ -42,10 +37,18 @@ const Router = StackNavigator({
   },
 });
 
+const ProfilePageStack = StackNavigator({
+    ProfilePage: {
+        screen: ProfilePage,
+        title: 'ProfilePage'
+    },
+  });
+
 const ChallengePageStack = StackNavigator({
     ChallengePage: {
         screen: ChallengePage,
 },
+    ProfilePage: ProfilePageStack,
     ChallengeDetailPage: {
       screen: ChallengeDetailPage,
       navigationOptions: () => ({
@@ -59,10 +62,10 @@ const ChallengePageStack = StackNavigator({
 
 const Router2 = TabNavigator(
   {
-   Router: Router,
-   HomePage: HomePage,
-    ChallengePageStack: ChallengePageStack,
-   LoginPage: LoginPage,
+  Router: Router,
+  HomePage: HomePage,
+  ChallengePageStack: ChallengePageStack,
+  LoginPage: LoginPage,
   },
   {
       initialRouteName: 'HomePage',

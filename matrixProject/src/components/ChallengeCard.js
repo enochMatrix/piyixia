@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 
 class ChallengeCard extends Component {
 
@@ -15,32 +15,47 @@ class ChallengeCard extends Component {
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
               <View style={{ width:15, height:15, backgroundColor:'gray', borderRadius: 10 }} />
-              <Text style={styles.textStyle}>用户名理小查发起于</Text>
-              <Text style={styles.textStyle}>·2周前</Text>
+              <Text style={styles.textStyle}>{this.props.username}</Text>
+              <Text style={styles.textStyle}>{'·' + this.props.time}</Text>
             </View>
             <Text>💗</Text>
           </View>
 
           <View style={{ marginTop: 5 }}>
-            <Text style={{ fontSize: 16, paddingLeft: '2%' }}>标题标题标题标题标题标题</Text>
+            <Text style={{ fontSize: 16, paddingLeft: '2%' }}>{this.props.title}</Text>
           </View>
 
-          <View style={{ marginTop: 5 }}>
-            <Text style={styles.textStyle}>描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</Text>
+          {this.props.image &&
+          <View style={{ marginTop: 5, flexDirection: 'row', flex: 1 }}>
+            <Image
+              source={require('./0.jpeg')}
+              style={{ width: 120, height: 90, flex: 0.4 }}
+            />
+            <View style={{ flex: 0.6 }}>
+              <Text style={styles.textStyle}>{this.props.description}</Text>
+            </View>
           </View>
+          }
+
+          {!this.props.image &&
+            <View style={{ marginTop: 5 }}>
+                <Text style={styles.textStyle}>{this.props.description}</Text>
+            </View>
+          }
+
           </View>
 
           <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
             <View style={styles.tabStyle}>
-              <Text style={styles.textStyle}>13.6k</Text>
+              <Text style={styles.textStyle}>{this.props.sponsor}</Text>
             </View>
             <View style={styles.tab2Wrapper}>
             <View style={styles.tab2Style}>
-              <Text style={styles.textStyle}>12天6小时</Text>
+              <Text style={styles.textStyle}>{this.props.timeLeft}</Text>
             </View>
             </View>
             <View style={styles.tabStyle}>
-              <Text style={styles.textStyle}>268</Text>
+              <Text style={styles.textStyle}>{this.props.comment}</Text>
             </View>
           </View>
         </View>
@@ -77,7 +92,9 @@ const styles = {
   textStyle: {
     paddingLeft: '2%',
     fontSize: 14,
-    color: '#606060'
+    color: '#606060',
+    letterSpacing: 1,
+    lineHeight:18
   }
 };
 

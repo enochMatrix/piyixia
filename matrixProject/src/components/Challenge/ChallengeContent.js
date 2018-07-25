@@ -15,11 +15,11 @@ class ChallengeContent extends Component {
             <Text>💗</Text>
           </View>
           <View style={{ marginTop: 5 }}>
-            <Text style={{ fontSize: 16, paddingLeft: '2%' }}>标题标题标题标题标题标题</Text>
+            <Text style={{ fontSize: 16, paddingLeft: '2%' }}>单手吃鸡</Text>
           </View>
 
           <View style={{ marginTop: 5, marginBottom: 15 }}>
-            <Text style={styles.textStyle}>描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</Text>
+            <Text style={styles.textStyle}>马老师，你可以单手玩一盘吃鸡吗？我赌你撑不过五分钟 </Text>
           </View>
           </View>
       );

@@ -11,10 +11,10 @@ class Accepted extends Component {
               <Text>大司马</Text>
             </View>
 
-            <View style={styles.centerStyle}><Text>😄😁 </Text></View>
+            <View style={styles.centerStyle}><Text> 😄 </Text></View>
 
             <View style={[styles.centerStyle, { width: '60%' }]} >
-              <Text>回复回复回复回复回复回复回复回复回复回复回复回复回复...</Text>
+              <Text>接受</Text>
             </View>
 
             <View style={styles.centerStyle}>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View, TouchableOpacity, Text, TextInput } from 'react-native';
+import { View, TouchableOpacity, Text, TextInput, TouchableWithouFeedback } from 'react-native';
 //import { SearchBar } from 'react-native-elements'
 import Tabs from 'react-native-tabs';
 import { Search } from './icons';
@@ -15,18 +15,24 @@ class RefreshableList extends Component {
           page: 'trending'
         };
         this.onPressInDetail = this.onPressInDetail.bind(this);
+        this.onPressInIcon = this.onPressInIcon.bind(this);
       }
     onPressInDetail() {
       this.props.navigation.navigate('ChallengeDetailPage');
     }
-
+    onPressInIcon() {
+      console.log('?');
+      this.props.navigation.navigate('ProfilePage');
+    }
     render() {
       console.log('challengePage');
       return (
         <View>
           {/*搜索栏*/}
           <View style={{ flexDirection: 'row', marginTop: '8%', marginHorizontal: '3%', justifyContent: 'space-between'  }}>
-            <View style={{ width: 30, height: 30, backgroundColor: 'grey', borderRadius: 20 }} />
+            <TouchableOpacity onPress={this.onPressInIcon}>
+              <View style={{ width: 30, height: 30, backgroundColor: 'gray', borderRadius: 20 }} />
+            </TouchableOpacity>
 
             <View style={{ width: '70%', height: 28, backgroundColor: '#ededed', flexDirection: 'row', paddingHorizontal:'2%', paddingVertical:'1%', borderRadius: 5  }}>
               <Search />
