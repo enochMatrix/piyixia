@@ -62,13 +62,13 @@ const ChallengePageStack = StackNavigator({
 
 const Router2 = TabNavigator(
   {
-  Router: Router,
-  HomePage: HomePage,
+  // Router: Router,
+  // HomePage: HomePage,
   ChallengePageStack: ChallengePageStack,
-  LoginPage: LoginPage,
+  // LoginPage: LoginPage,
   },
   {
-      initialRouteName: 'HomePage',
+    //  initialRouteName: 'HomePage',
       swipeEnabled: true,
       tabBarOptions: {
            tabBarVisible: false,

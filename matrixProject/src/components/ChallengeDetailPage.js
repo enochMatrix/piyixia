@@ -5,6 +5,7 @@ import Sponsor from './Challenge/Sponsor';
 import Accepted from './Challenge/Accepted';
 import CommentPage from './Challenge/commentPage';
 import YesOrNo from './common/YesOrNo';
+import SponsModal from './Challenge/SponsModal';
 
 class ChallengeDetailPage extends Component {
 
@@ -32,13 +33,19 @@ class ChallengeDetailPage extends Component {
 
     render() {
       console.log('challengeDetailPage');
+      const { title, description, author, currentTime, url } = this.props.navigation.state.params;
       return (
-        <View style={{ flex:1, backgroundColor: '#bababa' }}>
-
+        <View style={{ flex: 1, backgroundColor: '#bababa' }}>
           <View style={{ paddingBottom: 5 }}>
           <ScrollView>
           <View style={[styles.cardStyle, { flexDirection: 'column' }]}>
-            <ChallengeContent />
+            <ChallengeContent
+              title={title}
+              description={description}
+              author={author}
+              currentTime={currentTime}
+              url={url}
+            />
             <View style={styles.line} />
             <Sponsor />
           </View>
@@ -54,7 +61,7 @@ class ChallengeDetailPage extends Component {
           </ScrollView>
           </View>
 
-          <View style={{ position: 'absolute',left:0, bottom:0, right: 0}}>
+          <View style={{ position: 'absolute', left: 0, bottom: 0, right: 0 }}>
             <View style={styles.bottomBar}>
             <View>
               <Text style={styles.textStyle}>转发</Text>
@@ -79,7 +86,7 @@ class ChallengeDetailPage extends Component {
             children='是否立即赞助'
             visible={this.state.commentModalVisible}
           />
-
+          <SponsModal />
         </View>
       );
 }
@@ -88,8 +95,10 @@ class ChallengeDetailPage extends Component {
 const styles = {
   textStyle: {
     paddingLeft: '2%',
-    fontSize: 14,
-    color: '#606060'
+    fontSize: 13,
+    color: '#606060',
+    letterSpacing: 0.7,
+    lineHeight: 18
   },
   line: {
     backgroundColor: '#cccccc',
@@ -107,8 +116,9 @@ const styles = {
   cardStyle: {
     backgroundColor: 'white',
     borderRadius: 10,
-    marginTop: 10,
-    paddingBottom: '2%'
+    marginTop: 5,
+    paddingBottom: '2%',
+    paddingHorizontal: '2%'
   },
   bottomBarWrapper: {
     backgroundColor: '#cccccc',

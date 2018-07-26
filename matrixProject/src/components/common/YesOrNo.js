@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, TouchableOpacity, Modal } from 'react-native';
 
 const YesOrNo = ({ onPressYes, onPressNo, children, visible }) => {
-  console.log(visible);
   return ( // making Buttons reusable!
 
       <Modal

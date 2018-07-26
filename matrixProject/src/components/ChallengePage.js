@@ -1,5 +1,7 @@
-import React, {Component} from 'react';
-import { View, TouchableOpacity, Text, TextInput, TouchableWithouFeedback } from 'react-native';
+import React, { Component } from 'react';
+import {
+  View, TouchableOpacity, Text, TextInput, TouchableWithoutFeedback
+} from 'react-native';
 //import { SearchBar } from 'react-native-elements'
 import Tabs from 'react-native-tabs';
 import { Search } from './icons';
@@ -8,18 +10,16 @@ import ChallengeList from './ChallengeList';
 class RefreshableList extends Component {
   static navigationOptions = { header: null };
     // set state and list view data
+
     constructor(props) {
         super(props);
         this.state = {
           searchContent: '',
-          page: 'trending'
+          page: 'trending',
         };
-        this.onPressInDetail = this.onPressInDetail.bind(this);
         this.onPressInIcon = this.onPressInIcon.bind(this);
       }
-    onPressInDetail() {
-      this.props.navigation.navigate('ChallengeDetailPage');
-    }
+
     onPressInIcon() {
       console.log('?');
       this.props.navigation.navigate('ProfilePage');
@@ -29,12 +29,12 @@ class RefreshableList extends Component {
       return (
         <View>
           {/*搜索栏*/}
-          <View style={{ flexDirection: 'row', marginTop: '8%', marginHorizontal: '3%', justifyContent: 'space-between'  }}>
-            <TouchableOpacity onPress={this.onPressInIcon}>
+          <View style={styles.topBarContainer}>
+            <TouchableWithoutFeedback onPress={this.onPressInIcon}>
               <View style={{ width: 30, height: 30, backgroundColor: 'gray', borderRadius: 20 }} />
-            </TouchableOpacity>
+            </TouchableWithoutFeedback>
 
-            <View style={{ width: '70%', height: 28, backgroundColor: '#ededed', flexDirection: 'row', paddingHorizontal:'2%', paddingVertical:'1%', borderRadius: 5  }}>
+            <View style={styles.searchBarContainer}>
               <Search />
               <TextInput
                   style={{ height: 20, backgroundColor: '#ededed' }}
@@ -43,11 +43,12 @@ class RefreshableList extends Component {
               />
             </View>
 
-            <View>
-            <TouchableOpacity style={{ top: '8%' }}>
+            <View style={{ height: 30, justifyContent: 'center' }}>
+            <TouchableOpacity>
               <Text style={styles.textStyle}>发起</Text>
             </TouchableOpacity>
-          </View>
+            </View>
+
           </View>
 
           {/*TAB BAR*/}
@@ -66,7 +67,7 @@ class RefreshableList extends Component {
 
           {/*ChallengeCard*/}
           <View style={{ backgroundColor: '#bababa', paddingBottom: 202 }}>
-          <ChallengeList onPress={this.onPressInDetail} />
+          <ChallengeList navigation={this.props.navigation} />
           </View>
         </View>
       );
@@ -75,8 +76,23 @@ class RefreshableList extends Component {
 
 const styles = {
   textStyle: {
-    fontSize: 16,
+    fontSize: 13,
     color: '#606060'
+  },
+  topBarContainer: {
+    flexDirection: 'row',
+    paddingTop: '8%',
+    marginHorizontal: '3%',
+    justifyContent: 'space-between',
+  },
+  searchBarContainer: {
+    width: '70%',
+    height: 28,
+    backgroundColor: '#ededed',
+    flexDirection: 'row',
+    paddingHorizontal: '2%',
+    paddingVertical: '1%',
+    borderRadius: 5
   }
 };
 

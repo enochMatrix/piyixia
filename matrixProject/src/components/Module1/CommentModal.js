@@ -36,7 +36,7 @@ class CommentModal extends Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.display !== nextProps.display) {
       // GET ALL COMMENT 获取所有评论
-      fetch('http://192.168.0.16:3000/get/comment/' + nextProps.vid, {
+      fetch('http://192.168.0.11:3000/get/comment/' + nextProps.vid, {
         credentials: 'same-origin',
       })
         .then((response) => (response.json()))
@@ -70,7 +70,7 @@ class CommentModal extends Component {
 
 //send comment 发表评论
   send() {
-    fetch('http://192.168.0.16:3000/add/comment/' + this.props.vid, {
+    fetch('http://192.168.0.11:3000/add/comment/' + this.props.vid, {
         method: 'POST',
         credentials: 'same-origin',
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },

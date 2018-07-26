@@ -26,7 +26,7 @@ class LoginPage extends Component {
 }
 // 登陆 api
 logIn = async () => {
-fetch('http://192.168.0.16:3000/login', {
+fetch('http://192.168.0.11:3000/login', {
   method: 'POST',
   credentials: 'same-origin',
   headers: {
