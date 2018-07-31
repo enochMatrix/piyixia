@@ -1,66 +1,185 @@
+
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Modal, ScrollView, Picker } from 'react-native';
+import { View, Text, TouchableOpacity, Modal, Picker, Button, Alert } from 'react-native';
 
 class SponsModal extends Component {
-  state = {user: ''}
-    updateUser = (user) => {
-       this.setState({ user: user })
-    }
+  constructor(props) {
+      super(props);
+      this.tabSelect = this.tabSelect.bind(this);
+      this.confirmSpons = this.confirmSpons.bind(this);
+      this.sponsAChallenge = this.sponsAChallenge.bind(this);
+      this.state = {
+        thousand: 0,
+        hundred: 0,
+        ten: 0,
+        num: 0,
+        tabSelected: true,
+        diamond: 0
+      };
+}
+
+
+  componentWillMount() {
+    this.setState({ tabSelected: true });
+  }
+
+
+  tabSelect() {
+    this.setState({ tabSelected: !this.state.tabSelected });
+  }
+
+  confirmSpons() {
+    const number = this.state.thousand * 1000
+    + this.state.hundred * 100
+    + this.state.ten * 10
+    + this.state.num;
+    //this.addDiamond(number);
+    this.setState({ diamond: number });
+    this.sponsAChallenge(number);
+  }
+
+  sponsAChallenge(diamond) {
+    fetch('http://172.17.87.251:3000/update/sponsor/challenge/' + this.props.cid, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+        },
+      body: JSON.stringify({
+        diamond: diamond
+      })
+        })
+      .then((response) => (response.json()))
+      .catch((error) => {
+        console.log(error);
+      })
+      .then((res) => {
+        // if (res === 'success') {
+        //   this.props.onPressOk(diamond.toString());
+        // }
+        console.log(res);
+        if (res.status === '-1') {
+          this.setState({ tabSelected: false });
+          Alert.alert('余额不足，就剩下', res.balance.toString());
+        } else {
+          this.props.onPressOk(diamond.toString());
+        }
+  });
+  }
+
+  addDiamond() {
+    console.log(this.state.diamond);
+    fetch('http://172.17.87.251:3000/add/diamond', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+        },
+      body: JSON.stringify({
+        diamond: this.state.diamond
+      })
+        })
+      .then((response) => (response.text()))
+      .catch((error) => {
+        console.log(error);
+      })
+      .then((res) => {
+        // if (res === 'success') {
+        //   Alert.alert('充值成功');
+        //   this.setState({ tabSelected: true });
+        // }
+        console.log(res);
+  });
+  }
 
   render() {
-    const numbers = [0,1,2,3,4,5,6,7,8,9]
-    const pickerItems = numbers.map((number)=>
-    <Picker.Item label={number.toString()} value={number} />
-    )
+    const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const pickerItems = numbers.map((number) =>
+    <Picker.Item label={number.toString()} value={number} key={number} />
+  );
   return (
       <Modal
         transparent
         animationType="slide"
-        //visible={visible}
+        visible={this.props.visible}
       >
         <View style={styles.container}>
+
         <View style={styles.topTab}>
-          <TouchableOpacity style={styles.tab1}>
-            <Text>当前余额</Text>
+          <TouchableOpacity
+            style={this.state.tabSelected ? styles.tab1 : styles.tab2}
+            onPress={this.tabSelect}
+          >
+            <Text
+              style={this.state.tabSelected ? { color: 'white' } : { color: 'black' }}
+            >
+              当前余额
+            </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.tab2}>
-            <Text>充值余额</Text>
+
+          <TouchableOpacity
+            style={this.state.tabSelected ? styles.tab2 : styles.tab1}
+            onPress={this.tabSelect}
+          >
+            <Text
+              style={this.state.tabSelected ? { color: 'black' } : { color: 'white' }}
+            >充值余额
+            </Text>
           </TouchableOpacity>
         </View>
 
+
         <View style={styles.content}>
-          <Text>赞助了</Text>
+          { this.state.tabSelected ?
+            <Text>理小查老板赞助了</Text> :
+            <Text>充值金额</Text>
+          }
         </View>
         <View style={styles.scrollNumber}>
             <Picker
               itemStyle={styles.numberText}
               style={styles.contentContainer}
-              selectedValue = {this.state.user}
-              onValueChange = {this.updateUser}>
+              selectedValue={this.state.thousand}
+              onValueChange={(value) => { this.setState({ thousand: value }); }}
+            >
               {pickerItems}
             </Picker>
             <Picker
               itemStyle={styles.numberText}
               style={styles.contentContainer}
-              selectedValue = {this.state.user}
-              onValueChange = {this.updateUser}>
+              selectedValue={this.state.hundred}
+              onValueChange={(value) => { this.setState({ hundred: value }); }}
+            >
               {pickerItems}
             </Picker>
             <Picker
               itemStyle={styles.numberText}
               style={styles.contentContainer}
-              selectedValue = {this.state.user}
-              onValueChange = {this.updateUser}>
+              selectedValue={this.state.ten}
+              onValueChange={(value) => { this.setState({ ten: value }); }}
+            >
               {pickerItems}
             </Picker>
             <Picker
               itemStyle={styles.numberText}
               style={styles.contentContainer}
-              selectedValue = {this.state.user}
-              onValueChange = {this.updateUser}>
+              selectedValue={this.state.num}
+              onValueChange={(value) => { this.setState({ num: value }); }}
+            >
               {pickerItems}
             </Picker>
         </View>
+        <View style={{ flexDirection: 'row', marginBottom: '1%' }}>
+        <Button
+          onPress={this.state.tabSelected ? this.confirmSpons : this.addDiamond}
+          title='确认'
+          color='gray'
+        />
+        <Button
+          onPress={this.props.onPressCancel}
+          title='取消'
+          color='gray'
+        />
+        </View>
+
         </View>
       </Modal>
 
@@ -76,29 +195,27 @@ const styles = {
       backgroundColor: 'white',
       height: 307,
       top: '56%',
-      borderColor: 'black',
-      borderWidth: 5
     },
     topTab: {
       flexDirection: 'row',
       justifyContent: 'space-between',
     },
     tab1: {
-      borderRadius: 20,
-      backgroundColor: 'red',
+      backgroundColor: 'black',
       alignItems: 'center',
-      width: '40%',
+      justifyContent: 'center',
+      width: '60%',
       height: 40,
     },
     tab2: {
-      borderRadius: 20,
-      backgroundColor: 'pink',
+      backgroundColor: '#cccccc',
       alignItems: 'center',
-      width: '60%',
+      justifyContent: 'center',
+      width: '40%',
       height: 40
     },
     content: {
-      //top: '10%'
+      top: '5%',
     },
     scrollNumber: {
       flexDirection: 'row',
@@ -107,11 +224,11 @@ const styles = {
       marginVertical: '5%'
     },
     contentContainer: {
-      backgroundColor: 'pink',
+      backgroundColor: '#cccccc',
       marginHorizontal: '1%',
       width: 50,
       height: 140,
-      justifyContent:'center',
+      justifyContent: 'center',
       padding: 0
     },
     numberText: {

@@ -18,12 +18,17 @@ class RefreshableList extends Component {
           page: 'trending',
         };
         this.onPressInIcon = this.onPressInIcon.bind(this);
+        this.onPressInCreate = this.onPressInCreate.bind(this);
       }
 
     onPressInIcon() {
-      console.log('?');
       this.props.navigation.navigate('ProfilePage');
     }
+
+    onPressInCreate() {
+      this.props.navigation.navigate('CreateChallenge');
+    }
+
     render() {
       console.log('challengePage');
       return (
@@ -44,7 +49,7 @@ class RefreshableList extends Component {
             </View>
 
             <View style={{ height: 30, justifyContent: 'center' }}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={this.onPressInCreate}>
               <Text style={styles.textStyle}>发起</Text>
             </TouchableOpacity>
             </View>

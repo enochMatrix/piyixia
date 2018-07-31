@@ -43,7 +43,7 @@ class HomePage extends Component {
   }
   componentDidMount() {
     // GET ALL VIDEOS
-    fetch('http://192.168.0.11:3000/get/videos', {
+    fetch('http://172.17.87.251:3000/get/videos', {
       credentials: 'same-origin',
     })
       .then((response) => (response.json()))

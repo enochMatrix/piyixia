@@ -2,6 +2,7 @@ import React from 'react';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import HomePage from './components/HomePage';
 import ChallengePage from './components/ChallengePage';
+import CreateChallenge from './components/Challenge/CreateChallenge';
 import ChallengeDetailPage from './components/ChallengeDetailPage';
 import QuestionPage from './components/QuestionPage';
 import StartPage from './components/StartPage';
@@ -49,6 +50,14 @@ const ChallengePageStack = StackNavigator({
         screen: ChallengePage,
 },
     ProfilePage: ProfilePageStack,
+    CreateChallenge: {
+      screen: CreateChallenge,
+      navigationOptions: () => ({
+          title: '新建挑战',
+          headerStyle: { backgroundColor: 'white' },
+          headerBackTitle: null
+      }),
+    },
     ChallengeDetailPage: {
       screen: ChallengeDetailPage,
       navigationOptions: () => ({
@@ -65,7 +74,7 @@ const Router2 = TabNavigator(
   // Router: Router,
   // HomePage: HomePage,
   ChallengePageStack: ChallengePageStack,
-  // LoginPage: LoginPage,
+   LoginPage: LoginPage,
   },
   {
     //  initialRouteName: 'HomePage',

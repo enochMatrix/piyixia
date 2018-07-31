@@ -1,18 +1,21 @@
-import React, {Component} from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+/*
+挑战列表里的一张挑战卡片
+*/
+
+import React, { Component } from 'react';
+import { View, Text, Image } from 'react-native';
 
 class ChallengeCard extends Component {
 
-    // set state and list view data
     constructor(props) {
         super(props);
 }
 
+  //  时间显示的格式，用于 挑战剩余时间 和 挑战发布时间
     timeDifc(start, end) {
       const startTime = new Date(start);
       const endTime = new Date(end);
       const date3 = endTime.getTime() - startTime.getTime();  //时间差的毫秒数
-
       //计算出相差天数
       const days = Math.floor(date3 / (24 * 3600 * 1000));
       const years = Math.floor(days / 365);
@@ -40,10 +43,10 @@ class ChallengeCard extends Component {
       } else {
           strTime = minutes + '分钟';
       }
-
       //retValue.PubTime = strTime;     //帖子,文章,博客发表时间的一种简短表示方法
       return strTime;
 }
+
 
     render() {
       console.log('ChallengeCard');
@@ -53,11 +56,13 @@ class ChallengeCard extends Component {
       const d = new Date();
 
       return (
-        <View style={{ backgroundColor: 'white', borderRadius: 10, flexDirection: 'column', marginVertical: 4 }}>
+        <View style={styles.container}>
           <View style={{ paddingTop: '2%', paddingHorizontal: '2%' }}>
+
+          {/*卡片顶部信息：头像，用户名，发布时间，点赞？*/}
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginLeft: '2%' }}>
             <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
-              <View style={{ width: 15, height: 15, backgroundColor:'gray', borderRadius: 10 }} />
+              <View style={{ width: 15, height: 15, backgroundColor: 'gray', borderRadius: 10 }} />
               <Text style={styles.textStyle}>{author}</Text>
               <Text style={styles.textStyle}>{'· ' + this.timeDifc(currentTime, d) + '前'}</Text>
             </View>
@@ -72,10 +77,12 @@ class ChallengeCard extends Component {
               /> }
           </View>
 
+          {/*挑战标题*/}
           <View>
             <Text style={{ fontSize: 16, paddingHorizontal: '2%' }}>{title}</Text>
           </View>
 
+          {/*挑战内容有图片，就用图片格式，没有就用文字格式*/}
           { !url ?
           <View style={{ marginTop: 5, marginRight: '2%' }}>
           <Text style={styles.textStyle}>{description}</Text>
@@ -89,10 +96,11 @@ class ChallengeCard extends Component {
             <Text style={styles.textStyle}>{description}</Text>
             </View>
           </View> }
-
           </View>
 
+          {/*底部 3个tabs：赞助，剩余时间，评论*/}
           <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+            {/*赞助*/}
             <View style={styles.tabStyle}>
               <Image
                 source={require('./Logo/sponsor.png')}
@@ -100,23 +108,34 @@ class ChallengeCard extends Component {
               />
               <Text style={styles.textStyle}>{diamond}</Text>
             </View>
+            {/*状态：剩余时间，已拒绝，已接受*/}
             <View style={styles.tab2Wrapper}>
-            <View style={styles.tab2Style}>
               { status === -1 &&
+              <View style={styles.tab2Style}>
               <Image
                 source={require('./Logo/reject.png')}
                 style={{ width: 27, height: 27 }}
-              />
+              /><Text style={styles.textStyle}>打扰了！</Text>
+              </View>
               }
               { status === 0 &&
+                <View style={styles.tab2Style}>
                 <Image
                   source={require('./Logo/timeLeft.png')}
                   style={{ width: 27, height: 27 }}
-                />
+                /><Text style={styles.textStyle}>{this.timeDifc(currentTime, endTime)}</Text>
+                </View>
               }
-              <Text style={styles.textStyle}>{this.timeDifc(currentTime, endTime)}</Text>
+              { status === 1 &&
+                <View style={styles.tab2Style}>
+                <Image
+                  source={require('./Logo/accepted.png')}
+                  style={{ width: 27, height: 27 }}
+                /><Text style={styles.textStyle}>皮一下！</Text>
+                </View>
+              }
             </View>
-            </View>
+            {/*评论*/}
             <View style={styles.tabStyle}>
               <Image
                 source={require('./Logo/comment.png')}
@@ -131,6 +150,12 @@ class ChallengeCard extends Component {
 }
 
 const styles = {
+  container: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    flexDirection: 'column',
+    marginVertical: 4
+  },
   tabStyle: {
     justifyContent: 'center',
     alignItems: 'center',

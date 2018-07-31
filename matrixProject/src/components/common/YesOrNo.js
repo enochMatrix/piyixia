@@ -19,8 +19,8 @@ const YesOrNo = ({ onPressYes, onPressNo, children, visible }) => {
           <Text>{children}</Text>
         </View>
         <TouchableOpacity onPress={() => onPressNo()}>
-          <View style={[styles.buttonContainer, { backgroundColor: 'gray', width: 80 }]}>
-            <Text>NO</Text>
+          <View style={[styles.buttonContainer, { backgroundColor: 'black', width: 80 }]}>
+            <Text style={{color:'white'}}>NO</Text>
           </View>
         </TouchableOpacity>
         </View>
@@ -35,7 +35,7 @@ const styles = {
       justifyContent: 'space-between',
       alignItems: 'center',
       borderRadius: 20,
-      backgroundColor: 'pink',
+      backgroundColor: 'white',
       height: 207,
       top: '126%',
     },

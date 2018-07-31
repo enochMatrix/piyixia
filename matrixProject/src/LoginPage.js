@@ -9,7 +9,7 @@ class LoginPage extends Component {
   }
 // 注册 api
   tryFetch = async () => {
-  fetch('http://172.17.49.39:3000/register', {
+  fetch('http://172.17.87.251:3000/register', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ class LoginPage extends Component {
 }
 // 登陆 api
 logIn = async () => {
-fetch('http://192.168.0.11:3000/login', {
+fetch('http://172.17.87.251:3000/login', {
   method: 'POST',
   credentials: 'same-origin',
   headers: {

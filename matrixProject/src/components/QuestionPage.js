@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, Alert } from 'react-native';
-import questionData from './questionData.json';
 
 
 const NUMBER_OF_QUESTIONS = 3;
@@ -35,7 +34,7 @@ class QuestionPage extends Component {
 
   componentWillMount() {
     //console.log(this.props);
-    fetch('http://192.168.0.11:3000/get/quiz')
+    fetch('http://172.17.87.251:3000/get/quiz')
       .then((response) => (response.json()))
       .catch((error) => {
         console.log(error);

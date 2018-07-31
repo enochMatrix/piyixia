@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, TouchableOpacity } from 'react-native';
+import { View, FlatList, TouchableOpacity } from 'react-native';
 import ChallengeCard from './ChallengeCard';
 
 
@@ -9,10 +9,27 @@ class ChallengeList extends Component {
     constructor(props) {
         super(props);
         this.onPressInDetail = this.onPressInDetail.bind(this);
+        this.makeRemoteRequest = this.makeRemoteRequest.bind(this);
 }
-    state = { challenge: [] };
+    state = { challenge: [], refreshing: false };
+
     componentWillMount() {
-      fetch('http://192.168.0.11:3000/get/challenge', {
+      this.makeRemoteRequest();
+    }
+
+    onPressInDetail(title, description, author, currentTime, url, id) {
+      this.props.navigation.navigate('ChallengeDetailPage', {
+        title: title,
+        description: description,
+        author: author,
+        currentTime: currentTime,
+        url: url,
+        id: id
+      });
+    }
+
+    makeRemoteRequest() {
+      fetch('http://172.17.87.251:3000/get/challenge', {
         credentials: 'same-origin',
       })
         .then((response) => (response.json()))
@@ -20,30 +37,28 @@ class ChallengeList extends Component {
           console.log(error);
         })
         .then((res) => {
-            this.setState({ challenge: res });
+            this.setState({ challenge: res, refreshing: false });
+            console.log(res);
         });
     }
-    onPressInDetail(title, description, author, currentTime, url) {
-      this.props.navigation.navigate('ChallengeDetailPage', {
-        title: title,
-        description: description,
-        author: author,
-        currentTime: currentTime,
-        url: url
+
+    handleRefresh = () => {
+      this.setState({
+        refreshing: true
+      }, () => {
+        this.makeRemoteRequest();
       });
     }
 
-    renderItem() {
-      return this.state.challenge.map(challenge =>
+    renderItem = ({ item }) => {
+      return (
           <TouchableOpacity
-            onPress={() => this.onPressInDetail(challenge.title,
-              challenge.description, challenge.author, challenge.currentTime,
-              challenge.url)}
-            key={challenge.title}
+            onPress={() => this.onPressInDetail(item.title,
+              item.description, item.author, item.currentTime,
+              item.url, item._id)}
           >
             <ChallengeCard
-              key={challenge.title}
-              challenge={challenge}
+              challenge={item}
             />
           </TouchableOpacity>
           );
@@ -102,9 +117,14 @@ class ChallengeList extends Component {
       console.log(this.state.challenge);
       return (
         <View>
-        <ScrollView>
-          {this.renderItem()}
-        </ScrollView>
+        <FlatList
+          data={this.state.challenge}
+          renderItem={this.renderItem}
+          extraData={this.state}
+          keyExtractor={item => item.title}
+          refreshing={this.state.refreshing}
+          onRefresh={this.handleRefresh}
+        />
         </View>
       );
 }
