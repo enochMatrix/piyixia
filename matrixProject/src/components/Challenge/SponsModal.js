@@ -13,8 +13,7 @@ class SponsModal extends Component {
         hundred: 0,
         ten: 0,
         num: 0,
-        tabSelected: true,
-        diamond: 0
+        tabSelected: true
       };
 }
 
@@ -22,7 +21,6 @@ class SponsModal extends Component {
   componentWillMount() {
     this.setState({ tabSelected: true });
   }
-
 
   tabSelect() {
     this.setState({ tabSelected: !this.state.tabSelected });
@@ -34,12 +32,16 @@ class SponsModal extends Component {
     + this.state.ten * 10
     + this.state.num;
     //this.addDiamond(number);
-    this.setState({ diamond: number });
-    this.sponsAChallenge(number);
+  //  this.setState({ diamond: number });
+    if (this.state.tabSelected) {
+      this.sponsAChallenge(number);
+    } else {
+      this.addDiamond(number);
+    }
   }
 
   sponsAChallenge(diamond) {
-    fetch('http://172.17.87.251:3000/update/sponsor/challenge/' + this.props.cid, {
+    fetch('http://192.168.0.16:3000/update/sponsor/challenge/' + this.props.cid, {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -66,15 +68,14 @@ class SponsModal extends Component {
   });
   }
 
-  addDiamond() {
-    console.log(this.state.diamond);
-    fetch('http://172.17.87.251:3000/add/diamond', {
+  addDiamond(diamond) {
+    fetch('http://192.168.0.16:3000/add/diamond', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
         },
       body: JSON.stringify({
-        diamond: this.state.diamond
+        diamond: diamond
       })
         })
       .then((response) => (response.text()))
@@ -169,7 +170,7 @@ class SponsModal extends Component {
         </View>
         <View style={{ flexDirection: 'row', marginBottom: '1%' }}>
         <Button
-          onPress={this.state.tabSelected ? this.confirmSpons : this.addDiamond}
+          onPress={this.confirmSpons}
           title='确认'
           color='gray'
         />

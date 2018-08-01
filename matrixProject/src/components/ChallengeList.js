@@ -29,7 +29,7 @@ class ChallengeList extends Component {
     }
 
     makeRemoteRequest() {
-      fetch('http://172.17.87.251:3000/get/challenge', {
+      fetch('http://192.168.0.16:3000/get/challenge', {
         credentials: 'same-origin',
       })
         .then((response) => (response.json()))
@@ -59,6 +59,7 @@ class ChallengeList extends Component {
           >
             <ChallengeCard
               challenge={item}
+              onPress={() => this.props.onPress(item._id)}
             />
           </TouchableOpacity>
           );

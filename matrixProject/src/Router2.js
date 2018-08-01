@@ -4,6 +4,7 @@ import HomePage from './components/HomePage';
 import ChallengePage from './components/ChallengePage';
 import CreateChallenge from './components/Challenge/CreateChallenge';
 import ChallengeDetailPage from './components/ChallengeDetailPage';
+import CreateComment from './components/CreateComment';
 import QuestionPage from './components/QuestionPage';
 import StartPage from './components/StartPage';
 import ScoreBoard from './components/ScoreBoard';
@@ -50,6 +51,14 @@ const ChallengePageStack = StackNavigator({
         screen: ChallengePage,
 },
     ProfilePage: ProfilePageStack,
+    CreateComment: {
+          screen: CreateComment,
+          navigationOptions: () => ({
+              title: '新建回复',
+              headerStyle: { backgroundColor: 'white' },
+              headerBackTitle: null
+          }),
+        },
     CreateChallenge: {
       screen: CreateChallenge,
       navigationOptions: () => ({

@@ -8,6 +8,10 @@ class commentPage extends Component {
         super(props);
     }
 
+    componentWillMount() {
+
+    }
+
     render() {
         // 添加一个按钮
         // const myButton = (

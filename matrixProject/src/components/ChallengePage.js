@@ -19,6 +19,7 @@ class RefreshableList extends Component {
         };
         this.onPressInIcon = this.onPressInIcon.bind(this);
         this.onPressInCreate = this.onPressInCreate.bind(this);
+        this.onPressInCreateComment = this.onPressInCreateComment.bind(this);
       }
 
     onPressInIcon() {
@@ -27,6 +28,13 @@ class RefreshableList extends Component {
 
     onPressInCreate() {
       this.props.navigation.navigate('CreateChallenge');
+    }
+
+    onPressInCreateComment(cid) {
+      this.props.navigation.navigate('CreateComment', {
+        cid: cid
+      });
+      console.log('onpressin');
     }
 
     render() {
@@ -72,7 +80,10 @@ class RefreshableList extends Component {
 
           {/*ChallengeCard*/}
           <View style={{ backgroundColor: '#bababa', paddingBottom: 202 }}>
-          <ChallengeList navigation={this.props.navigation} />
+          <ChallengeList
+            navigation={this.props.navigation}
+            onPress={this.onPressInCreateComment}
+          />
           </View>
         </View>
       );

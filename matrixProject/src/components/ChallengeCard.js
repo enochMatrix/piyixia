@@ -3,7 +3,7 @@
 */
 
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 
 class ChallengeCard extends Component {
 
@@ -136,13 +136,13 @@ class ChallengeCard extends Component {
               }
             </View>
             {/*评论*/}
-            <View style={styles.tabStyle}>
+            <TouchableOpacity style={styles.tabStyle} onPress={this.props.onPress}>
               <Image
                 source={require('./Logo/comment.png')}
                 style={{ width: 20, height: 20 }}
               />
               <Text style={styles.textStyle}>56</Text>
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
       );
