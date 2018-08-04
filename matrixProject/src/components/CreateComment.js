@@ -30,6 +30,23 @@ class CreateComment extends Component {
         .then((res) => {
           console.log(res);
     });
+  //   const { cid } = this.props.navigation.state.params;
+  //   fetch('http://172.17.69.105:3000/add/video/thumbs/', {
+  //     method: 'POST',
+  //     headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //     body: JSON.stringify({
+  //       cid: cid
+  //     })
+  //       })
+  //     .then((response) => (response.json()))
+  //     .catch((error) => {
+  //       console.log(error);
+  //     })
+  //     .then((res) => {
+  //       console.log(res);
+  // });
     }
 
 

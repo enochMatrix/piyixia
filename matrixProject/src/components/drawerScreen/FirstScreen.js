@@ -19,45 +19,57 @@ export default class FirstScreen extends React.Component {
     //     }
     // };
     state={
-        data:[{title: '消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容', key: 'item1', time:'2018-10-24'},
-            {title: '消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容', key: 'item2', time:'2018-10-24'},
-            {title: '消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容', key: 'item3', time:'2018-10-24'},
-            {title: '消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容', key: 'item4', time:'2018-10-24'},
-            {title: '消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容', key: 'item5', time:'2018-10-24'},
-            ],
-
-
-
+        transaction: null
     };
+
+    componentWillMount() {
+        // GET ALL getUserTransaction
+        fetch('http://172.17.69.105:3000/get/transaction', {
+            credentials: 'same-origin',
+        })
+            .then((response) => (response.json()))
+            .catch((error) => {
+                console.log(error);
+            })
+            .then((res) => {
+                console.log('User transcation Info',res['0']['transaction']);
+                this.setState({transaction : res['0']['transaction'] });
+            });
+        //Pause video when changing to other tabs
+
+    }
 
     deleteItem =(id) =>{
         const item= this.state.data;
         item.splice(id,1);
         this.setState({
-            data:item
+            transcation:item
         })
     };
 
-    _renderItem = ({item,index}) => (
+    _renderItem = ({item,index}) => {
+      console.log(item);
+      return (
         <Swipeout right={[{text:'Delete',
             backgroundColor:'red',
         onPress:()=>{this.deleteItem(index)}}]}
                   >
         <View >
         <Text style={styles.bubble}>
-            {item.title}
+            {item.usage}
         </Text>
             <Text style={styles.time}>
-                {item.time}
+                {item.date}
             </Text>
         </View>
         </Swipeout>
-
-    );
+);
+}
     _keyExtractor = (item, index) => item.key;
 
 
     render(){
+      console.log()
         return(
             <View>
 
@@ -94,7 +106,7 @@ export default class FirstScreen extends React.Component {
            </View>
         <View style={styles.container}>
             <View >
-              <FlatList data={this.state.data}
+              <FlatList data={this.state.transaction}
               renderItem = {this._renderItem}
 
               keyExtractor={this._keyExtractor}

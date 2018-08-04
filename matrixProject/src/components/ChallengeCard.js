@@ -9,7 +9,45 @@ class ChallengeCard extends Component {
 
     constructor(props) {
         super(props);
+        this.pied = this.pied.bind(this);
+        this.state = { pied: false };
 }
+
+    componentWillMount() {
+      // const { _id } = this.props.challenge;
+      // fetch('http://172.17.69.105:3000/thumbs/' + _id, {
+      //   credentials: 'same-origin',
+      // })
+      //   .then((response) => (response.json()))
+      //   .catch((error) => {
+      //     console.log(error);
+      //   })
+      //   .then((res) => {
+      //     if (res.length === 0) {
+      //       this.setState({ pied: false });
+      //     }
+      //   });
+    }
+
+    pied() {
+      const { _id } = this.props.challenge;
+      fetch('http://172.17.69.105:3000/add/video/thumbs/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+          },
+        body: JSON.stringify({
+          cid: _id
+        })
+          })
+        .then((response) => (response.json()))
+        .catch((error) => {
+          console.log(error);
+        })
+        .then((res) => {
+          console.log(res);
+    });
+    }
 
   //  时间显示的格式，用于 挑战剩余时间 和 挑战发布时间
     timeDifc(start, end) {
@@ -71,14 +109,18 @@ class ChallengeCard extends Component {
                           </Text>
                       </View>
                       { liked === true ?      //点赞前后 皮 显示不同图片
+                        <TouchableOpacity onPress={this.pied}>
                         <Image
                         source={require('./Logo/pied.png')}
                         style={styles.pi}
-                        /> :
+                        />
+                        </TouchableOpacity> :
+                        <TouchableOpacity onPress={this.pied}>
                         <Image
                         source={require('./Logo/pi.png')}
                         style={styles.pi}
-                        /> }
+                        />
+                        </TouchableOpacity>}
               </View>
 
               {/*挑战标题*/}

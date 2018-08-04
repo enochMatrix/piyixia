@@ -20,7 +20,7 @@ class RefreshableList extends Component {
         this.onPressInIcon = this.onPressInIcon.bind(this);
         this.onPressInCreate = this.onPressInCreate.bind(this);
         this.onPressInCreateComment = this.onPressInCreateComment.bind(this);
-        this.onPressInSponsor = this.onPressInSponsor.bind(this);
+        //this.onPressInSponsor = this.onPressInSponsor.bind(this);
       }
 
     onPressInIcon() {
