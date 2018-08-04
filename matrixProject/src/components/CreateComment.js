@@ -14,7 +14,7 @@ class CreateComment extends Component {
 }
     send() {
       const { cid } = this.props.navigation.state.params;
-      fetch('http://192.168.0.16:3000/add/challengeComment/' + cid, {
+      fetch('http://172.17.69.105:3000/add/challengeComment/' + cid, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

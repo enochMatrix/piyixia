@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
-import PhotoView from 'react-native-photo-view';
+import Lightbox from 'react-native-lightbox';
 
 class ChallengeContent extends Component {
 
@@ -38,37 +38,38 @@ class ChallengeContent extends Component {
       return ('00' + str).substr(str.length);
     }
 
-
     render() {
       const ct = this.formatDate(this.props.currentTime, 'yyyy-MM-dd hh:mm');
       return (
           <View>
 
-          <View style={{ marginTop: '2%', flexDirection: 'row', justifyContent: 'space-between' }}>
-            <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
-              <View style={{ width: 15, height: 15, backgroundColor: 'gray', borderRadius: 10 }} />
-              <Text style={styles.textStyle}>{this.props.author}</Text>
-              <Text style={styles.textStyle}>{' · ' + ct}</Text>
-            </View>
-            <Text>💗</Text>
+          <View style={styles.topBarWrapper}>
+                <View style={styles.topBarLeft}>
+                  <View style={styles.icon} />
+                  <Text style={styles.textStyle}>{this.props.author}</Text>
+                  <Text style={styles.textStyle}>{' · ' + ct}</Text>
+                </View>
+                <Text>💗</Text>
           </View>
 
-          <View style={{ marginTop: 5 }}>
-            <Text style={{ fontSize: 16, paddingLeft: '2%' }}>{this.props.title}</Text>
+          <View style={styles.titleContainer}>
+              <Text style={styles.titleText}>{this.props.title}</Text>
           </View>
 
-          <View style={{ marginTop: 5, marginBottom: 15 }}>
-            <Text style={styles.textStyle}>{this.props.description}</Text>
-            { this.props.url &&
-              <TouchableOpacity
-                  onPress={() => {
-                    this.setState({ isImageViewVisible: true });
-            }}>
-              <Image
-                style={{ marginHorizontal: 10, height: 150 }}
-                source={{ uri: this.props.url }}
-                resizeMode="cover"
-              />
+          <View style={styles.contentContainer}>
+              <Text style={styles.textStyle}>{this.props.description}</Text>
+              { this.props.url &&
+                <TouchableOpacity
+                    onPress={() => {
+                      this.setState({ isImageViewVisible: true });
+              }}>
+                    <Lightbox>
+                      <Image
+                        style={{ marginHorizontal: 10, height: 150 }}
+                        source={{ uri: this.props.url }}
+                        resizeMode="contain"
+                      />
+                    </Lightbox>
             </TouchableOpacity>
             }
             {/* { this.state.isImageViewVisible &&
@@ -84,12 +85,39 @@ class ChallengeContent extends Component {
 }
 
 const styles = {
-  textStyle: {
+  topBarWrapper: {
+    marginTop: '2%',
+    marginHorizontal: '2%',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  topBarLeft: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start'
+  },
+  titleContainer: {
     paddingLeft: '2%',
+    paddingTop: '1%'
+  },
+  titleText: {
+    fontSize: 16,
+  },
+  contentContainer: {
+    margin: '2%'
+  },
+  icon: {
+    width: 15,
+    height: 15,
+    backgroundColor: 'gray',
+    borderRadius: 10,
+    marginRight: '2%'
+  },
+  textStyle: {
     fontSize: 13,
     color: '#606060',
     letterSpacing: 0.7,
-    lineHeight: 18
+    //lineHeight: 18
+    fontFamily: 'Georgia'
   },
   line: {
     backgroundColor: '#cccccc',

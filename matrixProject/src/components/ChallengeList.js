@@ -29,7 +29,7 @@ class ChallengeList extends Component {
     }
 
     makeRemoteRequest() {
-      fetch('http://192.168.0.16:3000/get/challenge', {
+      fetch('http://172.17.69.105:3000/get/challenge', {
         credentials: 'same-origin',
       })
         .then((response) => (response.json()))

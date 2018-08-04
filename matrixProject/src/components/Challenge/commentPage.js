@@ -1,35 +1,56 @@
 import React, { Component } from 'react';
-import { View, Text, ListView } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import AComment from './AComment';
 
 class commentPage extends Component {
 //构造函数
     constructor(props) {
         super(props);
+        this.state = ({
+          comment: ''
+        });
     }
 
     componentWillMount() {
-
+      fetch('http://172.17.69.105:3000/get/challengeComment/' + this.props.cid, {
+        credentials: 'same-origin',
+      })
+        .then((response) => (response.json()))
+        .catch((error) => {
+          console.log(error);
+        })
+        .then((res) => {
+            this.setState({ comment: res[0].comment });
+            console.log(res[0].comment);
+        });
     }
 
-    render() {
-        // 添加一个按钮
-        // const myButton = (
-        //     <Icon.Button name="facebook" backgroundColor="#3b5998">
-        //         Login with Facebook
-        //     </Icon.Button>
-        // );
+    renderItem = ({ item }) => {
+      return (
+          <AComment
+            user={item.author}
+            date={item.date}
+            content={item.content}
+          />
+          );
+        }
 
+    render() {
+      console.log(this.state.comment);
         return (
                 <View>
                   <View style={styles.center}>
                     <Text>评论268</Text>
                   </View>
                   <View style={styles.line} />
-
-                  <AComment />
-                  <AComment />
-
+                  <FlatList
+                    data={this.state.comment}
+                    renderItem={this.renderItem}
+                    extraData={this.state}
+                    //keyExtractor={item => item.title}
+                    //refreshing={this.state.refreshing}
+                    //onRefresh={this.handleRefresh}
+                  />
                 </View>
         );
 }
@@ -44,7 +65,7 @@ const styles = {
   center: {
     alignItems: 'center',
     justifyContent: 'center'
-  }
-}
+  },
+};
 
 export default commentPage;

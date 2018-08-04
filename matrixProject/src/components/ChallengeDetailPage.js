@@ -51,65 +51,65 @@ class ChallengeDetailPage extends Component {
         title, description, author, currentTime, url, id
       } = this.props.navigation.state.params;
       return (
-        <View style={{ flex: 1, backgroundColor: '#bababa' }}>
-          <View style={{ paddingBottom: 5 }}>
-          <ScrollView>
-          <View style={[styles.cardStyle, { flexDirection: 'column' }]}>
-            {/*挑战内容*/}
-            <ChallengeContent
-              title={title}
-              description={description}
-              author={author}
-              currentTime={currentTime}
-              url={url}
-            />
-            {/*一条分割线*/}
-            <View style={styles.line} />
-            {/*金主榜*/}
-            <Sponsor />
-          </View>
-          {/*如果已接受，大司马的回复，表情，视频链接*/}
-          <View style={[styles.cardStyle, { flexDirection: 'row' }]}>
-          <Accepted />
-          </View>
-          {/*评论内容*/}
-          <View style={[styles.cardStyle, { flexDirection: 'column', marginBottom: 20}]}>
-            <CommentPage />
-          </View>
-          </ScrollView>
-          </View>
+        <View style={styles.container}>
+              <ScrollView>
+                  <View style={[styles.cardStyle, { flexDirection: 'column' }]}>
+                        {/*挑战内容*/}
+                        <ChallengeContent
+                          title={title}
+                          description={description}
+                          author={author}
+                          currentTime={currentTime}
+                          url={url}
+                        />
+                        {/*一条分割线*/}
+                        <View style={styles.line} />
+                        {/*金主榜*/}
+                        <Sponsor />
+                  </View>
 
-          {/*底部 3tabs： 转发 评论 赞助*/}
-          <View style={{ position: 'absolute', left: 0, bottom: 0, right: 0 }}>
-            <View style={styles.bottomBar}>
-            <View>
-              <Text style={styles.textStyle}>转发</Text>
-            </View>
-            <View style={styles.verticalLine} />
-            <TouchableOpacity
-              onPress={this.comment}
-              style={styles.tabStyle}
-            >
-              <Image
-                source={require('./Logo/comment.png')}
-                style={{ width: 20, height: 20 }}
-              />
-              <Text style={styles.textStyle}>评论</Text>
-            </TouchableOpacity>
-            <View style={styles.verticalLine} />
-            <TouchableOpacity
-              onPress={this.spons}
-              style={styles.tabStyle}
-            >
-              <Image
-                source={require('./Logo/sponsor.png')}
-                style={{ width: 33, height: 33 }}
-              />
-              <Text style={styles.textStyle}>赞助</Text>
-            </TouchableOpacity>
-            <View style={styles.bottomBarWrapper} />
-            </View>
-          </View>
+                  {/*如果已接受，大司马的回复，表情，视频链接*/}
+                  <View style={[styles.cardStyle, { flexDirection: 'row' }]}>
+                  <Accepted />
+                  </View>
+                  {/*评论内容*/}
+                  <View style={[styles.cardStyle, { flexDirection: 'column', marginBottom: 80 }]}>
+                      <CommentPage cid={id} />
+                  </View>
+              </ScrollView>
+
+              {/*底部 3tabs： 转发 评论 赞助*/}
+              <View style={styles.bottomBar}>
+                  <View>
+                      <Text style={styles.textStyle}>转发</Text>
+                  </View>
+                  <View style={styles.verticalLine} />
+
+                  <TouchableOpacity
+                    onPress={this.comment}
+                    style={styles.tabStyle}
+                  >
+                        <Image
+                          source={require('./Logo/comment.png')}
+                          style={{ width: 20, height: 20 }}
+                        />
+                        <Text style={styles.textStyle}>评论</Text>
+                  </TouchableOpacity>
+                  <View style={styles.verticalLine} />
+
+                  <TouchableOpacity
+                    onPress={this.spons}
+                    style={styles.tabStyle}
+                  >
+                        <Image
+                          source={require('./Logo/sponsor.png')}
+                          style={{ width: 33, height: 33 }}
+                        />
+                        <Text style={styles.textStyle}>赞助</Text>
+                  </TouchableOpacity>
+                  <View style={styles.bottomBarWrapper} />
+              </View>
+
           {/*点击评论，如果未赞助，提示赞助 modal  */}
           <YesOrNo
             onPressYes={this.share.bind(this)}
@@ -130,12 +130,17 @@ class ChallengeDetailPage extends Component {
 }
 
 const styles = {
+  container: {
+    flex: 1,
+    backgroundColor: '#bababa'
+  },
   textStyle: {
     paddingLeft: '2%',
     fontSize: 13,
     color: '#606060',
     letterSpacing: 0.7,
-    lineHeight: 18
+    //lineHeight: 18,
+    fontFamily: 'Georgia'
   },
   line: {
     backgroundColor: '#cccccc',
@@ -154,8 +159,6 @@ const styles = {
     backgroundColor: 'white',
     borderRadius: 10,
     marginTop: 5,
-    paddingBottom: '2%',
-    paddingHorizontal: '2%'
   },
   bottomBarWrapper: {
     backgroundColor: '#cccccc',
@@ -170,9 +173,13 @@ const styles = {
     alignItems: 'center',
     zIndex: 5,
     justifyContent: 'space-evenly',
-    height: 30,
+    height: 50,
     backgroundColor: '#cccccc',
-    borderRadius: 10
+    borderRadius: 10,
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    left: 0
   },
   modalContainer: {
 

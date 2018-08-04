@@ -41,7 +41,7 @@ class SponsModal extends Component {
   }
 
   sponsAChallenge(diamond) {
-    fetch('http://192.168.0.16:3000/update/sponsor/challenge/' + this.props.cid, {
+    fetch('http://172.17.69.105:3000/update/sponsor/challenge/' + this.props.cid, {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ class SponsModal extends Component {
   }
 
   addDiamond(diamond) {
-    fetch('http://192.168.0.16:3000/add/diamond', {
+    fetch('http://172.17.69.105:3000/add/diamond', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
