@@ -12,7 +12,7 @@ class commentPage extends Component {
     }
 
     componentWillMount() {
-      fetch('http://172.17.69.105:3000/get/challengeComment/' + this.props.cid, {
+      fetch('http://192.168.10.107:3000/get/challengeComment/' + this.props.cid, {
         credentials: 'same-origin',
       })
         .then((response) => (response.json()))

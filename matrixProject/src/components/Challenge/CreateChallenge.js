@@ -19,7 +19,7 @@ class CreateChallenge extends Component {
     }
 
     send() {
-      fetch('http://172.17.69.105:3000/add/challenge', {
+      fetch('http://192.168.10.107:3000/add/challenge', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

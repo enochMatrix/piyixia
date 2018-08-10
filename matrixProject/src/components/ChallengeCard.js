@@ -14,24 +14,25 @@ class ChallengeCard extends Component {
 }
 
     componentWillMount() {
-      // const { _id } = this.props.challenge;
-      // fetch('http://172.17.69.105:3000/thumbs/' + _id, {
-      //   credentials: 'same-origin',
-      // })
-      //   .then((response) => (response.json()))
-      //   .catch((error) => {
-      //     console.log(error);
-      //   })
-      //   .then((res) => {
-      //     if (res.length === 0) {
-      //       this.setState({ pied: false });
-      //     }
-      //   });
+      const { _id } = this.props.challenge;
+      fetch('http://192.168.10.107:3000/thumbs/' + _id, {
+        credentials: 'same-origin',
+      })
+        .then((response) => (response.json()))
+        .catch((error) => {
+          console.log(error);
+        })
+        .then((res) => {
+          // if (res.length === 0) {
+          //   this.setState({ pied: false });
+          // }
+          console.log(res);
+        });
     }
 
     pied() {
       const { _id } = this.props.challenge;
-      fetch('http://172.17.69.105:3000/add/video/thumbs/', {
+      fetch('http://192.168.10.107:3000/add/video/thumbs/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -40,7 +41,7 @@ class ChallengeCard extends Component {
           cid: _id
         })
           })
-        .then((response) => (response.json()))
+        .then((response) => (response.text()))
         .catch((error) => {
           console.log(error);
         })

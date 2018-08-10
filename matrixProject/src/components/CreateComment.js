@@ -14,7 +14,7 @@ class CreateComment extends Component {
 }
     send() {
       const { cid } = this.props.navigation.state.params;
-      fetch('http://172.17.69.105:3000/add/challengeComment/' + cid, {
+      fetch('http://192.168.10.107:3000/add/challengeComment/' + cid, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -31,7 +31,7 @@ class CreateComment extends Component {
           console.log(res);
     });
   //   const { cid } = this.props.navigation.state.params;
-  //   fetch('http://172.17.69.105:3000/add/video/thumbs/', {
+  //   fetch('http://192.168.10.107:3000/add/video/thumbs/', {
   //     method: 'POST',
   //     headers: {
   //         'Content-Type': 'application/json'

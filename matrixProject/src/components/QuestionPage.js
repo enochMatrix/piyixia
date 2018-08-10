@@ -34,7 +34,7 @@ class QuestionPage extends Component {
 
   componentWillMount() {
     //console.log(this.props);
-    fetch('http://172.17.69.105:3000/get/quiz')
+    fetch('http://192.168.10.107:3000/get/quiz')
       .then((response) => (response.json()))
       .catch((error) => {
         console.log(error);

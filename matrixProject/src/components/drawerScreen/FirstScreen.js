@@ -24,7 +24,7 @@ export default class FirstScreen extends React.Component {
 
     componentWillMount() {
         // GET ALL getUserTransaction
-        fetch('http://172.17.69.105:3000/get/transaction', {
+        fetch('http://192.168.10.107:3000/get/transaction', {
             credentials: 'same-origin',
         })
             .then((response) => (response.json()))
