@@ -1,0 +1,5 @@
+dependencies: \
+  /Users/yinuoyang/piyixia/matrixProject/node_modules/react-native/React/Modules/RCTUIManagerUtils.m \
+  /Users/yinuoyang/piyixia/matrixProject/node_modules/react-native/React/Modules/RCTUIManagerUtils.h \
+  /Users/yinuoyang/piyixia/matrixProject/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/yinuoyang/piyixia/matrixProject/node_modules/react-native/React/Base/RCTDefines.h
