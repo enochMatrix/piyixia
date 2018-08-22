@@ -23,9 +23,9 @@ exports.update = function (collectionName, query, json, options, callback) {
   })
 };
 
-exports.remove = function (collectionName, query, callback) {
+exports.remove = function (collectionName, query, justOne ,callback) {
   _connectDB(function (err,client) {
-    client.db("haha").collection(collectionName).remove(query,function (err,result){
+    client.db("haha").collection(collectionName).remove(query,justOne,function (err,result){
       callback(err,result);
       client.close();
     })

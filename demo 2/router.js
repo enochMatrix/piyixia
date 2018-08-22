@@ -618,7 +618,7 @@ exports.removeThumbs = function (req,res,next) {
       console.log(err);
     }
     var cid = fields.cid;
-    db.remove("Thumbs",{"uid":uid,"challenge.cid":cid},function(err,result){
+    db.update("Thumbs",{"uid":uid},{"$pull":{"challenge.cid":cid}},function(err,result){
       if(err){
         console.log(err);
       }
