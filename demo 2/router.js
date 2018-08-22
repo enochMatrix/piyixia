@@ -59,7 +59,7 @@ exports.login = function (req,res,next) {
     var form = new formidable.IncomingForm();
     form.parse(req,function (err,fields,files) {
         if (err){
-            res.send("没有收到表单");
+            res.json({content:"没有收到表单",status:-1});
             return;
         }
         var username = fields.username;
@@ -69,15 +69,15 @@ exports.login = function (req,res,next) {
             "password": md5(md5(password)+"pi")
         },function (err,result) {
             if (err){
-                res.send("服务器错误");
+                res.json({content:"服务器错误",status:-1});
             }
             if (result.length == 0){
-                res.send("用户名或密码错误");
+                res.json({content:"用户名或密码错误",status:-1});
             }else{
                 req.session.login = "1";
                 req.session.uid = result[0]._id;
                 req.session.username = username;
-                res.send("登陆成功");
+                res.json({content:"登陆成功",status:1});
                 console.log(req.session.username);
             }
         });
@@ -585,7 +585,6 @@ exports.addThumbs = function (req,res,next) {
         res.send("未登录");
         return;
     }
-    console.log(uid);
     var form = new formidable.IncomingForm();
     form.parse(req,function (err,fields,files) {
       if(err){
@@ -596,28 +595,38 @@ exports.addThumbs = function (req,res,next) {
       var newChalleng = {
         "cid": cid
       }
-      console.log(cid);
       var update = {$push: {"challenge":newChalleng}};
-      db.find("Thumbs",{"uid":uid},function(err,result) {
-        console.log(result);
+      db.update("Thumbs",{"uid":uid},{$push: {"challenge.cid":cid}},{ upsert: true, multi: false },function(err,result){
         if(err){
           console.log(err);
-          return;
         }
-        else if(result.length===0){
-          db.insertOne("Thumbs",{"uid":uid,"challenge":update},function(err,result2){
-            if(err){
-              console.log(err);
-            }
-            res.send("添加并收藏成功");
-          });
-        }
-        else {
-          res.send("收藏成功");
-        }
+        res.send("1");
       });
     });
   }
+
+//取消收藏
+exports.removeThumbs = function (req,res,next) {
+  var uid = req.session.uid;
+  if (req.session.login != "1"){
+      res.send("未登录");
+      return;
+  }
+  var form = new formidable.IncomingForm();
+  form.parse(req,function (err,fields,files) {
+    if(err){
+      console.log(err);
+    }
+    var cid = fields.cid;
+    db.remove("Thumbs",{"uid":uid,"challenge.cid":cid},function(err,result){
+      if(err){
+        console.log(err);
+      }
+      res.send("1");
+    });
+  });
+}
+
 
 //获取收藏状态
 exports.getThumbs = function (req,res,next) {
@@ -627,11 +636,10 @@ exports.getThumbs = function (req,res,next) {
       res.send("未登录");
       return;
   }
-  db.find("Thumbs",{"uid":uid,"cid":cid},function (err,result) {
+  db.find("Thumbs",{"uid":uid,'challenge.cid':cid},function (err,result) {
     if(err){
       console.log(err);
     }
-    console.log(result);
     res.send(result);
   });
 }

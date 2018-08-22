@@ -14,6 +14,25 @@ function _connectDB(callback) {
     });
 }
 
+exports.update = function (collectionName, query, json, options, callback) {
+  _connectDB(function (err,client) {
+    client.db("haha").collection(collectionName).update(query,json,options,function (err,result){
+      callback(err,result);
+      client.close();
+    })
+  })
+};
+
+exports.remove = function (collectionName, query, callback) {
+  _connectDB(function (err,client) {
+    client.db("haha").collection(collectionName).remove(query,function (err,result){
+      callback(err,result);
+      client.close();
+    })
+  })
+};
+
+
 exports.insertOne = function (collectionName, json, callback) {
     _connectDB(function (err,client) {
         client.db("haha").collection(collectionName).insertOne(json,function (err,result) {
@@ -43,5 +62,3 @@ exports.find = function (collectionName,json,callback) {
 
     });
 };
-
-

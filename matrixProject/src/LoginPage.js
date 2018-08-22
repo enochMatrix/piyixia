@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, TextInput, Text, Button } from 'react-native';
 
 class LoginPage extends Component {
+    static navigationOptions = { header: null };
   state = {
     username: '',
     password: '',
@@ -34,21 +35,28 @@ fetch('http://192.168.10.107:3000/login', {
     },
   body: JSON.stringify({ username: this.state.username, password: this.state.password })
     })
-  .then((response) => (response.text()))
+  .then((response) => (response.json()))
   .catch((error) => {
     console.log(error);
   })
   .then((res) => {
-      this.setState({ response: res });
+      this.setState({ response: res.content });
       // 登陆成功： change props state and navigation to homepage
-      console.log(res.localeCompare('登陆成功'));
+      //console.log(res.localeCompare('登陆成功'));
+      this.navigate(res.status);
 });
 };
+
+navigate(status) {
+  if (status === 1) {
+    this.props.navigation.navigate('Home');
+  }
+}
 
 
   render() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'white' }}>
       <View style={{ flexDirection: 'row' }}>
         <Text>UserName</Text>
         <TextInput

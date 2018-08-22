@@ -89,7 +89,10 @@ app.get("/get/user/:uid",router.getUser);
 app.get("/get/transaction",router.getUserTransaction);
 
 //收藏挑战
-app.post("/add/video/thumbs/",router.addThumbs);
+app.post("/add/video/thumbs",router.addThumbs);
+
+//取消收藏挑战
+app.post("/remove/thumbs",router.removeThumbs);
 
 //获取收藏状态
 app.get("/thumbs/:cid",router.getThumbs);

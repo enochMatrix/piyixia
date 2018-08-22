@@ -23,31 +23,56 @@ class ChallengeCard extends Component {
           console.log(error);
         })
         .then((res) => {
-          // if (res.length === 0) {
-          //   this.setState({ pied: false });
-          // }
+          if (res.length !== 0) {
+            this.setState({ pied: true });
+          }
           console.log(res);
         });
     }
 
     pied() {
       const { _id } = this.props.challenge;
-      fetch('http://192.168.10.107:3000/add/video/thumbs/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-          },
-        body: JSON.stringify({
-          cid: _id
-        })
+      if (this.state.pied) { //如果已经点过赞了， 再点一次取消
+        fetch('http://192.168.10.107:3000/remove/thumbs', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+            },
+          body: JSON.stringify({
+            cid: _id
           })
-        .then((response) => (response.text()))
-        .catch((error) => {
-          console.log(error);
-        })
-        .then((res) => {
-          console.log(res);
-    });
+            })
+          .then((response) => (response.text()))
+          .catch((error) => {
+            console.log(error);
+          })
+          .then((res) => {
+            console.log(res);
+            if (res === '1') {
+              this.setState({ pied: false });
+            }
+      });
+      } else {
+          fetch('http://192.168.10.107:3000/add/video/thumbs', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify({
+              cid: _id
+            })
+              })
+            .then((response) => (response.text()))
+            .catch((error) => {
+              console.log(error);
+            })
+            .then((res) => {
+              console.log(res);
+              if (res === '1') {
+                this.setState({ pied: true });
+              }
+        });
+      }
     }
 
   //  时间显示的格式，用于 挑战剩余时间 和 挑战发布时间
@@ -91,7 +116,8 @@ class ChallengeCard extends Component {
       console.log('ChallengeCard');
 
       const { author, currentTime, description, endTime,
-        title, url, liked, diamond, status } = this.props.challenge;
+        title, url, diamond, status } = this.props.challenge;
+      const { pied } = this.state;
       const currentDate = new Date();
 
       return (
@@ -109,7 +135,7 @@ class ChallengeCard extends Component {
                             {'· ' + this.timeDifc(currentTime, currentDate) + '前'}
                           </Text>
                       </View>
-                      { liked === true ?      //点赞前后 皮 显示不同图片
+                      { pied === true ?      //点赞前后 皮 显示不同图片
                         <TouchableOpacity onPress={this.pied}>
                         <Image
                         source={require('./Logo/pied.png')}

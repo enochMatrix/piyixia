@@ -77,13 +77,11 @@ const ChallengePageStack = StackNavigator({
     },
 });
 
-
 const Router2 = TabNavigator(
   {
   // Router: Router,
   // HomePage: HomePage,
   ChallengePageStack: ChallengePageStack,
-   LoginPage: LoginPage,
   },
   {
     //  initialRouteName: 'HomePage',
@@ -98,4 +96,16 @@ const Router2 = TabNavigator(
   },
 );
 
-export default Router2;
+const RootStack = StackNavigator(
+  {
+    LoginPage: { screen: LoginPage },
+    Home: { screen: Router2 }
+  },
+  {
+    navigationOptions: {
+    header: null,
+}
+  }
+);
+
+export default RootStack;

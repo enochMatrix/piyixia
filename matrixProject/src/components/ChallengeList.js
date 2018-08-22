@@ -38,7 +38,7 @@ class ChallengeList extends Component {
         })
         .then((res) => {
             this.setState({ challenge: res, refreshing: false });
-            console.log(res);
+            //console.log(res);
         });
     }
 
