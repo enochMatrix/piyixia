@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { View, FlatList, TouchableOpacity } from 'react-native';
 import ChallengeCard from './ChallengeCard';
-
 import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
+import 'firebase/firestore'
 
 class ChallengeList extends Component {
 
@@ -64,14 +62,15 @@ class ChallengeList extends Component {
     });
   }
 
-  onPressInDetail(title, description, author, currentTime, url, id) {
+  onPressInDetail(title, description, author, currentTime, url, id,profile) {
     this.props.navigation.navigate('ChallengeDetailPage', {
       title: title,
       description: description,
       author: author,
       currentTime: currentTime,
       url: url,
-      id: id
+      id: id,
+      profile: profile
     });
   }
 
@@ -92,7 +91,7 @@ class ChallengeList extends Component {
       <TouchableOpacity
         onPress={() => this.onPressInDetail(item.title,
           item.description, item.author, item.currentTime,
-          item.url, item._id)}
+          item.url, item._id,item.profile)}
       >
         <ChallengeCard
           challenge={item}

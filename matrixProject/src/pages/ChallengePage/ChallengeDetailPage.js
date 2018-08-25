@@ -83,13 +83,13 @@ class ChallengeDetailPage extends Component {
 
           {/*如果已接受，大司马的回复，表情，视频链接*/}
           <View style={[styles.cardStyle, { flexDirection: 'row' }]}>
-            {this.state.status == 1 &&
+            {
               <Accepted props={this.props} />}
 
           </View>
           {/*评论内容*/}
           <View style={[styles.cardStyle, { flexDirection: 'column', marginBottom: 80 }]}>
-            { this.state.showComment &&
+            { 
             <CommentPage  />
             }
           </View>
@@ -124,6 +124,7 @@ class ChallengeDetailPage extends Component {
             />
             <Text style={styles.textStyle}>赞助</Text>
           </TouchableOpacity>
+
           <View style={styles.bottomBarWrapper} />
         </View>
 
@@ -140,13 +141,13 @@ class ChallengeDetailPage extends Component {
         <SponsModal
           
           onPressOk={() => {  
+            console.log("hey");
             this.setState({ sponsModalVisible: false }); 
             this.setState({ sponsored:true});
           }}
           
           onPressCancel={() => {  
             this.setState({ sponsModalVisible: false }); 
-            this.setState({ sponsored:true});
           }}
           
           visible={this.state.sponsModalVisible}
@@ -189,7 +190,7 @@ const styles = {
     marginTop: 5,
   },
   bottomBarWrapper: {
-    backgroundColor: '#cccccc',
+    backgroundColor: '#fbb040',
     height: 5,
     left: 0,
     right: 0,
@@ -202,7 +203,7 @@ const styles = {
     zIndex: 5,
     justifyContent: 'space-evenly',
     height: 50,
-    backgroundColor: '#cccccc',
+    backgroundColor: '#fbb040',
     borderRadius: 10,
     position: 'absolute',
     bottom: 0,

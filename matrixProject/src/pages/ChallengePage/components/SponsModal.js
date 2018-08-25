@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Modal, Picker, Button, Alert } from 'react-native';
 import firebase from 'firebase/app';
-import 'firebase/firestore';
+import 'firebase/firestore'
 import 'firebase/auth';
 
 
@@ -62,11 +62,11 @@ class SponsModal extends Component {
     } else {
       this.addDiamond(number);
     }
-    this.props.onPressCancel();
+    this.props.onPressOk();
   }
 
   sponsAChallenge(diamond) {
-    console.log(this.props);
+   
     this.db.collection("Challenge").doc('a10').update({
       diamond: 500
     })
@@ -139,7 +139,7 @@ class SponsModal extends Component {
 
           <View style={styles.content}>
             {this.state.tabSelected ?
-              <Text>理小查老板赞助了</Text> :
+              <Text>小司马老板赞助了</Text> :
               <Text>充值金额</Text>
             }
           </View>

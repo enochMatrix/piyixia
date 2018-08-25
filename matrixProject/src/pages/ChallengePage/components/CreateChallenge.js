@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image, TextInput, DatePickerIOS, Keyboard, TouchableWithoutFeedback, Alert } from 'react-native';
 import firebase from 'firebase/app';
-import 'firebase/firestore';
-
+import 'firebase/firestore'
+import 'firebase/auth';
 
 class CreateChallenge extends Component {
 
@@ -43,12 +43,13 @@ class CreateChallenge extends Component {
             title: this.state.title,
             description: this.state.description,
             diamond:0,
-            currentTime: date,
+            currentTime: date.getTime(),
             endTime: this.state.chosenDate,
-            author:"大司马粉丝",
+            author:"小司马",
             url:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSod0BSlenkixlcBikiYSJcOiHoMuf8uNbp90zw-sgb9R-sXcD1',
             thumbs:120,
-            status:1
+            status:1,
+            profile:"https://firebasestorage.googleapis.com/v0/b/piyixia-562cf.appspot.com/o/image%2F1529294093237c894ebe838.jpeg?alt=media&token=d25d5561-ce8a-45b3-baea-0d14f77b157c"
           }
         )
           .then(function () {
@@ -59,6 +60,7 @@ class CreateChallenge extends Component {
             console.error("Error writing document: ", error);
           });
       
+          this.props.navigation.navigate('ChallengePage');
   
     }
 
@@ -67,8 +69,8 @@ class CreateChallenge extends Component {
         <View style={{ flex: 1, backgroundColor: 'white' }}>
 
           <View style={{ flex: 0.6, alignItems: 'center', justifyContent: 'space-around' }}>
-            <Text> WELCOME TO CHALLENGE CREATAION</Text>
-            <Text>CHALLENGE TITLE</Text>
+            <Text> 挑战创建</Text>
+            <Text>挑战标题</Text>
             <TextInput
                onChangeText={(text) => {
                  this.setState({ title: text });
@@ -76,7 +78,7 @@ class CreateChallenge extends Component {
                style={{ marginLeft: 5, height: 30, width: 200, borderColor: 'gray', borderWidth: 1 }}
             />
 
-            <Text>CHALLENGE DESCRIPTION</Text>
+            <Text>挑战描述</Text>
             <TextInput
                onChangeText={(text) => {
                  this.setState({ description: text });
@@ -84,19 +86,8 @@ class CreateChallenge extends Component {
                style={{ marginLeft: 5, height: 80, width: 300, borderColor: 'gray', borderWidth: 1 }}
             />
 
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-              <View>
-                <Text>CHALLENGE END YEAR</Text>
-              </View>
-            </TouchableWithoutFeedback>
-            <TextInput
-               onChangeText={(text) => {
-                 this.setState({ year: text });
-               }}
-               keyboardType='number-pad'
-               style={{ marginLeft: 5, height: 20, width: 100, borderColor: 'gray', borderWidth: 1 }}
-            />
-            <Text>CHALLENGE END DATE</Text>
+          
+            <Text>挑战截止日期</Text>
           </View>
           <View style={{flex:0.3}}>
             <DatePickerIOS

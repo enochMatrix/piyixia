@@ -90,7 +90,7 @@ class FeatureB extends Component {
       {/*VIDEO'S TAG*/}
       <TouchableOpacity style={[styles.overlay, { bottom: 100, left: 15 }]}>
         <Text style={styles.textStyle}>
-          # Eat
+          # 七夕节唱歌
         </Text>
       </TouchableOpacity>
 

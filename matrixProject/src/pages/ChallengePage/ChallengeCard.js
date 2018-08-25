@@ -62,12 +62,14 @@ class ChallengeCard extends Component {
 
     render() {
       console.log('ChallengeCard');
-
+      
       const { author, currentTime, description, endTime,
-        title, url, liked, diamond, status } = this.props.challenge;
+        title, url, liked, diamond, status,profile } = this.props.challenge;
       const currentDate = new Date(Date.now());
       const date_start = new Date(currentTime);
       const date_end = new Date(endTime);
+      const src = {src:profile}
+      console.log(profile);
       console.log(date_start);
       console.log(date_end);
 
@@ -78,7 +80,9 @@ class ChallengeCard extends Component {
               {/*卡片顶部信息：头像，用户名，发布时间，点赞？*/}
               <View style={styles.topInfoContainer}>
                       <View style={styles.topInfoLeft}>
-                          <View style={styles.icon} />
+                          <View style={styles.icon} >
+                            <Image style={styles.icon} source={src} />
+                          </View>
                           <Text style={styles.textStyle}>
                             {author}
                           </Text>
@@ -125,7 +129,7 @@ class ChallengeCard extends Component {
           {/*底部 3个tabs：赞助，剩余时间，评论*/}
           <View style={styles.bottomBarWrapper}>
                 {/*赞助*/}
-                <View style={styles.leftRightTab}>
+                <View style={styles.smallerTab}>
                       <Image
                         source={require('../Logo/sponsor.png')}
                         style={{ width: 33, height: 33 }}
@@ -163,7 +167,7 @@ class ChallengeCard extends Component {
                   }
             </View>
             {/*评论*/}
-            <TouchableOpacity style={styles.leftRightTab} onPress={this.props.onPress}>
+            <TouchableOpacity style={styles.smallerTab} onPress={this.props.onPress}>
                   <Image
                     source={require('../Logo/comment.png')}
                     style={{ width: 20, height: 20 }}
@@ -217,26 +221,26 @@ const styles = {
   bottomBarWrapper: {
     flexDirection: 'row',
   },
-  leftRightTab: {
+  smallerTab: {
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
     height: 28,
     width: '33.33%',
-    backgroundColor: '#d3d3d3',
+    backgroundColor: '#FFE4C4',
     marginTop: 16,
     borderBottomRadius: 5,
   },
   statusTabWrapperper: {
     marginTop: 16,
-    backgroundColor: '#c4c4c4',
+    backgroundColor: '#fecd8a',
     width: '33.33%',
     height: 28,
   },
   statusTab: {
     flexDirection: 'row',
     marginTop: -12,
-    backgroundColor: '#c4c4c4',
+    backgroundColor: '#fecd8a',
     height: 40,
     justifyContent: 'center',
     alignItems: 'center',

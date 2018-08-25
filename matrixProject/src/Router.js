@@ -52,7 +52,7 @@ const ChallengePageStack = StackNavigator({
         screen: CreateComment,
         navigationOptions: () => ({
             title: '新建回复',
-            headerStyle: { backgroundColor: 'white' },
+            headerStyle: { backgroundColor: '#fbb040' },
             headerBackTitle: null
         }),
     },
@@ -60,7 +60,7 @@ const ChallengePageStack = StackNavigator({
         screen: CreateChallenge,
         navigationOptions: () => ({
             title: '新建挑战',
-            headerStyle: { backgroundColor: 'white' },
+            headerStyle: { backgroundColor: '#fbb040' },
             headerBackTitle: null
         }),
     },
@@ -68,7 +68,7 @@ const ChallengePageStack = StackNavigator({
         screen: ChallengeDetailPage,
         navigationOptions: () => ({
             title: '挑战内容',
-            headerStyle: { backgroundColor: 'white' },
+            headerStyle: { backgroundColor: '#fbb040' },
             headerBackTitle: null
         }),
     },

@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, FlatList } from 'react-native';
 import AComment from './AComment';
 import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
+import 'firebase/firestore'
 
 
 class commentPage extends Component {
@@ -30,7 +29,7 @@ class commentPage extends Component {
 
 
   componentWillMount() {
-    var docRef = this.db.collection("Comment");
+    var docRef = this.db.collection("Comments");
     var json = [];
     console.log(docRef);
     docRef.get().then(function (snapshot) {
@@ -53,6 +52,7 @@ class commentPage extends Component {
             user={item.author}
             date={item.date}
             content={item.content}
+            profile={item.profile}
           />
         );
       }
@@ -62,7 +62,7 @@ class commentPage extends Component {
         return(
                 <View>
       <View style={styles.center}>
-        <Text>评论268</Text>
+        <Text>评论0</Text>
       </View>
       <View style={styles.line} />
       <FlatList
