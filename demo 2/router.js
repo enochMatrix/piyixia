@@ -107,7 +107,8 @@ exports.addAvatar = function(req, res, next) {
     var uploadPath = path.normalize(__dirname + "/avatar");
     form.uploadDir = uploadPath;
     form.parse(req,function (err,fields,files) {
-        var avatarName = files.avatar.path.split('/');
+      console.log(files.files.path);
+        var avatarName = files.files.path.split('/');
         var realPath = ip+avatarName[avatarName.length-2]+'/'+avatarName[avatarName.length-1];
         var query = {"_id":ObjectId(uid)};
         var update = {
@@ -122,6 +123,8 @@ exports.addAvatar = function(req, res, next) {
         });
     });
 }
+
+
 
 //上传video
 exports.addVideo = function (req, res, next) {
@@ -160,6 +163,18 @@ exports.addVideo = function (req, res, next) {
             res.send("视频上传成功");
         });
     });
+}
+
+//获取用户头像
+exports.getAvatar = function (req,res,next) {
+  var uid = req.session.uid;
+  User.find({"_id": ObjectId(uid)},function (err, result) {
+    if (err){
+      res.send('ERROR!');
+      return;
+    }
+    res.send(result);
+  });
 }
 
 //通过vid获取video
@@ -542,23 +557,7 @@ exports.getRank = function (req,res,next){
     });
 }
 
-//获取一个用户的信息
-exports.getUser = function (req,res,next){
-    var uid = req.session.uid;
-    User.findById(ObjectId(uid),function (err,result) {
-        if (err){
-            res.send("服务器错误");
-            return;
-        }
-        if (result == null) {
-            res.send("找不到此用户");
-            return;
-        }
-        res.send(result);
-    });
-}
-
-//获取交易记录
+//获取记录
 exports.getUserTransaction = function (req,res,next){
         var uid = req.session.uid;
         console.log(uid);

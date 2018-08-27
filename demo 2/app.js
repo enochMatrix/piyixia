@@ -36,6 +36,9 @@ app.get("/logout",router.logout);
 //上传头像
 app.post("/add/avatar",router.addAvatar);
 
+//获取头像
+app.get("/avatar",router.getAvatar);
+
 
 //得到所有视频url 信息 tag
 app.get("/get/videos",router.getAllVideo);
@@ -82,8 +85,6 @@ app.get("/get/quiz",router.getQuiz);
 //得到玩家quiz分数的排名
 app.get("/get/rank",router.getRank);
 
-//得到用户个人信息
-app.get("/get/user/:uid",router.getUser);
 
 //得到用户的全部交易记录
 app.get("/get/transaction",router.getUserTransaction);

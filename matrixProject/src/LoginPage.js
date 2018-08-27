@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, TextInput, Text, Button } from 'react-native';
 
 class LoginPage extends Component {
-    static navigationOptions = { header: null };
+
   state = {
     username: '',
     password: '',

@@ -39,12 +39,16 @@ const Router = StackNavigator({
   },
 });
 
-const ProfilePageStack = StackNavigator({
-    ProfilePage: {
-        screen: ProfilePage,
-        title: 'ProfilePage'
-    },
-  });
+const ProfilePageStack = StackNavigator(
+  {
+    ProfilePage: { screen: ProfilePage }
+  },
+    {
+      navigationOptions: {
+      header: null,
+    }
+  }
+  );
 
 const ChallengePageStack = StackNavigator({
     ChallengePage: {
