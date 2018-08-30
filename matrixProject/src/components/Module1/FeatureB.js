@@ -103,7 +103,7 @@ class FeatureB extends Component {
             this.setState({ mask: !this.state.mask, commentInput: true });
           }}
       >
-        <Pen color='white' />
+        <Pen color='white' size={25} />
         <Text style={{ color: 'white', paddingLeft: '5%', fontWeight: '800' }}>
           {this.state.yourComment === '' ? 'comment' : this.state.yourComment}
         </Text>

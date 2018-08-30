@@ -1,9 +1,10 @@
 import React from 'react';
-import { Text, View, Image, FlatList, TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import { Text, View, Image, StyleSheet } from 'react-native';
 import { DrawerActions } from 'react-navigation';
-import { Header, Left, Icon, Right } from 'native-base';
-import Swipeout from 'react-native-swipeout';
+import { Icon } from 'native-base';
 import IconChange from '../profilepage/Icon';
+import MessageList from '../profilepage/messageList';
+import { Plus, Pen } from '../icons';
 
 export default class FirstScreen extends React.Component {
 
@@ -42,46 +43,6 @@ export default class FirstScreen extends React.Component {
           });
     }
 
-    deleteItem =(id) => {
-      console.log(id);
-        const item = this.state.transaction;
-        item.splice(id, 1);
-        this.setState({
-            transcation: item
-        });
-    };
-
-    _renderItem = ({ item, index }) => {
-        let backgroundColor = 'red';
-        if (index % 2 === 0) {
-           backgroundColor = '#cccccc';
-        } else {
-          backgroundColor = 'white';
-        }
-        const swipeoutBtn = [
-          {
-          text: 'Delete',
-          backgroundColor: 'red',
-          onPress: () => { this.deleteItem(index); }
-          }
-        ];
-        return (
-          <Swipeout
-            backgroundColor='white'
-            right={swipeoutBtn}
-          >
-              <View style={[styles.message, { backgroundColor: backgroundColor }]}>
-                  <Text style={styles.bubble}>
-                      {item.usage}
-                  </Text>
-                  <Text style={styles.time}>
-                      {item.date}
-                  </Text>
-              </View>
-          </Swipeout>
-  );
-}
-
     render() {
       console.log('profilepage');
         return (
@@ -94,8 +55,10 @@ export default class FirstScreen extends React.Component {
                     update={() => this.fetchUserInfo}
                   />
                   <View style={styles.userNameContainer}>
-                  <Text style={styles.userNameText}>{this.state.userName}</Text>
+                      <Text style={styles.userNameText}>{this.state.userName} </Text>
+                      <Pen color='white' size={17} />
                   </View>
+
               </View>
               </View>
 
@@ -107,25 +70,18 @@ export default class FirstScreen extends React.Component {
                         />
               </View>
               <View style={styles.money}>
-                    <Text style={styles.moneyText}>金币余额</Text>
+                    <View style={styles.sameLineWrapper}>
+                          <Image
+                            source={require('../Logo/sponsor.png')}
+                            style={{ width: 33, height: 33 }}
+                          />
+                          <Text style={styles.moneyText}>金币余额 </Text>
+                          <Plus />
+                    </View>
                     <Text style={styles.moneyNumber}>{this.state.diamond}</Text>
               </View>
-
-              <View style={styles.listTextContainer}>
-                  <View>
-                    <Text style={styles.listText}>消息列表</Text>
-                  </View>
-                  <View>
-                      <Text style={styles.listText}>删除全部</Text>
-                  </View>
-              </View>
-              <View style={styles.aLine} />
-
-              <View style={styles.listContainer}>
-                  <FlatList
-                    data={this.state.transaction}
-                    renderItem={this._renderItem}
-                  />
+              <View style={styles.messageListContainer}>
+                <MessageList transaction={this.state.transaction} />
               </View>
             </View>
         );
@@ -139,24 +95,26 @@ const styles = StyleSheet.create({
     },
     iconContainer: {
       height: 150,
-      width: 500,
+      width: 400,
       backgroundColor: 'gray',
-      borderBottomRightRadius: 170,
-      borderBottomLeftRadius: 170,
+      borderBottomRightRadius: 270,
+      borderBottomLeftRadius: 270,
       alignItems: 'center',
       justifyContent: 'center',
     },
     iconContainer2: {
       height: 150,
-      width: 600,
+      width: 450,
       backgroundColor: '#cccccc',
-      borderBottomRightRadius: 980,
-      borderBottomLeftRadius: 980,
+      borderBottomRightRadius: 350,
+      borderBottomLeftRadius: 350,
       alignItems: 'center',
       justifyContent: 'center'
     },
     userNameContainer: {
-      marginTop: 5
+      marginTop: 5,
+      flexDirection: 'row',
+      alignItems: 'center'
     },
     userNameText: {
       color: 'white'
@@ -169,46 +127,21 @@ const styles = StyleSheet.create({
     money: {
       marginTop: 5,
       alignItems: 'center',
-      justifyContent: 'center'
+    },
+    sameLineWrapper: {
+      flexDirection: 'row',
+      alignItems: 'center'
     },
     moneyText: {
       fontSize: 16,
       color: 'gray'
     },
     moneyNumber: {
-      fontSize: 20,
-      color: 'black'
+      fontSize: 30,
+      color: 'black',
+      marginTop: -10
     },
-    listTextContainer: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      width: '95%',
-    },
-    listText: {
-      color: 'gray'
-    },
-    aLine: {
-      marginTop: 2,
-      width: '95%',
-      height: 3,
-      backgroundColor: 'black'
-    },
-    listContainer: {
-      marginTop: 5,
-      paddingBottom: 450
-    },
-    message: {
-      marginTop: 5,
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      borderRadius: 15,
-      padding: 17,
-    },
-    bubble: {
-
-    },
-    time: {
-      fontSize: 12,
-
-    },
+    messageListContainer: {
+      width: '95%'
+    }
 });

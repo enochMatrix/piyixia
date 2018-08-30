@@ -366,6 +366,7 @@ exports.updateChallenge = function (req,res,next) {
 exports.sponsorChallenge = function (req,res,next) {
     var cid = req.params.cid;
     var uid = req.session.uid;
+    var cname = '';
     //var diamond = parseInt(req.params.diamond);
     var username = req.session.username;
     //console.log(diamond);
@@ -373,6 +374,14 @@ exports.sponsorChallenge = function (req,res,next) {
         res.send("未登录");
         return;
     }
+    Challenge.findById(ObjectId(cid),function(err,result){
+      if(err){
+        res.send("ERROR");
+        return;
+      } else {
+        cname = result.title;
+      }
+    });
     var form = new formidable.IncomingForm();
     form.parse(req,function (err,fields,files) {
     User.findById(ObjectId(uid), function (err,result) {
@@ -389,7 +398,7 @@ exports.sponsorChallenge = function (req,res,next) {
         var transaction = {
             "diamond": -fields.diamond,
             "date": new Date(),
-            "usage": cid
+            "usage": '赞助挑战：'+cname+'\n钻石数： '+fields.diamond
         };
         var query = {"_id":ObjectId(uid)};
         var update = {
@@ -496,7 +505,7 @@ exports.addDiamond = function(req, res, next) {
         var transaction = {
             "diamond": +fields.diamond,
             "date": new Date(),
-            "usage": '充值'
+            "usage": '充值 '+fields.diamond+' 个钻石',
         };
         var currentDiamond = result.diamond;
         var update = {

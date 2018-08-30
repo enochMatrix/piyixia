@@ -9,3 +9,6 @@ export * from './Play';
 export * from './Cross';
 export * from './Send';
 export * from './Search';
+export * from './Plus';
+export * from './Trash';
+export * from './Envelope';

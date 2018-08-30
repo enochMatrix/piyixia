@@ -150,7 +150,7 @@ class CommentModal extends Component {
       <KeyboardAvoidingView behavior="padding" enabled>
       <View style={styles.commentBarContainer}>
         <View style={{ justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row' }}>
-        <Pen color='black' />
+        <Pen color='black' size={25} />
         <TextInput
           style={{ color: 'black', paddingLeft: 15, fontWeight: '800' }}
           placeholder='comment'
