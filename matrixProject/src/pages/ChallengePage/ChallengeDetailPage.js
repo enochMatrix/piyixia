@@ -13,32 +13,37 @@ import CommentModal from '../../pages/Common/Comment/CreateComment';
 class ChallengeDetailPage extends Component {
 
   // set state and list view data
+  state = {
+    commentModalVisible: false,
+    sponsModalVisible: false,
+    status: 0,
+    showComent: false,
+    sponsored: false
+  };
+  
   constructor(props) {
     super(props);
     this.comment = this.comment.bind(this);
     this.spons = this.spons.bind(this);
-    this.state = {
-      commentModalVisible: false,
-      sponsModalVisible: false,
-      status: 0,
-      showComment: false,
-      sponsored: false
-    };
+    this.handler = this.handler.bind(this);
   }
 
   handler = (e) => {
+
+    this.setState({ showComent: true});
     this.setState({ commentModalVisible: false });
-    this.setState({ showComment: true });
+   
+   
   }
 
   comment() {
-    console.log('comment!');
     this.setState({ commentModalVisible: true });
   }
 
   spons() {
     this.setState({ commentModalVisible: false });
     this.setState({ sponsModalVisible: true });
+   
   }
 
   confirmSpons = (number) => {
@@ -84,13 +89,15 @@ class ChallengeDetailPage extends Component {
           {/*如果已接受，大司马的回复，表情，视频链接*/}
           <View style={[styles.cardStyle, { flexDirection: 'row' }]}>
             {
-              <Accepted props={this.props} />}
+              <Accepted props={this.props} />
+            }
 
           </View>
           {/*评论内容*/}
           <View style={[styles.cardStyle, { flexDirection: 'column', marginBottom: 80 }]}>
             { 
-            <CommentPage  />
+            
+              <CommentPage  />
             }
           </View>
         </ScrollView>
@@ -129,7 +136,8 @@ class ChallengeDetailPage extends Component {
         </View>
 
         {/*点击评论，如果未赞助，提示赞助 modal  */}
-        {this.state.commentModalVisible &&
+        {
+          this.state.commentModalVisible &&
 
           <CommentModal
             handler={this.handler}
@@ -141,7 +149,6 @@ class ChallengeDetailPage extends Component {
         <SponsModal
           
           onPressOk={() => {  
-            console.log("hey");
             this.setState({ sponsModalVisible: false }); 
             this.setState({ sponsored:true});
           }}

@@ -40,7 +40,7 @@ class commentPage extends Component {
         <View style={styles.container}>
           <View style={styles.profileContainer}>
             <View style={{ width: 30, height: 30, backgroundColor: 'grey', borderRadius: 20 }}>
-              <Image style={{ width: 30, height: 30, backgroundColor: 'grey', borderRadius: 20 }} source={{ url: 'https://firebasestorage.googleapis.com/v0/b/piyixia-562cf.appspot.com/o/image%2F1529294093237c894ebe838.jpeg?alt=media&token=d25d5561-ce8a-45b3-baea-0d14f77b157c' }} />
+              <Image style={{ width: 30, height: 30}} source={{ url: 'https://firebasestorage.googleapis.com/v0/b/piyixia-562cf.appspot.com/o/image%2F1529294093237c894ebe838.jpeg?alt=media&token=d25d5561-ce8a-45b3-baea-0d14f77b157c' }} />
             </View>
           </View>
           <View style={styles.container2}>

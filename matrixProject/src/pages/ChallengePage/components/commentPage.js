@@ -29,7 +29,7 @@ class commentPage extends Component {
 
 
   componentWillMount() {
-    var docRef = this.db.collection("Comments");
+    var docRef = this.db.collection("Comment");
     var json = [];
     console.log(docRef);
     docRef.get().then(function (snapshot) {
@@ -62,7 +62,7 @@ class commentPage extends Component {
         return(
                 <View>
       <View style={styles.center}>
-        <Text>评论0</Text>
+        <Text>评论</Text>
       </View>
       <View style={styles.line} />
       <FlatList

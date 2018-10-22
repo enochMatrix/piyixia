@@ -13,7 +13,7 @@ class CreateComment extends Component {
       };
 }
     send() {
-      const { cid } = this.props.navigation.state.params;
+     /* const { cid } = this.props.navigation.state.params;
       fetch('http://192.168.10.107:3000/add/challengeComment/' + cid, {
         method: 'POST',
         headers: {
@@ -29,7 +29,7 @@ class CreateComment extends Component {
         })
         .then((res) => {
           console.log(res);
-      });
+      });*/
     }
 
 

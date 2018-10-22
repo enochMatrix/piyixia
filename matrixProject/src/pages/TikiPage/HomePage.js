@@ -64,13 +64,7 @@ class HomePage extends Component {
       {
         _id:'v1',
         description: '这个视频很赞哦',
-        url: 'https://firebasestorage.googleapis.com/v0/b/piyixia-562cf.appspot.com/o/%E5%A4%A7%E5%8F%B8%E9%A9%AC%E5%94%B1%E6%AD%8C.mp4?alt=media&token=b349883d-f42e-441c-8e33-db465367c0ef'
-      },
-      {
-        _id:'v2',
-        description: '这个视频很赞哦',
-        url: 'https://firebasestorage.googleapis.com/v0/b/piyixia-562cf.appspot.com/o/xiaojiejie.mp4?alt=media&token=5ed8c6c5-6dd4-4026-a5ee-aa13e654afba'
-
+        url: 'https://firebasestorage.googleapis.com/v0/b/askava-336a9.appspot.com/o/shipin.mp4?alt=media&token=58c27de7-e504-41e2-89f9-ff0cbaaf4645'
       }
 
     ]

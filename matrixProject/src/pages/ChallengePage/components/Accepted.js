@@ -20,8 +20,8 @@ class Accepted extends Component {
       return (
           <View style={styles.container}>
               <View style={styles.profileContainer}>
-                      <View style={styles.icon} >
-                       <Image source={{ url: 'https://firebasestorage.googleapis.com/v0/b/piyixia-562cf.appspot.com/o/image%2F1529294093237c894ebe838.jpeg?alt=media&token=d25d5561-ce8a-45b3-baea-0d14f77b157c' }} /> 
+                      <View  >
+                        <Image style={styles.icon} source={require('../../../assets/malaoshi.jpeg')} /> 
                       </View>
                       <Text style={styles.textStyle}>大司马</Text>
               </View>
@@ -29,7 +29,7 @@ class Accepted extends Component {
             <View style={styles.centerStyle}><Text> 😄 </Text></View>
 
             <View style={styles.contentContainer} >
-              <Text style={styles.acceptTextStyle}>接受</Text>
+              <Text style={styles.acceptTextStyle}> 我选择接受挑战！</Text>
             </View>
 
             <View style={styles.playLogoContainer}>
