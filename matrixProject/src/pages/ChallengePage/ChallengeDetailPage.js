@@ -61,13 +61,11 @@ class ChallengeDetailPage extends Component {
   }
 
   render() {
-    console.log('challengeDetailPage');
 
     const {
       title, description, author, currentTime, url, id
     } = this.props.navigation.state.params;
 
-    console.log(this.props.navigation.state.params);
     return (
       <View style={styles.container}>
         <ScrollView>
