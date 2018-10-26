@@ -32,7 +32,7 @@ class LoginPage extends Component {
         />
       </View>
       <Button
-        title='Log In'
+        title='Log In Using FireBase'
         color='black'
         onPress={() => {
           console.log(this.props);
