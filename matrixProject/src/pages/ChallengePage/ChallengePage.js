@@ -7,7 +7,7 @@ import Tabs from 'react-native-tabs';
 import { Search } from '../icons';
 import ChallengeList from './ChallengeList';
 import SponsModal from './components/SponsModal';
-import touxiang from '../icons/1.jpeg';
+
 
 
 class RefreshableList extends Component {

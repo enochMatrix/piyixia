@@ -57,10 +57,9 @@ export default class CommentService {
 
   }
 
-  getOneChallenge = ( ) => {
+  createChallenge = () =>{
 
-    return 1;
-
+    
   }
 
   
