@@ -1,4 +1,3 @@
-matrixProject/node_modules
-matrixProject/ios
-matrixProject/android
-matrixProject/yarn.lock
+node_modules/
+ios/
+
