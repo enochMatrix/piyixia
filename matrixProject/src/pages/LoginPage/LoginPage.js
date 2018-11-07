@@ -35,7 +35,7 @@ class LoginPage extends Component {
         title='Log In Using FireBase'
         color='black'
         onPress={() => {
-          console.log(this.props);
+          
           this.props.navigation.navigate('ChallengePage');
         } 
         }

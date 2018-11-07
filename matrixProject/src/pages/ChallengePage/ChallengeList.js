@@ -1,34 +1,21 @@
 import React, { Component } from 'react';
 import { View, FlatList, TouchableOpacity } from 'react-native';
 import ChallengeCard from './ChallengeCard';
-import firebase from 'firebase/app';
+import bottle from '../bottle';
 import 'firebase/firestore'
+import ChallengeController from "../Service/challengeControl.js";
 
 class ChallengeList extends Component {
 
   // set state and list view data
-  config = {
-    apiKey: "AIzaSyApicAg8teSzkggqcaGqHnv3T_VFedXZPE",
-    authDomain: "piyixia-562cf.firebaseapp.com",
-    databaseURL: "https://piyixia-562cf.firebaseio.com",
-    projectId: "piyixia-562cf",
-    storageBucket: "piyixia-562cf.appspot.com",
-    messagingSenderId: "157139696379"
-  };
 
   jsonObject = [];
 
   constructor(props) {
     super(props);
-    if (!firebase.apps.length) {
-      console.log(firebase.length);
-      firebase.initializeApp(this.config);
-    }
-    this.db = firebase.firestore();
-    const settings = { timestampsInSnapshots: true };
-    this.db.settings(settings);
 
-
+    this.challengeManager = ChallengeController();
+   
     this.onPressInDetail = this.onPressInDetail.bind(this);
     this.makeRemoteRequest = this.makeRemoteRequest.bind(this);
 
@@ -36,16 +23,14 @@ class ChallengeList extends Component {
   state = { challenge: [], refreshing: true };
 
   componentWillMount() {
-    console.log('will');
+
     this.preload();
     this.makeRemoteRequest();
   }
 
   preload = () => {
-    var docRef = this.db.collection("Challenge");
-    var json = [];
-    console.log(docRef);
-    docRef.get().then(function (snapshot) {
+
+    bottle.container.DBService.get("Challenge").then(function (snapshot) {
       snapshot.forEach(function (doc) {
         // doc.data() is never undefined for query doc snapshots
 

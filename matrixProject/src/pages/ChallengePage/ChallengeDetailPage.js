@@ -33,7 +33,6 @@ class ChallengeDetailPage extends Component {
     this.setState({ showComent: true});
     this.setState({ commentModalVisible: false });
    
-   
   }
 
   comment() {
