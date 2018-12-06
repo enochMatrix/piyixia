@@ -70,18 +70,7 @@ class CommentModal extends Component {
 
 //send comment 发表评论
   send() {
-    fetch('http://192.168.10.107:3000/add/comment/' + this.props.vid, {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 'comment': this.state.yourComment })
-      }).then((response) => response.text())
-      .catch((error) => {
-        console.log(error);
-      })
-      .then((res) => {
-        console.log(res);
-  });
+    
   }
 
 
@@ -163,7 +152,7 @@ class CommentModal extends Component {
         />
         </View>
 
-        <TouchableOpacity onPress={this.send.bind(this)}><Send /></TouchableOpacity>
+        <TouchableOpacity onPress={this.send}><Send /></TouchableOpacity>
       </View>
       </KeyboardAvoidingView>
       </Modal>

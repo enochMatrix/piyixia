@@ -8,7 +8,7 @@ import Accepted from './components/Accepted';
 import CommentPage from './components/commentPage';
 import YesOrNo from './components/YesOrNo';
 import SponsModal from './components/SponsModal';
-import CommentModal from '../../pages/Common/Comment/CreateComment';
+import CommentModal from '../Common/Comment/CreateComment';
 
 class ChallengeDetailPage extends Component {
 
@@ -23,6 +23,7 @@ class ChallengeDetailPage extends Component {
   
   constructor(props) {
     super(props);
+    console.log("2");
     this.comment = this.comment.bind(this);
     this.spons = this.spons.bind(this);
     this.handler = this.handler.bind(this);

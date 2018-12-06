@@ -5,6 +5,7 @@ import { Wechat, Weibo } from '../icons';
 class ShareModal extends Component {
   constructor(props) {
     super(props);
+    console.log("d5");
     this.shareModal = this.shareModal.bind(this);
     this.state = {
       shareModal: false,

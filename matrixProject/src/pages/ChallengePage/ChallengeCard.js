@@ -9,6 +9,7 @@ class ChallengeCard extends Component {
 
     constructor(props) {
         super(props);
+        console.log("4");
         this.pied = this.pied.bind(this);
         this.state = { pied: false };
 }
@@ -69,9 +70,6 @@ class ChallengeCard extends Component {
       const date_start = new Date(currentTime);
       const date_end = new Date(endTime);
       const src = {src:profile}
-      console.log(profile);
-      console.log(date_start);
-      console.log(date_end);
 
         return (
         <View style={styles.container}>

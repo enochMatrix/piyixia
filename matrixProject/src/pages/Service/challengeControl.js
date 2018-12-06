@@ -2,13 +2,7 @@
 
 import bottle from "../bottle";
 
-
 export default class ChallengeControl {
-
-  constructor() {
-
-    this.dbManager = dbManager();
-  }
 
 
   getChallenges = () => {
@@ -28,7 +22,7 @@ export default class ChallengeControl {
 
   createChallenge = (challengeBody) => {
       
-     this.dbManager.post('Challenge',challengeBody);
+    bottle.container.DBService.post('Challenge',challengeBody);
 
   }
 

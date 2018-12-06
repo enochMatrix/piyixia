@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Modal, Picker, Button, Alert } from 'react-native';
-import firebase from 'firebase/app';
-import 'firebase/firestore'
-import 'firebase/auth';
+import firebase from 'firebase';
+import 'firebase/firestore/dist/index.cjs'
+import 'firebase/auth/dist/index.cjs';
 
 
 class SponsModal extends Component {
@@ -21,6 +21,7 @@ class SponsModal extends Component {
 
   constructor(props) {
     super(props);
+    console.log("her2?");
     this.tabSelect = this.tabSelect.bind(this);
     this.confirmSpons = this.confirmSpons.bind(this);
     this.sponsAChallenge = this.sponsAChallenge.bind(this);

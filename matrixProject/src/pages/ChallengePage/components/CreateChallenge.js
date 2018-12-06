@@ -10,14 +10,9 @@ class CreateChallenge extends Component {
 
   constructor(props) {
     super(props);
-    this.send = this.send.bind(this);
     this.db = firebase.firestore();
     const settings = { timestampsInSnapshots: true };
     this.db.settings(settings);
-
-    this.state = {
-
-    };
   }
 
   makeid = () => {
@@ -77,14 +72,14 @@ class CreateChallenge extends Component {
         </View>
         <View style={{ flex: 0.3 }}>
           <DatePickerIOS
-            date={this.state.chosenDate}
+            date={"habibi"}
             onDateChange={(date) => { this.setDate(date); }}
             style={{ backgroundColor: 'white' }}
           />
         </View>
         <TouchableOpacity
           style={{ flex: 0.1, justifyContent: 'center', alignItems: 'center', marginTop: '10%' }}
-          onPress={this.send}
+      
         >
           <Text>确认发布</Text>
         </TouchableOpacity>

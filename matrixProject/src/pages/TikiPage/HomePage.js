@@ -10,8 +10,9 @@ import FeatureB from './components/FeatureB';
 import Storage from '../Service/FileStorageService';
 
 class HomePage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    console.log("W09");
     this.handleViewableItemsChanged = this.handleViewableItemsChanged.bind(this);
     this.pauseV = this.pauseV.bind(this);
     this.viewabilityConfig = { viewAreaCoveragePercentThreshold: 50 };
@@ -59,7 +60,6 @@ class HomePage extends Component {
     console.log(this.styles.overlay);
     var storageService = new Storage();
     //var list = storageService.downloadVideo();
-    console.log(list);
     var list = [
       {
         _id:'v1',
@@ -89,7 +89,7 @@ class HomePage extends Component {
     return true;
   }
   componentWillUnmount() {
-    console.log("unmount");
+
     this.pauseVideoOnChangingTab.remove();
     this.continueVideoOnChangingTab.remove();
   }

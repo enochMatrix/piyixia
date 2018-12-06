@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { View, TextInput, Text, Button } from 'react-native';
-
+import {connect} from 'react-redux';
 class LoginPage extends Component {
   state = {
     username: '',
-    password: ''
+    password: '',
+    counter:0
   }
-  
 
- 
   render() {
+
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <View style={{ flexDirection: 'row' }}>
@@ -35,7 +35,7 @@ class LoginPage extends Component {
         title='Log In Using FireBase'
         color='black'
         onPress={() => {
-          
+          this.props.decCounter();
           this.props.navigation.navigate('ChallengePage');
         } 
         }
@@ -48,6 +48,24 @@ class LoginPage extends Component {
 
  
 
+const mapStateToProps = state => {
+    return{
+      ctr: state.counter,
+      crv: state.piyixia
+    }
+}
 
+const mapDispatchToProps = dispatch => {
 
-export default LoginPage;
+    return {
+      incCounter: () =>{
+        dispatch({type: 'act'});
+      },
+      decCounter: () => {
+
+        dispatch({type:'decrease',payload:10});
+      }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(LoginPage);

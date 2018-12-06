@@ -6,7 +6,7 @@ class CreateComment extends Component {
   constructor(props) {
       super(props);
       if (this.send !== null) {
-      this.send = this.send.bind(this);
+
       }
       this.state = {
         content: '',

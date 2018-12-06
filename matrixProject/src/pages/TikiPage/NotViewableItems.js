@@ -11,6 +11,7 @@ import CommentModal from './CommentModal';
 class Features extends Component {
   constructor(props) {
     super(props);
+    console.log("Dada10");
     this.commentModal = this.commentModal.bind(this);
     this.shareModal = this.shareModal.bind(this);
     this.muteVideo = this.muteVideo.bind(this);

@@ -1,6 +1,6 @@
 import Bottle from "bottlejs";
 
-import { DatabaseManager } from "./Service/DatabaseService";
+import  DatabaseManager  from "./Service/DatabaseService";
 
 
 /*
@@ -9,4 +9,6 @@ import { DatabaseManager } from "./Service/DatabaseService";
 
 const bottle = new Bottle();
 
-bottle.service('DBService',DatabaseManager);
+bottle.service('DBService', DatabaseManager);
+
+export default bottle;

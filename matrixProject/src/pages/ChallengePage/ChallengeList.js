@@ -2,52 +2,47 @@ import React, { Component } from 'react';
 import { View, FlatList, TouchableOpacity } from 'react-native';
 import ChallengeCard from './ChallengeCard';
 import bottle from '../bottle';
-import 'firebase/firestore'
-import ChallengeController from "../Service/challengeControl.js";
 
 class ChallengeList extends Component {
 
   // set state and list view data
 
-  jsonObject = [];
-
   constructor(props) {
     super(props);
+    this.props = props;
+    this.jsonObject = [];
 
-    this.challengeManager = ChallengeController();
-   
+    this.challenge = [];
     this.onPressInDetail = this.onPressInDetail.bind(this);
-    this.makeRemoteRequest = this.makeRemoteRequest.bind(this);
-
+    this.preload.bind(this);
   }
-  state = { challenge: [], refreshing: true };
+  state = {
+    refreshing: true
+  };
 
   componentWillMount() {
-
     this.preload();
-    this.makeRemoteRequest();
   }
 
   preload = () => {
 
-    bottle.container.DBService.get("Challenge").then(function (snapshot) {
-      snapshot.forEach(function (doc) {
-        // doc.data() is never undefined for query doc snapshots
+    bottle.container.DBService.getTargets("Challenge").then((snapshot) => {
+      snapshot.forEach((doc) => {
 
-        console.log(doc.id, " => ", doc.data());
-        json.push(doc.data());
+        this.jsonObject.push(doc.data());
       })
     }).then(() => {
-      this.setState({ challenge: json });
+      this.challenge = this.jsonObject;
       this.setState({
         refreshing: false
       });
-    }).catch(function (error) {
+    }).catch((error) => {
       console.log("Error getting document:", error);
     });
   }
 
-  onPressInDetail(title, description, author, currentTime, url, id,profile) {
+  onPressInDetail(title, description, author, currentTime, url, id, profile) {
+    console.log(this.props);
     this.props.navigation.navigate('ChallengeDetailPage', {
       title: title,
       description: description,
@@ -59,9 +54,9 @@ class ChallengeList extends Component {
     });
   }
 
-  makeRemoteRequest() {
- 
-  }
+
+
+
 
   handleRefresh = () => {
     this.setState({
@@ -76,7 +71,7 @@ class ChallengeList extends Component {
       <TouchableOpacity
         onPress={() => this.onPressInDetail(item.title,
           item.description, item.author, item.currentTime,
-          item.url, item._id,item.profile)}
+          item.url, item._id, item.profile)}
       >
         <ChallengeCard
           challenge={item}
@@ -87,12 +82,11 @@ class ChallengeList extends Component {
   }
 
   render() {
-    console.log('ChallengeList');
-    console.log(this.state.challenge);
+
     return (
       <View>
         <FlatList
-          data={this.state.challenge}
+          data={this.challenge}
           renderItem={this.renderItem}
           extraData={this.state}
           keyExtractor={item => item.title}

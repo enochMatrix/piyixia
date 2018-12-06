@@ -1,6 +1,6 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
+import firebase from 'firebase';
+import 'firebase/firestore/dist/index.cjs';
+import 'firebase/auth/dist/index.cjs';
 
 
 const config = {
@@ -36,7 +36,8 @@ export default class DatabaseService {
 
   }
 
-  get = (target) => {
+  getTargets = (target) => {
+    console.log('boom');
     const Reference = this.db.collection(target);
     return Reference.get();
   }

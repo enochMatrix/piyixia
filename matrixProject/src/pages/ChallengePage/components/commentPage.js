@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList } from 'react-native';
 import AComment from './AComment';
-import firebase from 'firebase/app';
-import 'firebase/firestore'
+import firebase from 'firebase';
+import 'firebase/firestore/dist/index.cjs'
 
 
 class commentPage extends Component {

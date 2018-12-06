@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 class QuestionGamePage extends Component {
   constructor(props) {
     super(props);
+    console.log("f6");
     this.onPressInStartButton = this.onPressInStartButton.bind(this);
     this.onPressInScoreButton = this.onPressInScoreButton.bind(this);
   }

@@ -6,6 +6,7 @@ class Accepted extends Component {
 
     constructor(props){
       super(props);
+      console.log("1");
       this.buttonPress = this.buttonPress.bind(this);
     }
 
